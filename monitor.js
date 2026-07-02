@@ -71,6 +71,8 @@ function buildConsensus(top10, positionsByWallet, state, now) {
     for (const p of pos) {
       if (!p.conditionId || !p.outcome) continue;
       if ((p.currentValue ?? 1) <= 0) continue; // skip settled/resolved positions
+      const endMs = p.endDate ? Date.parse(p.endDate) : NaN;
+      if (!Number.isNaN(endMs) && endMs < now) continue; // market already ended — not tradeable
 
       const cur = Number(p.curPrice ?? NaN);
       const entry = Number(p.avgPrice ?? NaN);
@@ -88,6 +90,7 @@ function buildConsensus(top10, positionsByWallet, state, now) {
           title: p.title || p.conditionId.slice(0, 12) + '…',
           outcome: p.outcome,
           slug: p.eventSlug || p.slug || '',
+          endDate: p.endDate || null,
           wallets: new Set(),
           traders: [],
           prices: [],
@@ -241,7 +244,15 @@ async function main() {
     if (state.alertedAt[key]) {
       const misses = (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
-        exitEvents.push({ key, meta: state.alertedMeta[key] });
+        // If the market already ended (game over, resolved), traders didn't "sell" —
+        // the market closed on its own. Nothing actionable, so no SELL push.
+        const meta = state.alertedMeta[key];
+        const endMs = meta?.endDate ? Date.parse(meta.endDate) : NaN;
+        if (!Number.isNaN(endMs) && endMs < now) {
+          console.log(`RESOLVED (no SELL push): "${meta?.title || key}" ended ${meta.endDate}`);
+        } else {
+          exitEvents.push({ key, meta });
+        }
         delete state.consensusFirstSeen[key];
         delete state.alertedAt[key];
         delete state.alertedMeta[key];
@@ -259,12 +270,16 @@ async function main() {
   const total = top10.length || 10;
   for (const item of Object.values(map)) {
     const count = item.traders.length;
+    // Skip markets ending within the hour — by the time you see the push and place
+    // the bet, the game/event is nearly over and the entry edge is gone.
+    const endMs = item.endDate ? Date.parse(item.endDate) : NaN;
+    if (!Number.isNaN(endMs) && endMs - now < 60 * 60 * 1000) continue;
     if (count >= THRESHOLD && (item.ageMs || 0) >= PERSIST_WINDOW_MS) {
       const lastAlerted = state.alertedAt[item.key] || 0;
       if (count > lastAlerted) {
         entryEvents.push(summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased'));
         state.alertedAt[item.key] = count;
-        state.alertedMeta[item.key] = { title: item.title, slug: item.slug };
+        state.alertedMeta[item.key] = { title: item.title, slug: item.slug, endDate: item.endDate };
       }
     }
   }
