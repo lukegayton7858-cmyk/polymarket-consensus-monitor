@@ -2,6 +2,13 @@
   "consensusFirstSeen": {
     "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 1783008992825
   },
-  "alertedAt": {},
-  "alertedMeta": {}
+  "alertedAt": {
+    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 2
+  },
+  "alertedMeta": {
+    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": {
+      "title": "Will Portugal win on 2026-07-02?",
+      "slug": "fifwc-prt-hrv-2026-07-02"
+    }
+  }
 }
