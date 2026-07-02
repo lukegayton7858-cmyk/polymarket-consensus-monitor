@@ -23,5 +23,7 @@
       "slug": "fifwc-esp-aut-2026-07-02-more-markets"
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0xd1b44514a10d1041ecfeff34c4f96400a84a171e3c09944956fa936ec8049a58|Spain": 1
+  }
 }
