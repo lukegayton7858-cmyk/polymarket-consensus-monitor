@@ -1,18 +1,8 @@
 {
   "consensusFirstSeen": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 1783022055606,
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 1783027514446
   },
-  "alertedAt": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 2
-  },
-  "alertedMeta": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
-      "title": "Will France win the 2026 FIFA World Cup?",
-      "slug": "world-cup-winner"
-    }
-  },
-  "pendingExit": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 1
-  }
+  "alertedAt": {},
+  "alertedMeta": {},
+  "pendingExit": {}
 }
