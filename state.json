@@ -1,5 +1,7 @@
 {
-  "consensusFirstSeen": {},
+  "consensusFirstSeen": {
+    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 1783008992825
+  },
   "alertedAt": {},
   "alertedMeta": {}
 }
