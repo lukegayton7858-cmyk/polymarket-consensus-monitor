@@ -721,7 +721,7 @@ async function fireConsensusAlert(item, reason) {
     ? `\nWARNING: price is ${(avgPrice-avgEntry).toFixed(0)}c above their entry - do not chase` : '';
   const body = `${label}\n\n${item.title}\n\n${item.outcome.toUpperCase()} now ${avgPrice}c (their entry ~${avgEntry}c)${chase}\n\nTraders: ${item.traders.join(', ')}`;
   const headers = {
-    'Title': `Polymarket Consensus: ${count}/${total} traders agree`,
+    'Title': `BUY: ${count}/${total} traders agree`,
     'Priority': count >= 5 ? 'urgent' : 'high',
     'Tags': 'chart_increasing'
   };
@@ -738,7 +738,7 @@ async function fireExitAlert(key, remnant) {
   log('alert', msg);
   addAlertHistory(msg, remnant?.traders || [], outcome || '');
   if (!ntfyTopic) return;
-  const headers = { 'Title': 'Polymarket EXIT: consensus dissolved', 'Priority': 'urgent', 'Tags': 'rotating_light' };
+  const headers = { 'Title': 'SELL/EXIT: consensus dissolved', 'Priority': 'urgent', 'Tags': 'rotating_light' };
   if (remnant?.slug) headers['Click'] = `https://polymarket.com/event/${remnant.slug}`;
   try {
     await fetch(`https://ntfy.sh/${encodeURIComponent(ntfyTopic)}`, {
