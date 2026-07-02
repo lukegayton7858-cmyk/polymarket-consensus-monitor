@@ -1,13 +1,11 @@
 {
   "consensusFirstSeen": {
     "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 1783008992825,
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 1783022055606,
-    "0xd1b44514a10d1041ecfeff34c4f96400a84a171e3c09944956fa936ec8049a58|Spain": 1783022055606
+    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 1783022055606
   },
   "alertedAt": {
     "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 2,
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 2,
-    "0xd1b44514a10d1041ecfeff34c4f96400a84a171e3c09944956fa936ec8049a58|Spain": 2
+    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 2
   },
   "alertedMeta": {
     "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": {
@@ -17,13 +15,7 @@
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
       "title": "Will France win the 2026 FIFA World Cup?",
       "slug": "world-cup-winner"
-    },
-    "0xd1b44514a10d1041ecfeff34c4f96400a84a171e3c09944956fa936ec8049a58|Spain": {
-      "title": "Spread: Spain (-1.5)",
-      "slug": "fifwc-esp-aut-2026-07-02-more-markets"
     }
   },
-  "pendingExit": {
-    "0xd1b44514a10d1041ecfeff34c4f96400a84a171e3c09944956fa936ec8049a58|Spain": 1
-  }
+  "pendingExit": {}
 }
