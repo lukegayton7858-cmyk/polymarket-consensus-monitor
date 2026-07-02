@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymarket Leaderboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: #1a1a1a; padding: 24px; }
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+    .title { font-size: 20px; font-weight: 700; }
+    .subtitle { font-size: 12px; color: #666; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+    select, button { font-size: 12px; padding: 6px 10px; border-radius: 6px; border: 1px solid #ddd; background: #f5f5f5; color: #1a1a1a; cursor: pointer; }
+    button.active { background: #1a1a1a; color: #fff; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 8px 10px; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; border-bottom: 2px solid #ddd; cursor: pointer; user-select: none; white-space: nowrap; }
+    th:hover { color: #1a1a1a; }
+    td { padding: 8px 10px; border-bottom: 1px solid #eee; }
+    tr:hover td { background: #f9f9f9; }
+    .rank { font-weight: 700; color: #999; }
+    .rank-1 { color: #d4a017; }
+    .rank-2 { color: #8a8a8a; }
+    .rank-3 { color: #b87333; }
+    .username { font-weight: 600; max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .pnl { font-weight: 700; color: #16a34a; font-variant-numeric: tabular-nums; }
+    .vol { font-variant-numeric: tabular-nums; color: #666; }
+    .bar-bg { height: 6px; border-radius: 3px; background: #eee; width: 120px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; background: #16a34a; }
+    .stats { display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+    .stat-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-value { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .refreshing { opacity: 0.5; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="title">Polymarket Leaderboard</div>
+      <div class="subtitle">Live via Polymarket Data API — no auth required</div>
+    </div>
+    <div class="controls">
+      <select id="category">
+        <option value="OVERALL">Overall</option>
+        <option value="POLITICS">Politics</option>
+        <option value="SPORTS">Sports</option>
+        <option value="CRYPTO">Crypto</option>
+        <option value="CULTURE">Culture</option>
+        <option value="ECONOMICS">Economics</option>
+        <option value="TECH">Tech</option>
+        <option value="FINANCE">Finance</option>
+      </select>
+      <select id="period">
+        <option value="ALL">All Time</option>
+        <option value="MONTH">Month</option>
+        <option value="WEEK">Week</option>
+        <option value="DAY">Day</option>
+      </select>
+      <button id="byPnl" class="active" onclick="setOrder('PNL')">By Profit</button>
+      <button id="byVol" onclick="setOrder('VOL')">By Volume</button>
+    </div>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Trader</th>
+          <th onclick="sortCol('pnl')">Profit/Loss</th>
+          <th onclick="sortCol('vol')">Volume</th>
+          <th>Efficiency</th>
+          <th>PnL Share</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    let data = [];
+    let currentOrder = 'PNL';
+    let localSort = null;
+
+    function fmt(n) {
+      if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
+      if (n >= 1e6) return '$' + (n/1e6).toFixed(2) + 'M';
+      if (n >= 1e3) return '$' + (n/1e3).toFixed(1) + 'K';
+      return '$' + n.toFixed(0);
+    }
+
+    function pct(n) { return (n * 100).toFixed(1) + '%'; }
+
+    function render(rows) {
+      const maxPnl = Math.max(...rows.map(r => r.pnl));
+      const totalPnl = rows.reduce((s, r) => s + r.pnl, 0);
+      const totalVol = rows.reduce((s, r) => s + r.vol, 0);
+      const avgEff = totalVol > 0 ? totalPnl / totalVol : 0;
+
+      document.getElementById('stats').innerHTML = `
+        <div class="stat"><div class="stat-label">Top Trader PnL</div><div class="stat-value" style="color:#16a34a">${fmt(maxPnl)}</div></div>
+        <div class="stat"><div class="stat-label">Total PnL (Top 25)</div><div class="stat-value">${fmt(totalPnl)}</div></div>
+        <div class="stat"><div class="stat-label">Total Volume</div><div class="stat-value">${fmt(totalVol)}</div></div>
+        <div class="stat"><div class="stat-label">Avg Efficiency</div><div class="stat-value">${pct(avgEff)}</div></div>
+      `;
+
+      document.getElementById('tbody').innerHTML = rows.map((r, i) => {
+        const eff = r.vol > 0 ? r.pnl / r.vol : 0;
+        const barW = maxPnl > 0 ? (r.pnl / maxPnl * 100) : 0;
+        const rankClass = i < 3 ? ` rank-${i+1}` : '';
+        const name = r.userName.length > 24 ? r.userName.slice(0,22) + '...' : r.userName;
+        return `<tr>
+          <td class="rank${rankClass}">${r.rank}</td>
+          <td class="username">${name}</td>
+          <td class="pnl">${fmt(r.pnl)}</td>
+          <td class="vol">${fmt(r.vol)}</td>
+          <td>${pct(eff)}</td>
+          <td><div class="bar-bg"><div class="bar-fill" style="width:${barW}%"></div></div></td>
+        </tr>`;
+      }).join('');
+    }
+
+    function setOrder(order) {
+      currentOrder = order;
+      document.getElementById('byPnl').classList.toggle('active', order === 'PNL');
+      document.getElementById('byVol').classList.toggle('active', order === 'VOL');
+      localSort = null;
+      fetchData();
+    }
+
+    function sortCol(col) {
+      if (localSort === col) { data.reverse(); }
+      else { localSort = col; data.sort((a, b) => b[col] - a[col]); }
+      data.forEach((r, i) => r.rank = String(i + 1));
+      render(data);
+    }
+
+    async function fetchData() {
+      const cat = document.getElementById('category').value;
+      const period = document.getElementById('period').value;
+      document.querySelector('.table-wrap').classList.add('refreshing');
+      try {
+        const url = `https://data-api.polymarket.com/v1/leaderboard?category=${cat}&timePeriod=${period}&orderBy=${currentOrder}&limit=25`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(res.status);
+        data = await res.json();
+        localSort = null;
+        render(data);
+      } catch(e) {
+        console.error('Fetch failed:', e);
+      } finally {
+        document.querySelector('.table-wrap').classList.remove('refreshing');
+      }
+    }
+
+    document.getElementById('category').addEventListener('change', fetchData);
+    document.getElementById('period').addEventListener('change', fetchData);
+
+    fetchData();
+  </script>
+</body>
+</html>

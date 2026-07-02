@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymarket Consensus Monitor</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f4f5; color: #18181b; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+    /* Top bar */
+    .topbar { background: #fff; border-bottom: 1px solid #e4e4e7; padding: 0 18px; height: 50px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .logo { font-size: 14px; font-weight: 700; }
+    .status-pill { display: flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 20px; background: #f4f4f5; font-size: 11px; color: #71717a; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #d4d4d8; flex-shrink: 0; }
+    .dot.live { background: #16a34a; animation: pulse 2s infinite; }
+    .dot.ws { background: #0891b2; animation: pulse 1.5s infinite; }
+    .dot.err { background: #dc2626; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.35} }
+    .topbar-right { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    .threshold-row { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #52525b; }
+    .threshold-row select { font-size: 12px; padding: 4px 7px; border: 1px solid #e4e4e7; border-radius: 5px; background: #f4f4f5; cursor: pointer; }
+
+    /* Settings bar (quality filters) */
+    .settings-bar { background: #fafafa; border-bottom: 1px solid #e4e4e7; padding: 6px 18px; display: flex; align-items: center; gap: 18px; flex-shrink: 0; flex-wrap: wrap; }
+    .setting { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #52525b; }
+    .setting label { font-weight: 600; color: #71717a; }
+    .setting select { font-size: 11px; padding: 3px 6px; border: 1px solid #e4e4e7; border-radius: 4px; background: #fff; cursor: pointer; }
+    .ntfy-row { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #71717a; }
+    .ntfy-row input { font-size: 12px; padding: 4px 8px; border: 1px solid #e4e4e7; border-radius: 5px; width: 140px; outline: none; }
+    .ntfy-row input:focus { border-color: #0891b2; }
+    .btn { font-size: 12px; padding: 5px 12px; border-radius: 5px; border: 1px solid #e4e4e7; background: #f4f4f5; cursor: pointer; font-weight: 500; white-space: nowrap; }
+    .btn:hover { background: #e4e4e7; }
+    .btn.primary { background: #0891b2; color: #fff; border-color: #0891b2; }
+    .btn.primary:hover { background: #0e7490; }
+    .btn.stop { background: #dc2626; color: #fff; border-color: #dc2626; }
+
+    /* Main layout */
+    .main { display: flex; flex: 1; overflow: hidden; }
+
+    /* Left: top traders */
+    .sidebar { width: 240px; background: #fff; border-right: 1px solid #e4e4e7; display: flex; flex-direction: column; flex-shrink: 0; }
+    .sidebar-header { padding: 10px 12px; border-bottom: 1px solid #e4e4e7; }
+    .sidebar-header h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: #71717a; margin-bottom: 4px; }
+    .sidebar-sub { font-size: 10px; color: #a1a1aa; }
+    .trader-list { overflow-y: auto; flex: 1; }
+    .trader-item { display: flex; align-items: center; gap: 7px; padding: 7px 12px; border-bottom: 1px solid #f4f4f5; }
+    .trader-item.active { background: #f0fdf4; border-left: 3px solid #16a34a; }
+    .trader-item.loading { opacity: .5; }
+    .rank-n { font-size: 10px; font-weight: 700; color: #a1a1aa; width: 16px; flex-shrink: 0; }
+    .rank-n.g { color: #d4a017; }
+    .rank-n.s { color: #8a8a8a; }
+    .rank-n.b { color: #b87333; }
+    .trader-name { font-size: 12px; font-weight: 600; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .trader-pnl { font-size: 11px; font-weight: 700; color: #16a34a; flex-shrink: 0; }
+    .trader-status { font-size: 9px; color: #71717a; width: 100%; padding-left: 23px; margin-top: -4px; padding-bottom: 4px; }
+    .trader-eff { font-size: 9px; color: #a1a1aa; }
+
+    /* Center: consensus feed */
+    .feed-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .feed-header { padding: 10px 16px; background: #fff; border-bottom: 1px solid #e4e4e7; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .feed-header h2 { font-size: 13px; font-weight: 700; }
+    .feed-sub { font-size: 11px; color: #71717a; }
+    .feed-body { flex: 1; overflow-y: auto; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+    .empty-state { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #a1a1aa; padding: 40px; }
+    .empty-state p { font-size: 13px; text-align: center; line-height: 1.6; }
+
+    /* Consensus card */
+    .c-card { background: #fff; border: 1px solid #e4e4e7; border-radius: 8px; padding: 12px 14px; }
+    .c-card.strong { border-color: #16a34a; }
+    .c-card.moderate { border-color: #0891b2; }
+    .c-card.new { animation: slideIn .35s ease; }
+    @keyframes slideIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+    .c-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+    .c-signal { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .4px; }
+    .c-signal.strong { background: #dcfce7; color: #16a34a; }
+    .c-signal.moderate { background: #dbeafe; color: #1d4ed8; }
+    .c-signal.weak { background: #f4f4f5; color: #71717a; }
+    .c-market { font-size: 13px; font-weight: 600; line-height: 1.3; flex: 1; }
+    .c-mid { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+    .tag { font-size: 11px; padding: 2px 7px; border-radius: 4px; font-weight: 600; }
+    .tag.yes { background: #dcfce7; color: #16a34a; }
+    .tag.no { background: #fee2e2; color: #dc2626; }
+    .tag.price { background: #f4f4f5; color: #52525b; }
+    .tag.age { background: #fef3c7; color: #92400e; }
+    .c-bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .c-bar-bg { flex: 1; height: 5px; border-radius: 3px; background: #e4e4e7; overflow: hidden; }
+    .c-bar-fill { height: 100%; border-radius: 3px; transition: width .4s ease; }
+    .c-count { font-size: 11px; font-weight: 700; color: #18181b; flex-shrink: 0; }
+    .c-traders { font-size: 11px; color: #71717a; margin-top: 6px; }
+    .c-traders span { color: #18181b; font-weight: 500; }
+    .c-ready { font-size: 10px; color: #a1a1aa; margin-top: 6px; font-weight: 500; }
+    .c-ready.ready { color: #16a34a; font-weight: 700; }
+
+    /* Right: alert history */
+    .alert-panel { width: 260px; background: #fff; border-left: 1px solid #e4e4e7; display: flex; flex-direction: column; flex-shrink: 0; }
+    .alert-panel-header { padding: 10px 12px; border-bottom: 1px solid #e4e4e7; }
+    .alert-panel-header h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: #71717a; }
+    .alert-list { flex: 1; overflow-y: auto; }
+    .alert-item { padding: 9px 12px; border-bottom: 1px solid #f4f4f5; font-size: 11px; }
+    .alert-item .a-time { font-size: 10px; color: #a1a1aa; margin-bottom: 2px; }
+    .alert-item .a-text { color: #18181b; line-height: 1.4; }
+    .alert-item .a-traders { color: #71717a; font-size: 10px; margin-top: 2px; }
+
+    /* Bottom WS bar + log */
+    .bottom { display: flex; flex-direction: column; flex-shrink: 0; }
+    .ws-bar { background: #0c1a2e; padding: 4px 16px; display: flex; align-items: center; gap: 10px; }
+    .ws-label { font-size: 10px; color: #4a90d9; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+    .ws-status { font-size: 11px; color: #64748b; }
+    .log { height: 80px; background: #18181b; overflow-y: auto; padding: 5px 16px; font-family: 'SF Mono','Consolas',monospace; font-size: 10px; }
+    .ll { line-height: 1.9; }
+    .ll .ts { color: #3f3f46; margin-right: 5px; }
+    .ll .info { color: #52525b; }
+    .ll .event { color: #22d3ee; }
+    .ll .alert { color: #4ade80; }
+    .ll .warn { color: #fbbf24; }
+    .ll .err { color: #f87171; }
+
+    /* Setup overlay */
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
+    .setup-card { background: #fff; border-radius: 10px; padding: 24px; width: 380px; max-width: 92vw; }
+    .setup-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .setup-card p { font-size: 12px; color: #71717a; line-height: 1.5; margin-bottom: 14px; }
+    .step { display: flex; gap: 9px; margin-bottom: 9px; }
+    .sn { width: 19px; height: 19px; border-radius: 50%; background: #0891b2; color: #fff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .st { font-size: 12px; line-height: 1.5; }
+    .st code { background: #f4f4f5; padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+    .setup-row { display: flex; gap: 7px; margin-top: 12px; }
+    .setup-row input { flex: 1; font-size: 12px; padding: 7px 9px; border: 1px solid #e4e4e7; border-radius: 5px; outline: none; }
+    .setup-row input:focus { border-color: #0891b2; }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="setupOverlay">
+  <div class="setup-card">
+    <h2>Set up phone alerts</h2>
+    <p>Free push notifications via ntfy.sh — no account needed. You'll get alerted the moment multiple top traders agree on a market.</p>
+    <div class="step"><div class="sn">1</div><div class="st">Download <strong>ntfy</strong> app (App Store or Play Store, free)</div></div>
+    <div class="step"><div class="sn">2</div><div class="st">Pick a unique topic like <code>polymarket-luke</code> — your private channel</div></div>
+    <div class="step"><div class="sn">3</div><div class="st">In ntfy, tap <strong>+</strong> and subscribe to your topic</div></div>
+    <div class="setup-row">
+      <input type="text" id="setupInput" placeholder="your-topic (e.g. polymarket-luke)" />
+      <button class="btn primary" onclick="saveSetup()">Save</button>
+    </div>
+    <div style="margin-top:9px"><button class="btn" onclick="skipSetup()">Skip for now</button></div>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="logo">Consensus Monitor</div>
+  <div class="status-pill"><div class="dot" id="statusDot"></div><span id="statusText">Idle</span></div>
+  <div class="topbar-right">
+    <div class="threshold-row">
+      Alert when
+      <select id="threshold" onchange="onThresholdChange()">
+        <option value="2" selected>2+</option>
+        <option value="3">3+</option>
+        <option value="4">4+</option>
+        <option value="5">5+</option>
+      </select>
+      of top 10 agree
+    </div>
+    <div class="ntfy-row">
+      <input type="text" id="topicBar" placeholder="ntfy topic" />
+      <button class="btn" onclick="testAlert()">Test</button>
+    </div>
+    <button class="btn primary" id="mainBtn" onclick="toggleWatching()">Start</button>
+  </div>
+</div>
+
+<div class="settings-bar">
+  <div class="setting">
+    <label>Min volume</label>
+    <select id="minVolume" onchange="onFilterChange()">
+      <option value="0">No floor (not recommended)</option>
+      <option value="500000">$500K+</option>
+      <option value="1000000">$1M+</option>
+      <option value="3000000">$3M+</option>
+      <option value="10000000">$10M+</option>
+      <option value="25000000">$25M+</option>
+    </select>
+  </div>
+  <div class="setting">
+    <label>Price band</label>
+    <select id="minPrice" onchange="onFilterChange()">
+      <option value="0">0¢</option>
+      <option value="0.1">10¢</option>
+      <option value="0.2" selected>20¢</option>
+      <option value="0.3">30¢</option>
+    </select>
+    <span>–</span>
+    <select id="maxPrice" onchange="onFilterChange()">
+      <option value="0.7">70¢</option>
+      <option value="0.8" selected>80¢</option>
+      <option value="0.9">90¢</option>
+      <option value="1">100¢</option>
+    </select>
+  </div>
+  <div class="setting">
+    <label>Alert after held</label>
+    <select id="persistWindow" onchange="onFilterChange()">
+      <option value="0">Instant (high false-positive risk)</option>
+      <option value="300000">5 min</option>
+      <option value="900000" selected>15 min</option>
+      <option value="3600000">1 hour</option>
+      <option value="14400000">4 hours</option>
+    </select>
+  </div>
+</div>
+
+<div class="main">
+  <!-- Left: traders -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Top 10 by Efficiency</h2>
+      <div class="sidebar-sub">Month leaderboard · PnL/Vol rank · open positions only</div>
+    </div>
+    <div class="trader-list" id="traderList"><div style="padding:14px;font-size:12px;color:#71717a;">Loading...</div></div>
+  </div>
+
+  <!-- Center: consensus feed -->
+  <div class="feed-panel">
+    <div class="feed-header">
+      <div>
+        <h2>Consensus Positions</h2>
+        <div class="feed-sub" id="feedSub">Start watching to see where top traders agree</div>
+      </div>
+    </div>
+    <div class="feed-body" id="feedBody">
+      <div class="empty-state">
+        <p>Click <strong>Start</strong> to load positions and find markets where multiple quality-filtered traders agree.<br><br>Phone alerts only fire once a position has been <strong>held</strong> for the persistence window — momentary pile-ons (cascades, bait) are filtered out.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: alert history -->
+  <div class="alert-panel">
+    <div class="alert-panel-header"><h2>Alert History</h2></div>
+    <div class="alert-list" id="alertList"><div style="padding:14px;font-size:11px;color:#a1a1aa;">Alerts will appear here</div></div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="ws-bar">
+    <span class="ws-label">WebSocket</span>
+    <span class="ws-status" id="wsStatus">Not connected</span>
+  </div>
+  <div class="log" id="logEl"></div>
+</div>
+
+<script>
+// ── Config ──────────────────────────────────────────────────────────────────
+const ACTIVITY_URL  = 'https://data-api.polymarket.com/activity';
+const POSITIONS_URL = 'https://data-api.polymarket.com/positions';
+const LEADERBOARD_URL = 'https://data-api.polymarket.com/v1/leaderboard';
+const GAMMA_URL     = 'https://gamma-api.polymarket.com/markets';
+const WS_URL        = 'wss://ws-subscriptions-clob.polymarket.com/ws/market';
+
+// ── State ───────────────────────────────────────────────────────────────────
+let allCandidates = [];  // raw pool of ~50 traders from leaderboard, pre-quality-filter
+let top10 = [];          // [{wallet, name, pnl, vol, eff}] — after volume floor + efficiency sort
+let positions = {};      // wallet → [{conditionId, title, outcome, currentValue, price}]
+let consensus = {};      // conditionId+outcome → {title, outcome, traders[], avgPrice, assetIds, firstSeen, ageMs}
+let consensusFirstSeen = {}; // key → timestamp ms when this consensus (2+) first appeared
+let alertedAt = {};      // key → trader count already alerted at, so re-alert only fires on growth
+let alertedMeta = {};    // key → {title, slug} so exit alerts stay readable after dissolve
+let wakeLock = null;
+let ws = null;
+let wsAssets = new Set();
+let wsReconnect = null;
+let fallbackTimer = null;
+let refreshTimer = null;
+let isWatching = false;
+let ntfyTopic = localStorage.getItem('ntfyTopic') || '';
+let threshold = 2;
+let minVolume = 500000;
+let minPrice = 0.2;
+let maxPrice = 0.8;
+let persistWindow = 900000; // ms — default 15 min before an alert is allowed to fire
+
+// ── Boot ────────────────────────────────────────────────────────────────────
+window.onload = () => {
+  if (ntfyTopic) {
+    document.getElementById('topicBar').value = ntfyTopic;
+    document.getElementById('setupOverlay').style.display = 'none';
+  }
+  document.getElementById('topicBar').addEventListener('change', e => {
+    ntfyTopic = e.target.value.trim();
+    localStorage.setItem('ntfyTopic', ntfyTopic);
+  });
+  threshold = parseInt(document.getElementById('threshold').value);
+  minVolume = parseFloat(document.getElementById('minVolume').value);
+  minPrice = parseFloat(document.getElementById('minPrice').value);
+  maxPrice = parseFloat(document.getElementById('maxPrice').value);
+  persistWindow = parseInt(document.getElementById('persistWindow').value);
+  log('info', 'Ready. Click Start to load quality-filtered traders and find consensus positions.');
+  loadCandidates();
+};
+
+function onFilterChange() {
+  minVolume = parseFloat(document.getElementById('minVolume').value);
+  minPrice = parseFloat(document.getElementById('minPrice').value);
+  maxPrice = parseFloat(document.getElementById('maxPrice').value);
+  persistWindow = parseInt(document.getElementById('persistWindow').value);
+  log('info', `Filters updated: vol≥$${(minVolume/1e6).toFixed(0)}M, price ${(minPrice*100).toFixed(0)}-${(maxPrice*100).toFixed(0)}¢, hold ${persistWindow/60000}min`);
+  applyTraderFilter();
+  buildConsensus();
+  renderConsensus();
+}
+
+function saveSetup() {
+  const v = document.getElementById('setupInput').value.trim().replace(/\s+/g,'-');
+  if (!v) return;
+  ntfyTopic = v;
+  localStorage.setItem('ntfyTopic', v);
+  document.getElementById('topicBar').value = v;
+  document.getElementById('setupOverlay').style.display = 'none';
+  log('alert', `Alerts set → ntfy.sh/${v}`);
+}
+function skipSetup() {
+  document.getElementById('setupOverlay').style.display = 'none';
+}
+function onThresholdChange() {
+  threshold = parseInt(document.getElementById('threshold').value);
+  log('info', `Threshold set to ${threshold}+ traders`);
+  buildConsensus();
+  renderConsensus();
+}
+
+// ── Load candidate pool, then quality-filter down to top 10 ────────────────
+// Research finding: ranking straight by all-time PnL mostly surfaces survivorship
+// bias (a few huge lucky bets), not skill. So pull a wider pool, require a volume
+// floor (filters out tiny-sample one-hit wonders), then rank what's left by
+// efficiency (PnL/Volume) — that isolates consistency over raw luck.
+async function loadCandidates() {
+  try {
+    const res = await fetch(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=MONTH&orderBy=PNL&limit=50`);
+    const data = await res.json();
+    allCandidates = data.map(t => ({
+      wallet: t.proxyWallet,
+      name: t.userName,
+      pnl: t.pnl,
+      vol: t.vol,
+      eff: t.vol > 0 ? (t.pnl / t.vol) * 100 : 0,
+      pnlRank: t.rank
+    }));
+    applyTraderFilter();
+    log('info', `Loaded ${allCandidates.length} candidate traders from leaderboard`);
+  } catch(e) {
+    log('err', 'Failed to load leaderboard: ' + e.message);
+  }
+}
+
+function applyTraderFilter() {
+  const filtered = allCandidates.filter(t => t.vol >= minVolume);
+  top10 = [...filtered].sort((a, b) => b.eff - a.eff).slice(0, 10);
+  if (!top10.length) {
+    log('warn', `No traders pass the $${(minVolume/1e6).toFixed(0)}M volume floor — lower it.`);
+  } else {
+    log('info', `${top10.length} traders pass filters, ranked by efficiency (was ${filtered.length} above volume floor)`);
+  }
+  renderTraderList(Object.keys(positions).length > 0);
+}
+
+function renderTraderList(active) {
+  if (!top10.length) {
+    document.getElementById('traderList').innerHTML = `<div style="padding:14px;font-size:12px;color:#71717a;">No traders pass current filters.</div>`;
+    return;
+  }
+  document.getElementById('traderList').innerHTML = top10.map((t, i) => {
+    const rc = i===0?'g':i===1?'s':i===2?'b':'';
+    const posCount = positions[t.wallet]?.length || 0;
+    return `<div class="trader-item${active?' active':''}">
+      <div class="rank-n ${rc}">${i+1}</div>
+      <div style="flex:1;min-width:0">
+        <div class="trader-name">${t.name}</div>
+        <div class="trader-eff">Eff ${t.eff.toFixed(1)}% &middot; Vol ${fmtM(t.vol)}${active && posCount ? ` &middot; ${posCount} pos` : ''}</div>
+      </div>
+      <div class="trader-pnl">${fmtM(t.pnl)}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Main control ─────────────────────────────────────────────────────────────
+function toggleWatching() {
+  isWatching ? stopWatching() : startWatching();
+}
+
+async function startWatching() {
+  if (!top10.length) { log('warn', 'No traders pass current filters — lower the volume floor.'); return; }
+  isWatching = true;
+  document.getElementById('mainBtn').textContent = 'Stop';
+  document.getElementById('mainBtn').className = 'btn stop';
+  setStatus('ws', 'Loading positions…');
+  log('event', `Loading positions for ${top10.length} traders…`);
+
+  // Keep the screen awake — a sleeping Mac kills the monitor and misses alerts
+  try { wakeLock = await navigator.wakeLock.request('screen'); log('info', 'Screen wake-lock active'); }
+  catch(_) { log('warn', 'Wake-lock unavailable — keep your Mac awake (System Settings or `caffeinate -d` in Terminal)'); }
+
+  await refreshAllPositions();
+  buildConsensus();
+  renderConsensus();
+  connectWS();
+
+  // Refresh positions every 60s
+  refreshTimer = setInterval(async () => {
+    await refreshAllPositions();
+    buildConsensus();
+    renderConsensus();
+  }, 60000);
+}
+
+function stopWatching() {
+  isWatching = false;
+  document.getElementById('mainBtn').textContent = 'Start';
+  document.getElementById('mainBtn').className = 'btn primary';
+  disconnectWS();
+  if (wakeLock) { wakeLock.release().catch(()=>{}); wakeLock = null; }
+  clearInterval(refreshTimer);
+  clearInterval(fallbackTimer);
+  setStatus('idle', 'Idle');
+  log('warn', 'Stopped.');
+}
+
+// ── Positions ────────────────────────────────────────────────────────────────
+async function refreshAllPositions() {
+  const results = await Promise.all(top10.map(t => fetchPositions(t.wallet, t.name)));
+  results.forEach((pos, i) => {
+    if (pos !== null) positions[top10[i].wallet] = pos;
+  });
+  renderTraderList(true);
+  log('info', `Positions refreshed for ${top10.length} traders`);
+}
+
+async function fetchPositions(wallet, name) {
+  try {
+    const res = await fetch(`${POSITIONS_URL}?user=${wallet}&sizeThreshold=0.01`);
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+  } catch(e) {
+    log('warn', `Failed positions for ${name}: ${e.message}`);
+    return null;
+  }
+}
+
+// ── Consensus builder ────────────────────────────────────────────────────────
+// Two research-driven gates beyond plain headcount:
+//  1. Price-band filter — skips longshots/near-certainties where spreads are wide
+//     enough to eat the whole edge before you can even enter.
+//  2. Persistence gate — a consensus only fires an alert once it's been HELD for
+//     `persistWindow`. Same-moment pile-ons are the herding/cascade/bait pattern
+//     (one visible whale pulls others in, or deliberately baits followers);
+//     requiring it to survive several refresh cycles filters that out.
+function buildConsensus() {
+  const map = {}; // conditionId|outcome → {title, outcome, traders, prices, assetIds}
+  const now = Date.now();
+
+  for (const t of top10) {
+    const pos = positions[t.wallet] || [];
+    // Dedupe a single trader's own positions for the same market+outcome
+    // (covers APIs that return split rows per fill instead of one aggregate row)
+    const seenForTrader = new Set();
+    for (const p of pos) {
+      if (!p.conditionId || !p.outcome) continue;
+      if ((p.currentValue ?? p.currentvalue ?? 1) <= 0) continue; // skip settled/resolved positions
+      const cur = Number(p.curPrice ?? p.currentPrice ?? NaN);   // live market price
+      const entry = Number(p.avgPrice ?? NaN);                   // trader's avg entry
+      const price = Number.isNaN(cur) ? entry : cur;
+      if (!Number.isNaN(price) && (price < minPrice || price > maxPrice)) continue;
+
+      const key = `${p.conditionId}|${p.outcome}`;
+      if (seenForTrader.has(key)) continue;
+      seenForTrader.add(key);
+
+      if (!map[key]) {
+        map[key] = {
+          key,
+          conditionId: p.conditionId,
+          title: p.title || p.market || p.conditionId.slice(0,12)+'…',
+          outcome: p.outcome,
+          wallets: new Set(),   // distinct wallets — the real consensus count
+          traders: [],          // display names, one per distinct wallet
+          prices: [],           // live prices
+          entries: [],          // traders' avg entry prices
+          values: [],
+          slug: p.eventSlug || p.slug || '',
+          assetIds: new Set()
+        };
+      }
+      // Hard guarantee: only count this wallet once per market+outcome,
+      // so consensus can never be inflated by one trader's own activity.
+      if (map[key].wallets.has(t.wallet)) continue;
+      map[key].wallets.add(t.wallet);
+      map[key].traders.push(t.name);
+      if (!Number.isNaN(price)) map[key].prices.push(price);
+      if (!Number.isNaN(entry)) map[key].entries.push(entry);
+      if (p.currentValue) map[key].values.push(p.currentValue);
+    }
+  }
+
+  // Stamp how long each 2+ consensus has been continuously held
+  for (const item of Object.values(map)) {
+    if (item.traders.length >= 2) {
+      if (!consensusFirstSeen[item.key]) consensusFirstSeen[item.key] = now;
+      item.firstSeen = consensusFirstSeen[item.key];
+      item.ageMs = now - consensusFirstSeen[item.key];
+    }
+  }
+
+  // Reset tracking for keys that dissolved (dropped below 2) — a fresh
+  // re-formation later restarts the clock instead of inheriting old age.
+  const trackedKeys = new Set([...Object.keys(consensusFirstSeen), ...Object.keys(alertedAt)]);
+  trackedKeys.forEach(key => {
+    if (!map[key] || map[key].traders.length < 2) {
+      // Exit signal: a consensus you were alerted on has dissolved — traders left.
+      if (alertedAt[key]) fireExitAlert(key, map[key] || alertedMeta[key]);
+      delete consensusFirstSeen[key];
+      delete alertedAt[key];
+      delete alertedMeta[key];
+    }
+  });
+
+  // Alert only when count >= threshold AND it's been held >= persistWindow,
+  // and only re-fire if the count has grown since the last alert.
+  for (const item of Object.values(map)) {
+    const count = item.traders.length;
+    if (count >= threshold && (item.ageMs || 0) >= persistWindow) {
+      const lastAlerted = alertedAt[item.key] || 0;
+      if (count > lastAlerted) {
+        fireConsensusAlert(item, lastAlerted === 0 ? 'new' : 'increased');
+        alertedAt[item.key] = count;
+        alertedMeta[item.key] = { title: item.title, slug: item.slug };
+      }
+    }
+  }
+
+  consensus = map;
+}
+
+function ageLabel(ms) {
+  if (ms == null) return '';
+  const m = Math.floor(ms / 60000);
+  if (m < 1) return 'just formed';
+  if (m < 60) return `held ${m}m`;
+  return `held ${Math.floor(m/60)}h ${m%60}m`;
+}
+
+// ── Render consensus ─────────────────────────────────────────────────────────
+function renderConsensus() {
+  const items = Object.values(consensus)
+    .filter(c => c.traders.length >= 2)
+    .sort((a, b) => b.traders.length - a.traders.length);
+
+  const total = top10.length || 10;
+  const aboveThreshold = items.filter(c => c.traders.length >= threshold).length;
+
+  document.getElementById('feedSub').textContent =
+    `${items.length} shared position${items.length!==1?'s':''} found — ${aboveThreshold} above alert threshold (${threshold}+)`;
+
+  if (!items.length) {
+    document.getElementById('feedBody').innerHTML = `
+      <div class="empty-state">
+        <p>No shared positions found yet among top 10 traders.<br>Positions refresh every 60 seconds.</p>
+      </div>`;
+    return;
+  }
+
+  document.getElementById('feedBody').innerHTML = items.map(c => {
+    const count = c.traders.length;
+    const pct = (count / total) * 100;
+    const avgPrice = c.prices.length ? (c.prices.reduce((s,p)=>s+Number(p),0)/c.prices.length) : null;
+    const totalValue = c.values.length ? c.values.reduce((s,v)=>s+Number(v),0) : null;
+    const meetsCount = count >= threshold;
+    const meetsAge = (c.ageMs || 0) >= persistWindow;
+    const signal = meetsCount && meetsAge ? 'strong' : meetsCount ? 'moderate' : 'weak';
+    const barColor = signal === 'strong' ? '#16a34a' : signal === 'moderate' ? '#0891b2' : '#a1a1aa';
+    const outcome = c.outcome.toLowerCase();
+    const ageTxt = ageLabel(c.ageMs);
+    const readyTxt = !meetsCount
+      ? `Needs ${threshold - count} more trader(s) to alert`
+      : meetsAge
+        ? 'Alert-eligible'
+        : `Holding — needs ${Math.ceil((persistWindow - (c.ageMs||0))/60000)}m more to alert`;
+
+    return `<div class="c-card ${signal}">
+      <div class="c-top">
+        <span class="c-signal ${signal}">${signal}</span>
+        <div class="c-market">${c.title}</div>
+      </div>
+      <div class="c-mid">
+        <span class="tag ${outcome === 'yes' ? 'yes' : 'no'}">${c.outcome.toUpperCase()}</span>
+        ${avgPrice ? `<span class="tag price">${(Number(avgPrice)*100).toFixed(1)}¢ avg</span>` : ''}
+        ${totalValue ? `<span class="tag price">$${fmtM(totalValue)} combined</span>` : ''}
+        ${ageTxt ? `<span class="tag age">${ageTxt}</span>` : ''}
+      </div>
+      <div class="c-bar-wrap">
+        <div class="c-bar-bg"><div class="c-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+        <div class="c-count">${count}/${total}</div>
+      </div>
+      <div class="c-traders">Traders: <span>${c.traders.join(', ')}</span></div>
+      <div class="c-ready${meetsCount && meetsAge ? ' ready' : ''}">${readyTxt}</div>
+    </div>`;
+  }).join('');
+
+  // Update WS subscriptions from consensus market tokens
+  updateWSSubscriptions(items);
+}
+
+// ── WebSocket ────────────────────────────────────────────────────────────────
+async function updateWSSubscriptions(items) {
+  // Resolve asset IDs for consensus markets
+  const conditionIds = [...new Set(items.map(c => c.conditionId))];
+  if (!conditionIds.length) return;
+
+  const newAssets = new Set();
+  const chunks = chunkArray(conditionIds, 10);
+  for (const chunk of chunks) {
+    try {
+      const params = chunk.map(id => `condition_id=${id}`).join('&');
+      const res = await fetch(`${GAMMA_URL}?${params}`);
+      const markets = await res.json();
+      for (const m of markets) {
+        let ids = m.clobTokenIds;
+        if (typeof ids === 'string') { try { ids = JSON.parse(ids); } catch(_){} }
+        if (Array.isArray(ids)) ids.forEach(id => newAssets.add(id));
+      }
+    } catch(_) {}
+  }
+
+  const added = [...newAssets].filter(id => !wsAssets.has(id));
+  if (added.length) {
+    added.forEach(id => wsAssets.add(id));
+    resubscribeWS();
+  }
+}
+
+function connectWS() {
+  if (ws) { ws.onclose = null; ws.close(); }
+  clearTimeout(wsReconnect);
+  ws = new WebSocket(WS_URL);
+
+  ws.onopen = () => {
+    log('alert', 'WebSocket connected');
+    resubscribeWS();
+    clearInterval(fallbackTimer);
+  };
+
+  ws.onmessage = (evt) => {
+    try {
+      const msg = JSON.parse(evt.data);
+      if (msg.event_type === 'last_trade_price') {
+        // Trade happened on a subscribed market — refresh positions immediately
+        triggerPositionRefresh();
+      }
+    } catch(_) {}
+  };
+
+  ws.onclose = () => {
+    setStatus('err', 'WS disconnected — reconnecting…');
+    log('warn', 'WebSocket dropped. Reconnecting in 5s, using 30s fallback poll.');
+    wsReconnect = setTimeout(connectWS, 5000);
+    fallbackTimer = setInterval(triggerPositionRefresh, 30000);
+  };
+}
+
+let refreshDebounce = null;
+function triggerPositionRefresh() {
+  // Debounce — avoid hammering if multiple trades fire at once
+  clearTimeout(refreshDebounce);
+  refreshDebounce = setTimeout(async () => {
+    log('event', 'Trade detected on watched market — refreshing positions…');
+    await refreshAllPositions();
+    buildConsensus();
+    renderConsensus();
+  }, 800);
+}
+
+function resubscribeWS() {
+  if (!ws || ws.readyState !== WebSocket.OPEN || !wsAssets.size) return;
+  ws.send(JSON.stringify({
+    assets_ids: [...wsAssets],
+    type: 'market',
+    custom_feature_enabled: true
+  }));
+  setStatus('ws', `LIVE — ${wsAssets.size} market token(s)`);
+  document.getElementById('wsStatus').textContent = `Connected — subscribed to ${wsAssets.size} market token(s)`;
+  log('event', `WS subscribed to ${wsAssets.size} tokens from ${Object.keys(consensus).length} consensus markets`);
+}
+
+function disconnectWS() {
+  clearTimeout(wsReconnect);
+  clearInterval(fallbackTimer);
+  clearTimeout(refreshDebounce);
+  if (ws) { ws.onclose = null; ws.close(); ws = null; }
+  document.getElementById('wsStatus').textContent = 'Not connected';
+}
+
+// ── Alerts ───────────────────────────────────────────────────────────────────
+async function fireConsensusAlert(item, reason) {
+  const count = item.traders.length;
+  const total = top10.length || 10;
+  const avgPrice = item.prices.length
+    ? (item.prices.reduce((s,p)=>s+Number(p),0)/item.prices.length*100).toFixed(1)
+    : null;
+  const heldTxt = ageLabel(item.ageMs);
+  const label = reason === 'new' ? `${count}/${total} traders agree, ${heldTxt}` : `${count}/${total} traders — grew while held`;
+  const title = item.title.length > 60 ? item.title.slice(0,58)+'…' : item.title;
+  const msg = `${label}: ${item.outcome.toUpperCase()} on "${title}"${avgPrice?` @ ${avgPrice}¢`:''}`;
+
+  log('alert', msg + ` — ${item.traders.join(', ')}`);
+  addAlertHistory(msg, item.traders, item.outcome);
+
+  if (!ntfyTopic) return;
+  const avgEntry = item.entries.length
+    ? (item.entries.reduce((s,p)=>s+p,0)/item.entries.length*100).toFixed(1)
+    : null;
+  // Chase warning: if price has run well past traders' entry, your edge is gone.
+  const chase = (avgPrice && avgEntry && (avgPrice - avgEntry) > 8)
+    ? `\nWARNING: price is ${(avgPrice-avgEntry).toFixed(0)}c above their entry - do not chase` : '';
+  const body = `${label}\n\n${item.title}\n\n${item.outcome.toUpperCase()} now ${avgPrice}c (their entry ~${avgEntry}c)${chase}\n\nTraders: ${item.traders.join(', ')}`;
+  const headers = {
+    'Title': `Polymarket Consensus: ${count}/${total} traders agree`,
+    'Priority': count >= 5 ? 'urgent' : 'high',
+    'Tags': 'chart_increasing'
+  };
+  if (item.slug) headers['Click'] = `https://polymarket.com/event/${item.slug}`;
+  try {
+    await fetch(`https://ntfy.sh/${encodeURIComponent(ntfyTopic)}`, { method: 'POST', body, headers });
+  } catch(_) {}
+}
+
+async function fireExitAlert(key, remnant) {
+  const [, outcome] = key.split('|');
+  const title = remnant?.title || key.slice(0, 40);
+  const msg = `EXIT SIGNAL: traders left ${outcome?.toUpperCase() || ''} on "${title}" — consensus dissolved`;
+  log('alert', msg);
+  addAlertHistory(msg, remnant?.traders || [], outcome || '');
+  if (!ntfyTopic) return;
+  const headers = { 'Title': 'Polymarket EXIT: consensus dissolved', 'Priority': 'urgent', 'Tags': 'rotating_light' };
+  if (remnant?.slug) headers['Click'] = `https://polymarket.com/event/${remnant.slug}`;
+  try {
+    await fetch(`https://ntfy.sh/${encodeURIComponent(ntfyTopic)}`, {
+      method: 'POST',
+      body: `${title}\n\nTop traders exited ${outcome?.toUpperCase() || ''}. If you copied this bet, consider closing.`,
+      headers
+    });
+  } catch(_) {}
+}
+
+function addAlertHistory(msg, traders, outcome) {
+  const list = document.getElementById('alertList');
+  const item = document.createElement('div');
+  item.className = 'alert-item';
+  const now = new Date();
+  item.innerHTML = `
+    <div class="a-time">${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}</div>
+    <div class="a-text">${msg}</div>
+    <div class="a-traders">${traders.join(', ')}</div>`;
+  if (list.firstChild && list.firstChild.textContent.includes('appear here')) list.innerHTML = '';
+  list.insertBefore(item, list.firstChild);
+}
+
+async function testAlert() {
+  const topic = document.getElementById('topicBar').value.trim();
+  if (!topic) { log('warn', 'Enter a topic name first.'); return; }
+  ntfyTopic = topic;
+  localStorage.setItem('ntfyTopic', topic);
+  try {
+    await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}`, {
+      method: 'POST',
+      body: `Test — Consensus Monitor is working. You'll get alerted when ${threshold}+ quality-filtered traders agree on a ${(minPrice*100).toFixed(0)}-${(maxPrice*100).toFixed(0)}c market and hold it for ${persistWindow/60000}+ min.`,
+      headers: { 'Title': 'Polymarket Monitor - Test', 'Tags': 'white_check_mark' }
+    });
+    log('alert', `Test sent to ntfy.sh/${topic}`);
+  } catch(e) {
+    log('err', 'Test failed: ' + e.message);
+  }
+}
+
+// ── UI helpers ───────────────────────────────────────────────────────────────
+function setStatus(type, text) {
+  const dot = document.getElementById('statusDot');
+  dot.className = 'dot' + (type==='ws'?' ws':type==='live'?' live':type==='err'?' err':'');
+  document.getElementById('statusText').textContent = text;
+}
+
+function log(type, msg) {
+  const now = new Date();
+  const ts = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  const el = document.createElement('div');
+  el.className = 'll';
+  el.innerHTML = `<span class="ts">${ts}</span><span class="${type}">${msg}</span>`;
+  const c = document.getElementById('logEl');
+  c.appendChild(el);
+  c.scrollTop = c.scrollHeight;
+}
+
+function fmtM(n) {
+  if (!n) return '$0';
+  if (n >= 1e9) return '$'+(n/1e9).toFixed(1)+'B';
+  if (n >= 1e6) return '$'+(n/1e6).toFixed(1)+'M';
+  if (n >= 1e3) return '$'+(n/1e3).toFixed(0)+'K';
+  return '$'+Number(n).toFixed(0);
+}
+
+function pad(n) { return String(n).padStart(2,'0'); }
+
+function chunkArray(arr, size) {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += size) chunks.push(arr.slice(i, i+size));
+  return chunks;
+}
+</script>
+</body>
+</html>
