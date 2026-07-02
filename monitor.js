@@ -124,6 +124,10 @@ function buildConsensus(top10, positionsByWallet, state, now) {
   return map;
 }
 
+function truncate(s, n) {
+  return s && s.length > n ? s.slice(0, n - 1) + '…' : (s || '');
+}
+
 function summarizeEntry(item, count, total, reason) {
   const avgPrice = item.prices.length
     ? (item.prices.reduce((s, p) => s + Number(p), 0) / item.prices.length * 100)
@@ -143,13 +147,15 @@ async function sendEntryPush(s) {
   const { item, count, total, label, avgPrice, avgEntry, chase } = s;
   const p = avgPrice != null ? avgPrice.toFixed(1) : '?';
   const e = avgEntry != null ? avgEntry.toFixed(1) : '?';
-  console.log(`BUY: ${label} :: ${item.outcome.toUpperCase()} on "${item.title}" @ ${p}c (entry ~${e}c) :: ${item.traders.join(', ')}`);
+  const outcome = item.outcome.toUpperCase();
+  console.log(`BUY: ${label} :: ${outcome} on "${item.title}" @ ${p}c (entry ~${e}c) :: ${item.traders.join(', ')}`);
   if (!NTFY_TOPIC) return;
-  const body = `${label}\n\n${item.title}\n\n${item.outcome.toUpperCase()} now ${p}c (their entry ~${e}c)${chase ? `\n${chase}` : ''}\n\nTraders: ${item.traders.join(', ')}`;
+  const body = `**${outcome}** now ${p}c (their entry ~${e}c)\n${label}${chase ? `\n**${chase}**` : ''}\n\nTraders: ${item.traders.join(', ')}`;
   const headers = {
-    'Title': `BUY: ${count}/${total} traders agree`,
+    'Title': `📈 BUY · ${truncate(item.title, 40)} — ${outcome}`,
     'Priority': count >= 5 ? 'urgent' : 'high',
     'Tags': 'chart_increasing',
+    'Markdown': 'yes',
   };
   if (item.slug) headers['Click'] = `https://polymarket.com/event/${item.slug}`;
   try {
@@ -161,15 +167,21 @@ async function sendEntryPush(s) {
 
 async function sendExitPush(key, meta) {
   const [, outcome] = key.split('|');
+  const o = outcome?.toUpperCase() || '';
   const title = meta?.title || key.slice(0, 40);
-  console.log(`SELL: traders left ${outcome?.toUpperCase() || ''} on "${title}"`);
+  console.log(`SELL: traders left ${o} on "${title}"`);
   if (!NTFY_TOPIC) return;
-  const headers = { 'Title': 'SELL/EXIT: consensus dissolved', 'Priority': 'urgent', 'Tags': 'rotating_light' };
+  const headers = {
+    'Title': `📉 SELL · ${truncate(title, 40)} — ${o}`,
+    'Priority': 'urgent',
+    'Tags': 'chart_decreasing',
+    'Markdown': 'yes',
+  };
   if (meta?.slug) headers['Click'] = `https://polymarket.com/event/${meta.slug}`;
   try {
     await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, {
       method: 'POST',
-      body: `${title}\n\nTop traders exited ${outcome?.toUpperCase() || ''}. If you copied this bet, close it.`,
+      body: `**Top traders exited ${o}.** If you copied this bet, close it.\n\n${title}`,
       headers,
     });
   } catch (e) {
@@ -190,22 +202,30 @@ async function sendDigest(entryEvents, exitEvents) {
   }
 
   const lines = [];
-  for (const { key, meta } of exitEvents) {
-    const [, outcome] = key.split('|');
-    lines.push(`SELL — ${meta?.title || key.slice(0, 40)} — ${outcome?.toUpperCase() || ''}`);
+  if (exitEvents.length) {
+    lines.push('**SELL**');
+    for (const { key, meta } of exitEvents) {
+      const [, outcome] = key.split('|');
+      lines.push(`📉 ${truncate(meta?.title || key, 45)} — ${outcome?.toUpperCase() || ''}`);
+    }
   }
-  for (const s of entryEvents) {
-    const p = s.avgPrice != null ? s.avgPrice.toFixed(1) : '?';
-    lines.push(`BUY — ${s.count}/${s.total} traders — ${s.item.title} — ${s.item.outcome.toUpperCase()} @ ${p}c${s.chase ? ' (do not chase)' : ''}`);
+  if (entryEvents.length) {
+    if (lines.length) lines.push('');
+    lines.push('**BUY**');
+    for (const s of entryEvents) {
+      const p = s.avgPrice != null ? s.avgPrice.toFixed(1) : '?';
+      lines.push(`📈 ${truncate(s.item.title, 45)} — ${s.item.outcome.toUpperCase()} @ ${p}c${s.chase ? ' — do not chase' : ''} (${s.count}/${s.total})`);
+    }
   }
   const body = lines.join('\n');
   console.log(`DIGEST (${exitEvents.length} sell, ${entryEvents.length} buy):\n${body}`);
   if (!NTFY_TOPIC) return;
 
   const headers = {
-    'Title': `Polymarket: ${exitEvents.length} sell, ${entryEvents.length} buy`,
+    'Title': `Polymarket: ${exitEvents.length} SELL, ${entryEvents.length} BUY`,
     'Priority': 'high',
     'Tags': 'bell',
+    'Markdown': 'yes',
   };
   const firstSlug = entryEvents[0]?.item.slug || exitEvents[0]?.meta?.slug;
   if (firstSlug) headers['Click'] = `https://polymarket.com/event/${firstSlug}`;
