@@ -13,7 +13,7 @@ const THRESHOLD = 2;
 const MIN_VOLUME = 500_000;
 const MIN_PRICE = 0.2;
 const MAX_PRICE = 0.8;
-const PERSIST_WINDOW_MS = 15 * 60 * 1000;
+const PERSIST_WINDOW_MS = 5 * 60 * 1000;
 const EXIT_CONFIRM_MISSES = 2; // must be gone 2 consecutive runs before we call it a real exit, not an API blip
 
 const NTFY_TOPIC = process.env.NTFY_TOPIC || '';
