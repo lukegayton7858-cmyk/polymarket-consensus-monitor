@@ -32,10 +32,18 @@ function saveState(state) {
   fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
 }
 
-async function fetchJSON(url) {
-  const res = await fetch(url, { headers: { 'User-Agent': 'polymarket-consensus-monitor' } });
-  if (!res.ok) throw new Error(`${url} -> ${res.status}`);
-  return res.json();
+async function fetchJSON(url, retries = 2) {
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(url, { headers: { 'User-Agent': 'polymarket-consensus-monitor' } });
+    if (res.status === 429 && attempt < retries) {
+      const waitMs = Number(res.headers.get('retry-after')) * 1000 || (1000 * 2 ** attempt);
+      console.log(`429 rate limited, retrying in ${waitMs}ms: ${url}`);
+      await new Promise(r => setTimeout(r, waitMs));
+      continue;
+    }
+    if (!res.ok) throw new Error(`${url} -> ${res.status}`);
+    return res.json();
+  }
 }
 
 async function loadTop10() {
