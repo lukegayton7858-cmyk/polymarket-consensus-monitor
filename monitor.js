@@ -270,10 +270,11 @@ async function main() {
   const total = top10.length || 10;
   for (const item of Object.values(map)) {
     const count = item.traders.length;
-    // Skip markets ending within the hour — by the time you see the push and place
-    // the bet, the game/event is nearly over and the entry edge is gone.
-    const endMs = item.endDate ? Date.parse(item.endDate) : NaN;
-    if (!Number.isNaN(endMs) && endMs - now < 60 * 60 * 1000) continue;
+    // No "ending soon" cutoff here on purpose: endDate spans a live game's whole
+    // window (often 2+ hours, kickoff to resolution) with no separate kickoff
+    // timestamp available, so time-to-end doesn't reliably indicate time-to-act.
+    // A near-decided game already gets filtered by the price band below, and the
+    // chase-price warning in the push covers the rest with real market data.
     if (count >= THRESHOLD && (item.ageMs || 0) >= PERSIST_WINDOW_MS) {
       const lastAlerted = state.alertedAt[item.key] || 0;
       if (count > lastAlerted) {
