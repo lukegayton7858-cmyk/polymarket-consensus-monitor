@@ -8,6 +8,13 @@ on:
 permissions:
   contents: write
 
+# With cron-job.org dispatching every 1 min, a run can still be mid-flight when
+# the next one fires. Without this, two runs can race to push state.json and one
+# silently loses (job fails at the very last step after alerts already sent).
+concurrency:
+  group: polymarket-monitor-run
+  cancel-in-progress: false
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
@@ -28,5 +35,21 @@ jobs:
           git config user.name "polymarket-consensus-bot"
           git config user.email "actions@users.noreply.github.com"
           git add state.json
-          git diff --cached --quiet || git commit -m "chore: update consensus state"
-          git push
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: update consensus state"
+          for i in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt $i."
+              exit 0
+            fi
+            echo "Push rejected (attempt $i) - another push landed first. Adopting it:"
+            echo "it was computed from the same live data this run just used, so"
+            echo "nothing meaningful is lost - the next run recomputes fresh anyway."
+            git fetch origin main
+            git reset --hard origin/main
+            sleep 2
+          done
+          echo "Could not push state after retries - non-fatal, next run recomputes from live data."
