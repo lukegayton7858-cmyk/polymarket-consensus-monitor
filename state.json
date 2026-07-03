@@ -15,17 +15,17 @@
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920
   },
   "alertedAt": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 3,
+    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
     "0x00de24efbe083e61da20587be324b35e842b51f330c4f5c55942bf8681cd0857|Yes": 2,
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 3,
-    "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 2,
+    "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 4,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 4,
     "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": 3,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|No": 3,
     "0xa66b0dc5d126cd76a7434ff4782acfb59c267130afea696d71fefaea98beb381|Under": 2,
-    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 2,
-    "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 2,
+    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 3,
+    "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2
   },
@@ -35,8 +35,9 @@
       "slug": "world-cup-winner",
       "wallets": [
         "0x85f031d069de300055900c4055c1baeb6bde3f67",
+        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
-        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
+        "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ]
     },
     "0x00de24efbe083e61da20587be324b35e842b51f330c4f5c55942bf8681cd0857|Yes": {
@@ -61,7 +62,8 @@
       "slug": "world-cup-golden-boot-winner",
       "wallets": [
         "0x85f031d069de300055900c4055c1baeb6bde3f67",
-        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
+        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
+        "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ]
     },
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": {
@@ -115,7 +117,8 @@
       "slug": "fifwc-aus-egy-2026-07-03",
       "wallets": [
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a",
-        "0x5257aa84944804bbb0c718814ebebeeafaca3e2a"
+        "0x5257aa84944804bbb0c718814ebebeeafaca3e2a",
+        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ]
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
@@ -123,7 +126,8 @@
       "slug": "world-cup-winner",
       "wallets": [
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
-        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
+        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
+        "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ]
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
