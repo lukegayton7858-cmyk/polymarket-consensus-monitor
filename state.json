@@ -5,7 +5,6 @@
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 1783041972813,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 1783041972813,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 1783041972813,
-    "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": 1783052773794,
     "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422|Yes": 1783053972186,
     "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422|No": 1783053972186
   },
@@ -15,7 +14,6 @@
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 2,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 2,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 2,
-    "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": 2,
     "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422|Yes": 2,
     "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422|No": 2
   },
@@ -40,10 +38,6 @@
       "title": "Will Egypt win on 2026-07-03?",
       "slug": "fifwc-aus-egy-2026-07-03"
     },
-    "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": {
-      "title": "Switzerland vs. Algeria: O/U 2.5",
-      "slug": "fifwc-che-alg-2026-07-02-more-markets"
-    },
     "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422|Yes": {
       "title": "Will JD Vance win the 2028 US Presidential Election?",
       "slug": "presidential-election-winner-2028"
@@ -53,7 +47,5 @@
       "slug": "presidential-election-winner-2028"
     }
   },
-  "pendingExit": {
-    "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": 1
-  }
+  "pendingExit": {}
 }
