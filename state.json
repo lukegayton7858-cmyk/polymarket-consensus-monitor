@@ -1,6 +1,5 @@
 {
   "consensusFirstSeen": {
-    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 1783027514446,
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|Yes": 1783041317074,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 1783041317074,
     "0x00de24efbe083e61da20587be324b35e842b51f330c4f5c55942bf8681cd0857|Yes": 1783041317074,
@@ -9,7 +8,6 @@
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 1783041972813
   },
   "alertedAt": {
-    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 3,
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|Yes": 3,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 3,
     "0x00de24efbe083e61da20587be324b35e842b51f330c4f5c55942bf8681cd0857|Yes": 2,
@@ -18,10 +16,6 @@
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 2
   },
   "alertedMeta": {
-    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": {
-      "title": "Will Switzerland win on 2026-07-02?",
-      "slug": "fifwc-che-alg-2026-07-02"
-    },
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|Yes": {
       "title": "Will Switzerland win on 2026-07-02?",
       "slug": "fifwc-che-alg-2026-07-02"
@@ -48,6 +42,6 @@
     }
   },
   "pendingExit": {
-    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 1
+    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|Yes": 1
   }
 }
