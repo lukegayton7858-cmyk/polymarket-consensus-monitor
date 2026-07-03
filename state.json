@@ -16,7 +16,8 @@
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 2,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 3,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 2,
-    "0xc4a26ee77fc5777d5036854f3835bf7ce44b42a61e3c6325c22b444627757eca|Yes": 2
+    "0xc4a26ee77fc5777d5036854f3835bf7ce44b42a61e3c6325c22b444627757eca|Yes": 2,
+    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -46,6 +47,10 @@
     "0xc4a26ee77fc5777d5036854f3835bf7ce44b42a61e3c6325c22b444627757eca|Yes": {
       "title": "Will Colombia win on 2026-07-03?",
       "slug": "fifwc-col-gha-2026-07-03"
+    },
+    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": {
+      "title": "Australia vs. Egypt: Team to Advance",
+      "slug": "fifwc-aus-egy-2026-07-03-more-markets"
     }
   },
   "pendingExit": {}
