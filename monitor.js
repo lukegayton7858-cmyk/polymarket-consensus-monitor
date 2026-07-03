@@ -46,19 +46,27 @@ async function fetchJSON(url, retries = 2) {
   }
 }
 
-async function loadTop10() {
-  const data = await fetchJSON(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=MONTH&orderBy=PNL&limit=50`);
-  const candidates = data
-    .map(t => ({
+async function loadTopTraders() {
+  const [month, week] = await Promise.all([
+    fetchJSON(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=MONTH&orderBy=PNL&limit=50`),
+    fetchJSON(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=WEEK&orderBy=PNL&limit=50`),
+  ]);
+  const seen = new Set();
+  const candidates = [];
+  for (const t of [...month, ...week]) {
+    if (seen.has(t.proxyWallet)) continue;
+    seen.add(t.proxyWallet);
+    const vol = t.vol || 0;
+    if (vol < MIN_VOLUME) continue;
+    candidates.push({
       wallet: t.proxyWallet,
       name: t.userName || t.proxyWallet.slice(0, 8),
-      pnl: t.pnl || 0,
-      vol: t.vol || 0,
-      eff: t.vol > 0 ? (t.pnl || 0) / t.vol : 0,
-    }))
-    .filter(t => t.vol >= MIN_VOLUME);
+      pnl: t.pnl || 0, vol,
+      eff: vol > 0 ? (t.pnl || 0) / vol : 0,
+    });
+  }
   candidates.sort((a, b) => b.eff - a.eff);
-  return candidates.slice(0, 10);
+  return candidates.slice(0, 20);
 }
 
 async function fetchPositions(wallet) {
@@ -70,10 +78,10 @@ async function fetchPositions(wallet) {
   }
 }
 
-function buildConsensus(top10, positionsByWallet, state, now) {
+function buildConsensus(topTraders, positionsByWallet, state, now) {
   const map = {};
 
-  for (const t of top10) {
+  for (const t of topTraders) {
     const pos = positionsByWallet[t.wallet] || [];
     const seenForTrader = new Set();
     for (const p of pos) {
@@ -243,17 +251,17 @@ async function main() {
   const now = Date.now();
   const state = loadState();
 
-  const top10 = await loadTop10();
-  console.log(`Top ${top10.length} traders by efficiency (vol>=$${MIN_VOLUME / 1e6}M):`);
-  top10.forEach((t, i) => console.log(`  ${i + 1}. ${t.name}  eff=${(t.eff * 100).toFixed(1)}%  vol=$${(t.vol / 1e6).toFixed(1)}M`));
+  const topTraders = await loadTopTraders();
+  console.log(`Top ${topTraders.length} traders by efficiency (MONTH+WEEK, vol>=$${MIN_VOLUME / 1e6}M):`);
+  topTraders.forEach((t, i) => console.log(`  ${i + 1}. ${t.name}  eff=${(t.eff * 100).toFixed(1)}%  vol=$${(t.vol / 1e6).toFixed(1)}M`));
 
   const positionsByWallet = {};
-  for (const t of top10) {
+  for (const t of topTraders) {
     positionsByWallet[t.wallet] = await fetchPositions(t.wallet);
     await new Promise(r => setTimeout(r, 150)); // gentle on the public API
   }
 
-  const map = buildConsensus(top10, positionsByWallet, state, now);
+  const map = buildConsensus(topTraders, positionsByWallet, state, now);
 
   const entryEvents = [];
   const exitEvents = [];
@@ -293,7 +301,7 @@ async function main() {
     }
   }
 
-  const total = top10.length || 10;
+  const total = topTraders.length || 10;
   for (const item of Object.values(map)) {
     const count = item.traders.length;
     if (count >= THRESHOLD && (item.ageMs || 0) >= PERSIST_WINDOW_MS) {
