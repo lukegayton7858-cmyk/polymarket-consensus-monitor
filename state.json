@@ -65,5 +65,7 @@
       "slug": "world-cup-winner"
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1
+  }
 }
