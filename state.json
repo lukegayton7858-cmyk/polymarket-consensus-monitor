@@ -24,5 +24,7 @@
       "slug": "fifwc-prt-hrv-2026-07-02-more-markets"
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 1
+  }
 }
