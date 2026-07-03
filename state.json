@@ -164,5 +164,7 @@
       ]
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Egypt": 1
+  }
 }
