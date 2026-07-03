@@ -1,24 +1,16 @@
 {
   "consensusFirstSeen": {
-    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 1783027514446,
-    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 1783035174825
+    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 1783027514446
   },
   "alertedAt": {
-    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 2,
-    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 2
+    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 2
   },
   "alertedMeta": {
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": {
       "title": "Will Switzerland win on 2026-07-02?",
       "slug": "fifwc-che-alg-2026-07-02",
       "endDate": "2026-07-03"
-    },
-    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": {
-      "title": "Will Portugal win on 2026-07-02?",
-      "slug": "fifwc-prt-hrv-2026-07-02"
     }
   },
-  "pendingExit": {
-    "0x43bde2aa4a2067139451beb84649e5acaff989a3a0817fb1c592046c993d4168|Yes": 1
-  }
+  "pendingExit": {}
 }
