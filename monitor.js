@@ -154,8 +154,23 @@ function checkHolders(key, wallets, positionsByWallet) {
   return { holding, lost, maxPrice };
 }
 
+// Plain "..." not the unicode ellipsis: this gets used inside ntfy Title headers,
+// which must stay ISO-8859-1 — the '…' character alone was enough to break them.
 function truncate(s, n) {
-  return s && s.length > n ? s.slice(0, n - 1) + '…' : (s || '');
+  return s && s.length > n ? s.slice(0, n - 3) + '...' : (s || '');
+}
+
+// Market titles come from Polymarket's API and can contain smart quotes/dashes
+// (e.g. "Women's" with a curly apostrophe) or other characters outside Latin-1.
+// Any of those inside an ntfy header value throws and silently kills the push
+// (see sendEntryPush). Normalize the common cases, then strip anything left —
+// this only touches header text; body text keeps full original formatting.
+function asciiSafe(s) {
+  return (s || '')
+    .replace(/[‘’]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/[–—]/g, '-')
+    .replace(/[^\x00-\xFF]/g, '');
 }
 
 // Risk read from what's already computed — no extra API calls. Longshot price
@@ -191,25 +206,34 @@ function summarizeEntry(item, count, total, reason) {
   return { item, count, total, label, avgPrice, avgEntry, chase, risk };
 }
 
+// ntfy header VALUES must be ISO-8859-1 (single-byte). Any emoji here — including
+// the risk-tag emoji — throws a "Cannot convert to ByteString" error that fetch()
+// raises synchronously; the catch below swallows it silently. That previously
+// killed every solo (non-digest) push while leaving state marked as "sent".
+// Emoji are safe in the body (free-form UTF-8) and in 'Tags' (ntfy renders its
+// own icon from the shortcode) — just never in a header string like Title/Click.
 async function sendEntryPush(s) {
   const { item, count, total, label, avgPrice, avgEntry, chase, risk } = s;
   const p = avgPrice != null ? avgPrice.toFixed(1) : '?';
   const e = avgEntry != null ? avgEntry.toFixed(1) : '?';
   const outcome = item.outcome.toUpperCase();
   console.log(`BUY [${risk.tag}]: ${label} :: ${outcome} on "${item.title}" @ ${p}c (entry ~${e}c) :: ${item.traders.join(', ')}`);
-  if (!NTFY_TOPIC) return;
+  if (!NTFY_TOPIC) return true;
   const body = `**${outcome}** now ${p}c (their entry ~${e}c)\n${label}\n**Risk: ${risk.tag}**${chase ? `\n**${chase}**` : ''}\n\nTraders: ${item.traders.join(', ')}`;
   const headers = {
-    'Title': `${risk.emoji} BUY · ${truncate(item.title, 38)} — ${outcome}`,
+    'Title': asciiSafe(`[${risk.tag}] BUY - ${truncate(item.title, 38)} - ${outcome}`),
     'Priority': count >= 5 ? 'urgent' : 'high',
     'Tags': 'chart_increasing',
     'Markdown': 'yes',
   };
   if (item.slug) headers['Click'] = `https://polymarket.com/event/${item.slug}`;
   try {
-    await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body, headers });
+    const res = await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body, headers });
+    if (!res.ok) { console.error(`ntfy send failed: HTTP ${res.status}`); return false; }
+    return true;
   } catch (e) {
     console.error('ntfy send failed:', e.message);
+    return false;
   }
 }
 
@@ -222,27 +246,30 @@ async function sendExitPush(key, meta, kind = 'sell') {
   const title = meta?.title || key.slice(0, 40);
   const variants = {
     sell: {
-      head: `📉 SELL · ${truncate(title, 40)} — ${o}`, prio: 'urgent', tags: 'chart_decreasing',
+      head: `SELL - ${truncate(title, 40)} - ${o}`, prio: 'urgent', tags: 'chart_decreasing',
       body: `**Top traders exited ${o} while the market is still live.** If you copied this bet, close it now.\n\n${title}`,
     },
     lost: {
-      head: `❌ LOST · ${truncate(title, 40)} — ${o}`, prio: 'high', tags: 'x',
+      head: `LOST - ${truncate(title, 40)} - ${o}`, prio: 'high', tags: 'x',
       body: `Market resolved against **${o}**. Position settled at 0 — nothing to do.\n\n${title}`,
     },
     won: {
-      head: `✅ WON · ${truncate(title, 40)} — ${o}`, prio: 'high', tags: 'white_check_mark',
+      head: `WON - ${truncate(title, 40)} - ${o}`, prio: 'high', tags: 'white_check_mark',
       body: `**${o}** is at ~100c and traders are holding to resolution. **Hold — redeem when it settles.** Do not panic-sell.\n\n${title}`,
     },
   };
   const v = variants[kind] || variants.sell;
   console.log(`${kind.toUpperCase()}: ${o} on "${title}"`);
-  if (!NTFY_TOPIC) return;
-  const headers = { 'Title': v.head, 'Priority': v.prio, 'Tags': v.tags, 'Markdown': 'yes' };
+  if (!NTFY_TOPIC) return true;
+  const headers = { 'Title': asciiSafe(v.head), 'Priority': v.prio, 'Tags': v.tags, 'Markdown': 'yes' };
   if (meta?.slug) headers['Click'] = `https://polymarket.com/event/${meta.slug}`;
   try {
-    await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body: v.body, headers });
+    const res = await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body: v.body, headers });
+    if (!res.ok) { console.error(`ntfy exit send failed: HTTP ${res.status}`); return false; }
+    return true;
   } catch (e) {
     console.error('ntfy exit send failed:', e.message);
+    return false;
   }
 }
 
@@ -250,12 +277,11 @@ async function sendExitPush(key, meta, kind = 'sell') {
 // simultaneous events land as a single organized message instead of a burst.
 async function sendDigest(entryEvents, exitEvents) {
   const totalEvents = entryEvents.length + exitEvents.length;
-  if (totalEvents === 0) return;
+  if (totalEvents === 0) return true;
 
   if (totalEvents === 1) {
-    if (entryEvents.length) await sendEntryPush(entryEvents[0]);
-    else await sendExitPush(exitEvents[0].key, exitEvents[0].meta, exitEvents[0].kind);
-    return;
+    if (entryEvents.length) return await sendEntryPush(entryEvents[0]);
+    return await sendExitPush(exitEvents[0].key, exitEvents[0].meta, exitEvents[0].kind);
   }
 
   const lines = [];
@@ -277,7 +303,7 @@ async function sendDigest(entryEvents, exitEvents) {
   }
   const body = lines.join('\n');
   console.log(`DIGEST (${exitEvents.length} sell, ${entryEvents.length} buy):\n${body}`);
-  if (!NTFY_TOPIC) return;
+  if (!NTFY_TOPIC) return true;
 
   const headers = {
     'Title': `Polymarket: ${exitEvents.length} EXIT, ${entryEvents.length} BUY`,
@@ -288,9 +314,12 @@ async function sendDigest(entryEvents, exitEvents) {
   const firstSlug = entryEvents[0]?.item.slug || exitEvents[0]?.meta?.slug;
   if (firstSlug) headers['Click'] = `https://polymarket.com/event/${firstSlug}`;
   try {
-    await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body, headers });
+    const res = await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body, headers });
+    if (!res.ok) { console.error(`ntfy digest send failed: HTTP ${res.status}`); return false; }
+    return true;
   } catch (e) {
     console.error('ntfy digest send failed:', e.message);
+    return false;
   }
 }
 
@@ -334,6 +363,9 @@ async function main() {
 
   const entryEvents = [];
   const exitEvents = [];
+  // Mutations that must only take effect once the push actually reaches ntfy —
+  // otherwise a failed send still gets recorded as "delivered" and never retries.
+  const commitOps = [];
 
   // A key drops out (price left the band, a trader closed, etc). Don't sell-alert
   // on the first miss — that could just be one wallet's API call hiccuping. Only
@@ -358,15 +390,16 @@ async function main() {
       if (holding >= 2) {
         delete state.pendingExit[key];
         if (maxPrice >= 0.95 && !meta.wonNotified) {
-          meta.wonNotified = true; // one-time heads-up; keep tracking in case it reverses
+          // one-time heads-up; keep tracking in case it reverses
           exitEvents.push({ key, meta, kind: 'won' });
+          commitOps.push(() => { meta.wonNotified = true; });
         }
         continue;
       }
       const misses = (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
         exitEvents.push({ key, meta, kind: lost > 0 ? 'lost' : 'sell' });
-        dropAlert(key);
+        commitOps.push(() => dropAlert(key));
       } else {
         state.pendingExit[key] = misses;
       }
@@ -382,7 +415,7 @@ async function main() {
       const misses = (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
         exitEvents.push({ key, meta: state.alertedMeta[key], kind: 'sell' });
-        dropAlert(key);
+        commitOps.push(() => dropAlert(key));
       } else {
         state.pendingExit[key] = misses;
       }
@@ -400,13 +433,20 @@ async function main() {
       const lastAlerted = state.alertedAt[item.key] || 0;
       if (count > lastAlerted) {
         entryEvents.push(summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased'));
-        state.alertedAt[item.key] = count;
-        state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets] };
+        commitOps.push(() => {
+          state.alertedAt[item.key] = count;
+          state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets] };
+        });
       }
     }
   }
 
-  await sendDigest(entryEvents, exitEvents);
+  const sent = await sendDigest(entryEvents, exitEvents);
+  if (sent) {
+    for (const op of commitOps) op();
+  } else if (commitOps.length) {
+    console.error(`Push failed — ${commitOps.length} alert(s) deferred to retry next run instead of being marked delivered.`);
+  }
 
   console.log(`Run complete. Consensus positions tracked: ${Object.values(map).filter(i => i.traders.length >= 2).length}. Buys: ${entryEvents.length}. Sells: ${exitEvents.length}.`);
   saveState(state);
