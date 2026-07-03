@@ -135,6 +135,25 @@ function buildConsensus(topTraders, positionsByWallet, state, now) {
   return map;
 }
 
+// Exit check for an alerted position: look at the EXACT wallets that formed the
+// consensus, ignoring the 20-80c BUY band and the leaderboard entirely. A winning
+// position crossing 80c, or a trader slipping to rank #21, must never read as an exit.
+function checkHolders(key, wallets, positionsByWallet) {
+  const idx = key.indexOf('|');
+  const cid = key.slice(0, idx);
+  const outcome = key.slice(idx + 1);
+  let holding = 0, lost = 0, maxPrice = 0;
+  for (const w of wallets) {
+    const p = (positionsByWallet[w] || []).find(x => x.conditionId === cid && x.outcome === outcome);
+    if (!p) continue;
+    if ((p.currentValue ?? 1) <= 0) { lost++; continue; }
+    holding++;
+    const pr = Number(p.curPrice ?? NaN);
+    if (!Number.isNaN(pr) && pr > maxPrice) maxPrice = pr;
+  }
+  return { holding, lost, maxPrice };
+}
+
 function truncate(s, n) {
   return s && s.length > n ? s.slice(0, n - 1) + '…' : (s || '');
 }
@@ -176,25 +195,34 @@ async function sendEntryPush(s) {
   }
 }
 
-async function sendExitPush(key, meta) {
-  const [, outcome] = key.split('|');
+// kind: 'sell' = traders genuinely closed mid-market (act fast).
+// 'lost' = market resolved against the outcome (nothing to do).
+// 'won'  = price snapped to ~1 and traders are holding to resolution (redeem, don't panic).
+async function sendExitPush(key, meta, kind = 'sell') {
+  const outcome = key.slice(key.indexOf('|') + 1);
   const o = outcome?.toUpperCase() || '';
   const title = meta?.title || key.slice(0, 40);
-  console.log(`SELL: traders left ${o} on "${title}"`);
-  if (!NTFY_TOPIC) return;
-  const headers = {
-    'Title': `📉 SELL · ${truncate(title, 40)} — ${o}`,
-    'Priority': 'urgent',
-    'Tags': 'chart_decreasing',
-    'Markdown': 'yes',
+  const variants = {
+    sell: {
+      head: `📉 SELL · ${truncate(title, 40)} — ${o}`, prio: 'urgent', tags: 'chart_decreasing',
+      body: `**Top traders exited ${o} while the market is still live.** If you copied this bet, close it now.\n\n${title}`,
+    },
+    lost: {
+      head: `❌ LOST · ${truncate(title, 40)} — ${o}`, prio: 'high', tags: 'x',
+      body: `Market resolved against **${o}**. Position settled at 0 — nothing to do.\n\n${title}`,
+    },
+    won: {
+      head: `✅ WON · ${truncate(title, 40)} — ${o}`, prio: 'high', tags: 'white_check_mark',
+      body: `**${o}** is at ~100c and traders are holding to resolution. **Hold — redeem when it settles.** Do not panic-sell.\n\n${title}`,
+    },
   };
+  const v = variants[kind] || variants.sell;
+  console.log(`${kind.toUpperCase()}: ${o} on "${title}"`);
+  if (!NTFY_TOPIC) return;
+  const headers = { 'Title': v.head, 'Priority': v.prio, 'Tags': v.tags, 'Markdown': 'yes' };
   if (meta?.slug) headers['Click'] = `https://polymarket.com/event/${meta.slug}`;
   try {
-    await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, {
-      method: 'POST',
-      body: `**Top traders exited ${o}.** If you copied this bet, close it.\n\n${title}`,
-      headers,
-    });
+    await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body: v.body, headers });
   } catch (e) {
     console.error('ntfy exit send failed:', e.message);
   }
@@ -208,16 +236,17 @@ async function sendDigest(entryEvents, exitEvents) {
 
   if (totalEvents === 1) {
     if (entryEvents.length) await sendEntryPush(entryEvents[0]);
-    else await sendExitPush(exitEvents[0].key, exitEvents[0].meta);
+    else await sendExitPush(exitEvents[0].key, exitEvents[0].meta, exitEvents[0].kind);
     return;
   }
 
   const lines = [];
   if (exitEvents.length) {
-    lines.push('**SELL**');
-    for (const { key, meta } of exitEvents) {
-      const [, outcome] = key.split('|');
-      lines.push(`📉 ${truncate(meta?.title || key, 45)} — ${outcome?.toUpperCase() || ''}`);
+    const icon = { sell: '📉 SELL', lost: '❌ LOST', won: '✅ WON' };
+    lines.push('**EXITS / RESULTS**');
+    for (const { key, meta, kind } of exitEvents) {
+      const outcome = key.slice(key.indexOf('|') + 1);
+      lines.push(`${icon[kind] || icon.sell} · ${truncate(meta?.title || key, 45)} — ${outcome?.toUpperCase() || ''}`);
     }
   }
   if (entryEvents.length) {
@@ -233,7 +262,7 @@ async function sendDigest(entryEvents, exitEvents) {
   if (!NTFY_TOPIC) return;
 
   const headers = {
-    'Title': `Polymarket: ${exitEvents.length} SELL, ${entryEvents.length} BUY`,
+    'Title': `Polymarket: ${exitEvents.length} EXIT, ${entryEvents.length} BUY`,
     'Priority': 'high',
     'Tags': 'bell',
     'Markdown': 'yes',
@@ -263,6 +292,28 @@ async function main() {
 
   const map = buildConsensus(topTraders, positionsByWallet, state, now);
 
+  // Migrate pre-wallet-tracking alerts: while their consensus is still visible,
+  // record which wallets it's made of so exits can be judged wallet-by-wallet.
+  for (const key of Object.keys(state.alertedAt)) {
+    const meta = state.alertedMeta[key];
+    if (meta && !meta.wallets && map[key] && map[key].traders.length >= 2) {
+      meta.wallets = [...map[key].wallets];
+    }
+  }
+
+  // Exit checks must see the consensus wallets even if they've dropped out of
+  // the top-20 pool this run — fetch any that weren't already pulled.
+  const extraWallets = new Set();
+  for (const key of Object.keys(state.alertedAt)) {
+    for (const w of state.alertedMeta[key]?.wallets || []) {
+      if (!positionsByWallet[w]) extraWallets.add(w);
+    }
+  }
+  for (const w of extraWallets) {
+    positionsByWallet[w] = await fetchPositions(w);
+    await new Promise(r => setTimeout(r, 150));
+  }
+
   const entryEvents = [];
   const exitEvents = [];
 
@@ -274,7 +325,36 @@ async function main() {
     ...Object.keys(state.alertedAt),
     ...Object.keys(state.pendingExit),
   ]);
+  const dropAlert = (key) => {
+    delete state.consensusFirstSeen[key];
+    delete state.alertedAt[key];
+    delete state.alertedMeta[key];
+    delete state.pendingExit[key];
+  };
   for (const key of trackedKeys) {
+    const meta = state.alertedMeta[key];
+    if (state.alertedAt[key] && meta?.wallets) {
+      // Wallet-based exit: judged only by whether the consensus wallets still
+      // hold, at any price — immune to the BUY band and leaderboard churn.
+      const { holding, lost, maxPrice } = checkHolders(key, meta.wallets, positionsByWallet);
+      if (holding >= 2) {
+        delete state.pendingExit[key];
+        if (maxPrice >= 0.95 && !meta.wonNotified) {
+          meta.wonNotified = true; // one-time heads-up; keep tracking in case it reverses
+          exitEvents.push({ key, meta, kind: 'won' });
+        }
+        continue;
+      }
+      const misses = (state.pendingExit[key] || 0) + 1;
+      if (misses >= EXIT_CONFIRM_MISSES) {
+        exitEvents.push({ key, meta, kind: lost > 0 ? 'lost' : 'sell' });
+        dropAlert(key);
+      } else {
+        state.pendingExit[key] = misses;
+      }
+      continue;
+    }
+    // Legacy / un-alerted keys: original consensus-visibility check.
     const alive = map[key] && map[key].traders.length >= 2;
     if (alive) {
       delete state.pendingExit[key]; // false alarm, cancel any pending exit
@@ -283,14 +363,8 @@ async function main() {
     if (state.alertedAt[key]) {
       const misses = (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
-        // Position dropped out of the top traders' holdings — either they sold,
-        // or the market resolved against them (currentValue hit 0 either way).
-        // Same actionable message either way: they're no longer in it.
-        exitEvents.push({ key, meta: state.alertedMeta[key] });
-        delete state.consensusFirstSeen[key];
-        delete state.alertedAt[key];
-        delete state.alertedMeta[key];
-        delete state.pendingExit[key];
+        exitEvents.push({ key, meta: state.alertedMeta[key], kind: 'sell' });
+        dropAlert(key);
       } else {
         state.pendingExit[key] = misses;
       }
@@ -309,7 +383,7 @@ async function main() {
       if (count > lastAlerted) {
         entryEvents.push(summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased'));
         state.alertedAt[item.key] = count;
-        state.alertedMeta[item.key] = { title: item.title, slug: item.slug };
+        state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets] };
       }
     }
   }
