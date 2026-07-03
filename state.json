@@ -5,7 +5,6 @@
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 1783041972813,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 1783041972813,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 1783081452828,
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": 1783092375043,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 1783101633070,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
@@ -18,7 +17,6 @@
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 3,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 4,
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": 6,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 4,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
@@ -73,18 +71,6 @@
       ],
       "wonNotified": true
     },
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": {
-      "title": "Australia vs. Egypt: Team to Advance",
-      "slug": "fifwc-aus-egy-2026-07-03-more-markets",
-      "wallets": [
-        "0x095fbca2e0eaf0c9841005135427e1e0117190b2",
-        "0xe221be3b45dfe5ed562ee9dc16f47205728e06f6",
-        "0x924379a79c64b77ad5816ad362122a5f6228658e",
-        "0xa6d188fb70c2e2e9ad411c42c02379ed3020286a",
-        "0x65018f9fc473f6e920b8929a375d39c26a461220",
-        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
-      ]
-    },
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": {
       "title": "Will Australia vs. Egypt end in a draw?",
       "slug": "fifwc-aus-egy-2026-07-03",
@@ -129,7 +115,5 @@
       ]
     }
   },
-  "pendingExit": {
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": 1
-  }
+  "pendingExit": {}
 }
