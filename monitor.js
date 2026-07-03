@@ -11,7 +11,7 @@ const STATE_FILE = path.join(__dirname, 'state.json');
 
 const THRESHOLD = 2;
 const MIN_VOLUME = 500_000;
-const MIN_PRICE = 0.2;
+const MIN_PRICE = 0.1;
 const MAX_PRICE = 0.8;
 const PERSIST_WINDOW_MS = 5 * 60 * 1000;
 const EXIT_CONFIRM_MISSES = 2; // must be gone 2 consecutive runs before we call it a real exit, not an API blip
@@ -158,6 +158,23 @@ function truncate(s, n) {
   return s && s.length > n ? s.slice(0, n - 1) + '…' : (s || '');
 }
 
+// Risk read from what's already computed — no extra API calls. Longshot price
+// means big variance (win big or lose the stake); chasing means paying more
+// than the smart money did; thin trader count means weaker confirmation.
+function riskLevel(avgPrice, count, chase) {
+  let score = 0;
+  if (avgPrice != null) {
+    if (avgPrice < 25) score += 2;
+    else if (avgPrice > 65) score += 1;
+  }
+  if (chase) score += 2;
+  if (count <= THRESHOLD) score += 1;
+  else if (count >= 4) score -= 1;
+  if (score >= 3) return { tag: 'HIGH', emoji: '🔴' };
+  if (score >= 1) return { tag: 'MED', emoji: '🟡' };
+  return { tag: 'LOW', emoji: '🟢' };
+}
+
 function summarizeEntry(item, count, total, reason) {
   const avgPrice = item.prices.length
     ? (item.prices.reduce((s, p) => s + Number(p), 0) / item.prices.length * 100)
@@ -170,19 +187,20 @@ function summarizeEntry(item, count, total, reason) {
   const label = reason === 'new' ? `${count}/${total} traders agree, ${heldTxt}` : `${count}/${total} traders — grew while held`;
   const chase = (avgPrice != null && avgEntry != null && (avgPrice - avgEntry) > 8)
     ? `WARNING: price is ${(avgPrice - avgEntry).toFixed(0)}c above their entry - do not chase` : null;
-  return { item, count, total, label, avgPrice, avgEntry, chase };
+  const risk = riskLevel(avgPrice, count, chase);
+  return { item, count, total, label, avgPrice, avgEntry, chase, risk };
 }
 
 async function sendEntryPush(s) {
-  const { item, count, total, label, avgPrice, avgEntry, chase } = s;
+  const { item, count, total, label, avgPrice, avgEntry, chase, risk } = s;
   const p = avgPrice != null ? avgPrice.toFixed(1) : '?';
   const e = avgEntry != null ? avgEntry.toFixed(1) : '?';
   const outcome = item.outcome.toUpperCase();
-  console.log(`BUY: ${label} :: ${outcome} on "${item.title}" @ ${p}c (entry ~${e}c) :: ${item.traders.join(', ')}`);
+  console.log(`BUY [${risk.tag}]: ${label} :: ${outcome} on "${item.title}" @ ${p}c (entry ~${e}c) :: ${item.traders.join(', ')}`);
   if (!NTFY_TOPIC) return;
-  const body = `**${outcome}** now ${p}c (their entry ~${e}c)\n${label}${chase ? `\n**${chase}**` : ''}\n\nTraders: ${item.traders.join(', ')}`;
+  const body = `**${outcome}** now ${p}c (their entry ~${e}c)\n${label}\n**Risk: ${risk.tag}**${chase ? `\n**${chase}**` : ''}\n\nTraders: ${item.traders.join(', ')}`;
   const headers = {
-    'Title': `📈 BUY · ${truncate(item.title, 40)} — ${outcome}`,
+    'Title': `${risk.emoji} BUY · ${truncate(item.title, 38)} — ${outcome}`,
     'Priority': count >= 5 ? 'urgent' : 'high',
     'Tags': 'chart_increasing',
     'Markdown': 'yes',
@@ -254,7 +272,7 @@ async function sendDigest(entryEvents, exitEvents) {
     lines.push('**BUY**');
     for (const s of entryEvents) {
       const p = s.avgPrice != null ? s.avgPrice.toFixed(1) : '?';
-      lines.push(`📈 ${truncate(s.item.title, 45)} — ${s.item.outcome.toUpperCase()} @ ${p}c${s.chase ? ' — do not chase' : ''} (${s.count}/${s.total})`);
+      lines.push(`${s.risk.emoji} ${truncate(s.item.title, 45)} — ${s.item.outcome.toUpperCase()} @ ${p}c${s.chase ? ' — do not chase' : ''} (${s.count}/${s.total}, ${s.risk.tag})`);
     }
   }
   const body = lines.join('\n');
