@@ -8,7 +8,6 @@
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 1783041972813,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 1783041972813,
     "0x76c1eda0b4e4c7c0164389c74014e83ab29de3234749bfb22db5bc3bff34e593|Switzerland": 1783043531964,
-    "0x4dd987594593e7e1fca9a4e0bc4301cc9320b3c51255fde088d40763ed01a69d|No": 1783045573180,
     "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": 1783047375173
   },
   "alertedAt": {
@@ -20,7 +19,6 @@
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 2,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 2,
     "0x76c1eda0b4e4c7c0164389c74014e83ab29de3234749bfb22db5bc3bff34e593|Switzerland": 2,
-    "0x4dd987594593e7e1fca9a4e0bc4301cc9320b3c51255fde088d40763ed01a69d|No": 2,
     "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": 2
   },
   "alertedMeta": {
@@ -56,16 +54,10 @@
       "title": "Switzerland vs. Algeria: Team to Advance",
       "slug": "fifwc-che-alg-2026-07-02-more-markets"
     },
-    "0x4dd987594593e7e1fca9a4e0bc4301cc9320b3c51255fde088d40763ed01a69d|No": {
-      "title": "Will Algeria win on 2026-07-02?",
-      "slug": "fifwc-che-alg-2026-07-02"
-    },
     "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": {
       "title": "Switzerland vs. Algeria: O/U 2.5",
       "slug": "fifwc-che-alg-2026-07-02-more-markets"
     }
   },
-  "pendingExit": {
-    "0x4dd987594593e7e1fca9a4e0bc4301cc9320b3c51255fde088d40763ed01a69d|No": 1
-  }
+  "pendingExit": {}
 }
