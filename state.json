@@ -47,5 +47,8 @@
       "slug": "presidential-election-winner-2028"
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422|Yes": 1,
+    "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422|No": 1
+  }
 }
