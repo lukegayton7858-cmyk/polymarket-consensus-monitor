@@ -13,7 +13,7 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Egypt": 1783109014219
+    "0xb7dc069ed1fa05b964f3fcf5a201fc5f19c812d7f2f1328b2c922abab8dc250e|Argentina": 1783112052517
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -28,8 +28,7 @@
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 4,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
-    "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Egypt": 2
+    "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -154,17 +153,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ]
-    },
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Egypt": {
-      "title": "Australia vs. Egypt: Team to Advance",
-      "slug": "fifwc-aus-egy-2026-07-03-more-markets",
-      "wallets": [
-        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
-        "0xa49becb692927d455924583b5e3e5788246f4c40"
-      ]
     }
   },
-  "pendingExit": {
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Egypt": 1
-  }
+  "pendingExit": {}
 }
