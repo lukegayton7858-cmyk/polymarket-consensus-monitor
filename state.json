@@ -23,7 +23,9 @@
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0xb7dc069ed1fa05b964f3fcf5a201fc5f19c812d7f2f1328b2c922abab8dc250e|Argentina": 2,
     "0xf5f92385410ab388143b226e44bc97270f9f39dc3a3f76c19196b48394d37966|Argentina": 2,
-    "0xb81d9a63be774f9c3db1b96af4d0e869128643a29c6eb922c0d8a20137880120|No": 3
+    "0xb81d9a63be774f9c3db1b96af4d0e869128643a29c6eb922c0d8a20137880120|No": 3,
+    "0xb81d9a63be774f9c3db1b96af4d0e869128643a29c6eb922c0d8a20137880120|Yes": 2,
+    "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -110,6 +112,22 @@
         "0x095fbca2e0eaf0c9841005135427e1e0117190b2",
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
+      ]
+    },
+    "0xb81d9a63be774f9c3db1b96af4d0e869128643a29c6eb922c0d8a20137880120|Yes": {
+      "title": "Will Argentina win on 2026-07-03?",
+      "slug": "fifwc-arg-cvi-2026-07-03",
+      "wallets": [
+        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a",
+        "0xa40778fb8d0dba8a24a99c7d23511af263faca38"
+      ]
+    },
+    "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": {
+      "title": "Argentina vs. Cabo Verde: Team to Advance",
+      "slug": "fifwc-arg-cvi-2026-07-03-more-markets",
+      "wallets": [
+        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
+        "0xa49becb692927d455924583b5e3e5788246f4c40"
       ]
     }
   },
