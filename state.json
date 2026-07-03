@@ -53,5 +53,7 @@
       "slug": "fifwc-aus-egy-2026-07-03-more-markets"
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0xc4a26ee77fc5777d5036854f3835bf7ce44b42a61e3c6325c22b444627757eca|Yes": 1
+  }
 }
