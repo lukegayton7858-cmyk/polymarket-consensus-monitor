@@ -13,7 +13,9 @@
     "0x00de24efbe083e61da20587be324b35e842b51f330c4f5c55942bf8681cd0857|Yes": 2,
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 2,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 2,
-    "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 2
+    "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 2,
+    "0x614c0fdc1fc1a14df170bec4ab0eabdcdc870aaae1da9979c056714b96db4441|Switzerland": 2,
+    "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -35,6 +37,14 @@
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": {
       "title": "Will Egypt win on 2026-07-03?",
       "slug": "fifwc-aus-egy-2026-07-03"
+    },
+    "0x614c0fdc1fc1a14df170bec4ab0eabdcdc870aaae1da9979c056714b96db4441|Switzerland": {
+      "title": "Spread: Switzerland (-1.5)",
+      "slug": "fifwc-che-alg-2026-07-02-more-markets"
+    },
+    "0xaf01d7a1615baf2c0f924097bf7cddaff4f2d30d4eb2436f7018acf67c339488|Under": {
+      "title": "Switzerland vs. Algeria: O/U 2.5",
+      "slug": "fifwc-che-alg-2026-07-02-more-markets"
     }
   },
   "pendingExit": {}
