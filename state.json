@@ -14,7 +14,8 @@
     "0x00de24efbe083e61da20587be324b35e842b51f330c4f5c55942bf8681cd0857|Yes": 2,
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 2,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 2,
-    "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 3
+    "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 3,
+    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -35,6 +36,10 @@
     },
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": {
       "title": "Will Egypt win on 2026-07-03?",
+      "slug": "fifwc-aus-egy-2026-07-03"
+    },
+    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": {
+      "title": "Will Australia vs. Egypt end in a draw?",
       "slug": "fifwc-aus-egy-2026-07-03"
     }
   },
