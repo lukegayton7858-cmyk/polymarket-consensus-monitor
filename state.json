@@ -5,7 +5,6 @@
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 1783041972813,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 1783041972813,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 1783081452828,
-    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 1783101633070,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
@@ -17,7 +16,6 @@
     "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 3,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 4,
-    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 4,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
@@ -71,16 +69,6 @@
       ],
       "wonNotified": true
     },
-    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": {
-      "title": "Will Australia vs. Egypt end in a draw?",
-      "slug": "fifwc-aus-egy-2026-07-03",
-      "wallets": [
-        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a",
-        "0x5257aa84944804bbb0c718814ebebeeafaca3e2a",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0x53757615de1c42b83f893b79d4241a009dc2aeea"
-      ]
-    },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
       "slug": "world-cup-winner",
@@ -115,7 +103,5 @@
       ]
     }
   },
-  "pendingExit": {
-    "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 1
-  }
+  "pendingExit": {}
 }
