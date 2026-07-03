@@ -22,7 +22,7 @@
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|Yes": 4,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|Yes": 4,
-    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": 3,
+    "0x9ad06dd68a4075ba2ac99fc138f7c1506f236851233b0ec79a130a348af19a82|Australia": 4,
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|No": 3,
     "0xa66b0dc5d126cd76a7434ff4782acfb59c267130afea696d71fefaea98beb381|Under": 2,
     "0x71b9be2e4558d3581e1023a0e0568a7a49fcca8c7f1ba1d1ca73fa1deb05e76f|No": 4,
@@ -92,9 +92,10 @@
       "title": "Australia vs. Egypt: Team to Advance",
       "slug": "fifwc-aus-egy-2026-07-03-more-markets",
       "wallets": [
+        "0xa6d188fb70c2e2e9ad411c42c02379ed3020286a",
+        "0xe221be3b45dfe5ed562ee9dc16f47205728e06f6",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
-        "0x924379a79c64b77ad5816ad362122a5f6228658e",
-        "0xa6d188fb70c2e2e9ad411c42c02379ed3020286a"
+        "0x5257aa84944804bbb0c718814ebebeeafaca3e2a"
       ]
     },
     "0xf3a4ebc0e59aadc6c37a49f7e50c34233925d15868fbdef7a83c4da274e1dfb3|No": {
