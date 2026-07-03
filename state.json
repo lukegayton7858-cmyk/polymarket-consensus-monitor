@@ -53,5 +53,7 @@
       "slug": "fifwc-che-alg-2026-07-02-more-markets"
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x76c1eda0b4e4c7c0164389c74014e83ab29de3234749bfb22db5bc3bff34e593|Switzerland": 1
+  }
 }
