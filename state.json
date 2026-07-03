@@ -11,7 +11,7 @@
     "0x4dd987594593e7e1fca9a4e0bc4301cc9320b3c51255fde088d40763ed01a69d|No": 1783045573180
   },
   "alertedAt": {
-    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 2,
+    "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": 3,
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|Yes": 3,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 3,
     "0x00de24efbe083e61da20587be324b35e842b51f330c4f5c55942bf8681cd0857|Yes": 2,
@@ -24,8 +24,7 @@
   "alertedMeta": {
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|No": {
       "title": "Will Switzerland win on 2026-07-02?",
-      "slug": "fifwc-che-alg-2026-07-02",
-      "endDate": "2026-07-03"
+      "slug": "fifwc-che-alg-2026-07-02"
     },
     "0x498cd7fcb7d5209192cd31676f27413e0a3bdb8c8d8d228229cac24c0701fc27|Yes": {
       "title": "Will Switzerland win on 2026-07-02?",
