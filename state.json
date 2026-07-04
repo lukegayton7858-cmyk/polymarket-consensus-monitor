@@ -20,7 +20,10 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 2,
-    "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|No": 2
+    "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|No": 2,
+    "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|Yes": 2,
+    "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 2,
+    "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -89,6 +92,30 @@
       "wallets": [
         "0x7dddf1968c14900b2d2ef9dada8465e82ac4c933",
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
+      ]
+    },
+    "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|Yes": {
+      "title": "Will United States vs. Belgium end in a draw?",
+      "slug": "fifwc-usa-bel-2026-07-06",
+      "wallets": [
+        "0x85f031d069de300055900c4055c1baeb6bde3f67",
+        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
+      ]
+    },
+    "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": {
+      "title": "Will Colombia win on 2026-07-07?",
+      "slug": "fifwc-che-col-2026-07-07",
+      "wallets": [
+        "0x85f031d069de300055900c4055c1baeb6bde3f67",
+        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
+      ]
+    },
+    "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": {
+      "title": "Will Belgium win on 2026-07-06?",
+      "slug": "fifwc-usa-bel-2026-07-06",
+      "wallets": [
+        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
+        "0xb61b2079b95f6b7476fd3203e0274ffb93308a06"
       ]
     }
   },
