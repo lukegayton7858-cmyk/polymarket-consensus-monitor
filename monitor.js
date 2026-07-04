@@ -160,6 +160,14 @@ function truncate(s, n) {
   return s && s.length > n ? s.slice(0, n - 3) + '...' : (s || '');
 }
 
+// Keeps the whole Title within a fixed character budget no matter how long the
+// outcome word or market question are, so the OS never cuts it off mid-word at
+// an unpredictable point — our own "..." always lands cleanly instead.
+function boundTitle(prefix, title, maxTotal = 48) {
+  const room = Math.max(maxTotal - prefix.length, 12);
+  return asciiSafe(prefix + truncate(title, room));
+}
+
 // Market titles come from Polymarket's API and can contain smart quotes/dashes
 // (e.g. "Women's" with a curly apostrophe) or other characters outside Latin-1.
 // Any of those inside an ntfy header value throws and silently kills the push
@@ -219,11 +227,12 @@ async function sendEntryPush(s) {
   const outcome = item.outcome.toUpperCase();
   console.log(`BUY [${risk.tag}]: ${label} :: ${outcome} on "${item.title}" @ ${p}c (entry ~${e}c) :: ${item.traders.join(', ')}`);
   if (!NTFY_TOPIC) return true;
-  // Action first (side, price, risk) — phone lock screens truncate the tail,
-  // so the market name is what gets cut, never the tradeable info.
-  const body = `${item.title}\n**${outcome} @ ${p}c** · entry ~${e}c · Risk ${risk.tag}\n${label}${chase ? `\n**${chase}**` : ''}\n\nTraders: ${item.traders.join(', ')}`;
+  // Title is a fixed-budget ASCII summary (side + price only — risk/emoji can't
+  // live in a header). Body leads with the risk emoji since that's unrestricted
+  // and is what you actually read once the notification's open.
+  const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}\n\n👥 ${item.traders.join(', ')}`;
   const headers = {
-    'Title': asciiSafe(`BUY ${outcome} @ ${p}c [${risk.tag}] - ${truncate(item.title, 32)}`),
+    'Title': boundTitle(`BUY ${outcome} @ ${Math.round(avgPrice ?? 0)}c - `, item.title),
     'Priority': count >= 5 ? 'urgent' : 'high',
     'Tags': 'chart_increasing',
     'Markdown': 'yes',
@@ -248,22 +257,22 @@ async function sendExitPush(key, meta, kind = 'sell') {
   const title = meta?.title || key.slice(0, 40);
   const variants = {
     sell: {
-      head: `SELL ${o} NOW - ${truncate(title, 36)}`, prio: 'urgent', tags: 'chart_decreasing',
-      body: `${title}\n**Top traders exited ${o} while the market is still live.** If you copied this bet, close it now.`,
+      head: boundTitle(`SELL ${o} NOW - `, title), prio: 'urgent', tags: 'chart_decreasing',
+      body: `📉 **${o} — close this now**\n${title}\nTop traders exited while the market is still live. If you copied this bet, close it.`,
     },
     lost: {
-      head: `LOST ${o} - ${truncate(title, 36)}`, prio: 'high', tags: 'x',
-      body: `${title}\nMarket resolved against **${o}**. Position settled at 0 — nothing to do.`,
+      head: boundTitle(`LOST ${o} - `, title), prio: 'high', tags: 'x',
+      body: `❌ **${o} — lost**\n${title}\nMarket resolved against ${o}. Position settled at 0 — nothing to do.`,
     },
     won: {
-      head: `WON ${o} (redeem) - ${truncate(title, 36)}`, prio: 'high', tags: 'white_check_mark',
-      body: `${title}\n**${o}** is at ~100c and traders are holding to resolution. **Hold — redeem when it settles.** Do not panic-sell.`,
+      head: boundTitle(`WON ${o}, redeem - `, title), prio: 'high', tags: 'white_check_mark',
+      body: `✅ **${o} — won, redeem**\n${title}\nPrice is ~100c and traders are holding to resolution. Hold — redeem when it settles. Do not panic-sell.`,
     },
   };
   const v = variants[kind] || variants.sell;
   console.log(`${kind.toUpperCase()}: ${o} on "${title}"`);
   if (!NTFY_TOPIC) return true;
-  const headers = { 'Title': asciiSafe(v.head), 'Priority': v.prio, 'Tags': v.tags, 'Markdown': 'yes' };
+  const headers = { 'Title': v.head, 'Priority': v.prio, 'Tags': v.tags, 'Markdown': 'yes' };
   if (meta?.slug) headers['Click'] = `https://polymarket.com/event/${meta.slug}`;
   try {
     const res = await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body: v.body, headers });
