@@ -21,7 +21,8 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0x254dfc6376b0fc88498424548750b885f3f2028674e853061b5234cd2f519ed0|Under": 2,
-    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 2
+    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 2,
+    "0x22f00bf63a3b57f8c774db0cf7560777018551bcbeafa9543c4e6a2c2cf09005|Under": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -99,6 +100,14 @@
       "wallets": [
         "0x85f031d069de300055900c4055c1baeb6bde3f67",
         "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227"
+      ]
+    },
+    "0x22f00bf63a3b57f8c774db0cf7560777018551bcbeafa9543c4e6a2c2cf09005|Under": {
+      "title": "Canada vs. Morocco: O/U 2.5",
+      "slug": "fifwc-can-mar-2026-07-04-more-markets",
+      "wallets": [
+        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
+        "0xe9a6ed2e4d4ee8ce47cd47cac834746dc4cf627b"
       ]
     }
   },
