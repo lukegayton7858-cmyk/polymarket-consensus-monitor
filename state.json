@@ -12,7 +12,6 @@
     "0x22f00bf63a3b57f8c774db0cf7560777018551bcbeafa9543c4e6a2c2cf09005|Under": 1783177454247,
     "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 1783182518662,
     "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": 1783184893940,
-    "0xfb2e524094df09bf6078173417b9d3f46b4b84d62366cd6a158c79dc180441fe|Morocco": 1783186095482,
     "0x68210f2621cee6f4fe7ab09cd5e721c0e1428c3914557b08bb26a68508cae680|No": 1783186095482
   },
   "alertedAt": {
@@ -28,7 +27,6 @@
     "0x22f00bf63a3b57f8c774db0cf7560777018551bcbeafa9543c4e6a2c2cf09005|Under": 3,
     "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 2,
     "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": 2,
-    "0xfb2e524094df09bf6078173417b9d3f46b4b84d62366cd6a158c79dc180441fe|Morocco": 2,
     "0x68210f2621cee6f4fe7ab09cd5e721c0e1428c3914557b08bb26a68508cae680|No": 2
   },
   "alertedMeta": {
@@ -140,15 +138,6 @@
       ],
       "wonNotified": true
     },
-    "0xfb2e524094df09bf6078173417b9d3f46b4b84d62366cd6a158c79dc180441fe|Morocco": {
-      "title": "Spread: Morocco (-1.5)",
-      "slug": "fifwc-can-mar-2026-07-04-more-markets",
-      "wallets": [
-        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
-        "0xc41d736bded9ed1accd6a44235039266219774fd"
-      ],
-      "wonNotified": true
-    },
     "0x68210f2621cee6f4fe7ab09cd5e721c0e1428c3914557b08bb26a68508cae680|No": {
       "title": "Canada vs. Morocco: Both Teams to Score",
       "slug": "fifwc-can-mar-2026-07-04-more-markets",
@@ -159,7 +148,5 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {
-    "0xfb2e524094df09bf6078173417b9d3f46b4b84d62366cd6a158c79dc180441fe|Morocco": 1
-  }
+  "pendingExit": {}
 }
