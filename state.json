@@ -159,5 +159,7 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0xfb2e524094df09bf6078173417b9d3f46b4b84d62366cd6a158c79dc180441fe|Morocco": 1
+  }
 }
