@@ -219,9 +219,11 @@ async function sendEntryPush(s) {
   const outcome = item.outcome.toUpperCase();
   console.log(`BUY [${risk.tag}]: ${label} :: ${outcome} on "${item.title}" @ ${p}c (entry ~${e}c) :: ${item.traders.join(', ')}`);
   if (!NTFY_TOPIC) return true;
-  const body = `**${outcome}** now ${p}c (their entry ~${e}c)\n${label}\n**Risk: ${risk.tag}**${chase ? `\n**${chase}**` : ''}\n\nTraders: ${item.traders.join(', ')}`;
+  // Action first (side, price, risk) — phone lock screens truncate the tail,
+  // so the market name is what gets cut, never the tradeable info.
+  const body = `${item.title}\n**${outcome} @ ${p}c** · entry ~${e}c · Risk ${risk.tag}\n${label}${chase ? `\n**${chase}**` : ''}\n\nTraders: ${item.traders.join(', ')}`;
   const headers = {
-    'Title': asciiSafe(`[${risk.tag}] BUY - ${truncate(item.title, 38)} - ${outcome}`),
+    'Title': asciiSafe(`BUY ${outcome} @ ${p}c [${risk.tag}] - ${truncate(item.title, 32)}`),
     'Priority': count >= 5 ? 'urgent' : 'high',
     'Tags': 'chart_increasing',
     'Markdown': 'yes',
@@ -246,16 +248,16 @@ async function sendExitPush(key, meta, kind = 'sell') {
   const title = meta?.title || key.slice(0, 40);
   const variants = {
     sell: {
-      head: `SELL - ${truncate(title, 40)} - ${o}`, prio: 'urgent', tags: 'chart_decreasing',
-      body: `**Top traders exited ${o} while the market is still live.** If you copied this bet, close it now.\n\n${title}`,
+      head: `SELL ${o} NOW - ${truncate(title, 36)}`, prio: 'urgent', tags: 'chart_decreasing',
+      body: `${title}\n**Top traders exited ${o} while the market is still live.** If you copied this bet, close it now.`,
     },
     lost: {
-      head: `LOST - ${truncate(title, 40)} - ${o}`, prio: 'high', tags: 'x',
-      body: `Market resolved against **${o}**. Position settled at 0 — nothing to do.\n\n${title}`,
+      head: `LOST ${o} - ${truncate(title, 36)}`, prio: 'high', tags: 'x',
+      body: `${title}\nMarket resolved against **${o}**. Position settled at 0 — nothing to do.`,
     },
     won: {
-      head: `WON - ${truncate(title, 40)} - ${o}`, prio: 'high', tags: 'white_check_mark',
-      body: `**${o}** is at ~100c and traders are holding to resolution. **Hold — redeem when it settles.** Do not panic-sell.\n\n${title}`,
+      head: `WON ${o} (redeem) - ${truncate(title, 36)}`, prio: 'high', tags: 'white_check_mark',
+      body: `${title}\n**${o}** is at ~100c and traders are holding to resolution. **Hold — redeem when it settles.** Do not panic-sell.`,
     },
   };
   const v = variants[kind] || variants.sell;
@@ -284,29 +286,43 @@ async function sendDigest(entryEvents, exitEvents) {
     return await sendExitPush(exitEvents[0].key, exitEvents[0].meta, exitEvents[0].kind);
   }
 
+  // Urgency order: live SELLs first (act now), then results, then BUYs
+  // sorted safest-first. Each line leads with side @ price so a wrapped
+  // line never hides what to actually do.
+  const kindOrder = { sell: 0, lost: 1, won: 2 };
+  const sortedExits = [...exitEvents].sort((a, b) => (kindOrder[a.kind] ?? 0) - (kindOrder[b.kind] ?? 0));
+  const riskOrder = { LOW: 0, MED: 1, HIGH: 2 };
+  const sortedEntries = [...entryEvents].sort((a, b) =>
+    (riskOrder[a.risk.tag] - riskOrder[b.risk.tag]) || (b.count - a.count));
+
   const lines = [];
-  if (exitEvents.length) {
+  if (sortedExits.length) {
     const icon = { sell: '📉 SELL', lost: '❌ LOST', won: '✅ WON' };
-    lines.push('**EXITS / RESULTS**');
-    for (const { key, meta, kind } of exitEvents) {
-      const outcome = key.slice(key.indexOf('|') + 1);
-      lines.push(`${icon[kind] || icon.sell} · ${truncate(meta?.title || key, 45)} — ${outcome?.toUpperCase() || ''}`);
+    for (const { key, meta, kind } of sortedExits) {
+      const outcome = key.slice(key.indexOf('|') + 1).toUpperCase();
+      lines.push(`${icon[kind] || icon.sell} ${outcome}${kind === 'sell' ? ' NOW' : ''} — ${truncate(meta?.title || key, 42)}`);
     }
   }
-  if (entryEvents.length) {
+  if (sortedEntries.length) {
     if (lines.length) lines.push('');
-    lines.push('**BUY**');
-    for (const s of entryEvents) {
-      const p = s.avgPrice != null ? s.avgPrice.toFixed(1) : '?';
-      lines.push(`${s.risk.emoji} ${truncate(s.item.title, 45)} — ${s.item.outcome.toUpperCase()} @ ${p}c${s.chase ? ' — do not chase' : ''} (${s.count}/${s.total}, ${s.risk.tag})`);
+    for (const s of sortedEntries) {
+      const p = s.avgPrice != null ? s.avgPrice.toFixed(0) : '?';
+      lines.push(`${s.risk.emoji} BUY ${s.item.outcome.toUpperCase()} @ ${p}c x${s.count}${s.chase ? ' ⚠️' : ''} — ${truncate(s.item.title, 42)}`);
     }
   }
   const body = lines.join('\n');
-  console.log(`DIGEST (${exitEvents.length} sell, ${entryEvents.length} buy):\n${body}`);
+  console.log(`DIGEST (${exitEvents.length} exit, ${entryEvents.length} buy):\n${body}`);
   if (!NTFY_TOPIC) return true;
 
+  const counts = { sell: 0, lost: 0, won: 0 };
+  for (const e of exitEvents) counts[e.kind] = (counts[e.kind] || 0) + 1;
+  const parts = [];
+  if (counts.sell) parts.push(`${counts.sell} SELL`);
+  if (counts.won) parts.push(`${counts.won} WON`);
+  if (counts.lost) parts.push(`${counts.lost} LOST`);
+  if (entryEvents.length) parts.push(`${entryEvents.length} BUY`);
   const headers = {
-    'Title': `Polymarket: ${exitEvents.length} EXIT, ${entryEvents.length} BUY`,
+    'Title': `Polymarket: ${parts.join(', ')}`,
     'Priority': 'high',
     'Tags': 'bell',
     'Markdown': 'yes',
