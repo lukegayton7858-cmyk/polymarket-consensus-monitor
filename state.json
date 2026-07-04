@@ -144,5 +144,9 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0xb7dc069ed1fa05b964f3fcf5a201fc5f19c812d7f2f1328b2c922abab8dc250e|Argentina": 1,
+    "0xb81d9a63be774f9c3db1b96af4d0e869128643a29c6eb922c0d8a20137880120|No": 1,
+    "0xb81d9a63be774f9c3db1b96af4d0e869128643a29c6eb922c0d8a20137880120|Yes": 1
+  }
 }
