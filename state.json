@@ -115,5 +115,7 @@
       ]
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x17b566faa4c085b49020ab355d4b81f01037634c6b17b15f455861f3cfb0ab55|France": 1
+  }
 }
