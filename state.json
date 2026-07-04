@@ -7,7 +7,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
-    "0xf5f92385410ab388143b226e44bc97270f9f39dc3a3f76c19196b48394d37966|Argentina": 1783114871241,
     "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": 1783121174574,
     "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Argentina": 1783124471273,
     "0xba9f8cf52b752cde7d4478aff324dcea53d565311e4c16e8389767b3e9e4b55a|Colombia": 1783126750402
@@ -20,7 +19,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
-    "0xf5f92385410ab388143b226e44bc97270f9f39dc3a3f76c19196b48394d37966|Argentina": 2,
     "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": 2,
     "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Argentina": 2
   },
@@ -86,14 +84,6 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ]
     },
-    "0xf5f92385410ab388143b226e44bc97270f9f39dc3a3f76c19196b48394d37966|Argentina": {
-      "title": "Spread: Argentina (-2.5)",
-      "slug": "fifwc-arg-cvi-2026-07-03-more-markets",
-      "wallets": [
-        "0xbf323edbbb4492ef9397917bfee804193e8a3b90",
-        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
-      ]
-    },
     "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": {
       "title": "Argentina vs. Cabo Verde: Team to Advance",
       "slug": "fifwc-arg-cvi-2026-07-03-more-markets",
@@ -113,6 +103,6 @@
     }
   },
   "pendingExit": {
-    "0xf5f92385410ab388143b226e44bc97270f9f39dc3a3f76c19196b48394d37966|Argentina": 1
+    "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Argentina": 1
   }
 }
