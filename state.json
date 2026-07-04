@@ -16,7 +16,8 @@
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
-    "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2
+    "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
+    "0x254dfc6376b0fc88498424548750b885f3f2028674e853061b5234cd2f519ed0|Under": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -78,6 +79,14 @@
       "wallets": [
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
+      ]
+    },
+    "0x254dfc6376b0fc88498424548750b885f3f2028674e853061b5234cd2f519ed0|Under": {
+      "title": "Paraguay vs. France: O/U 3.5",
+      "slug": "fifwc-par-fra-2026-07-04-more-markets",
+      "wallets": [
+        "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227",
+        "0xb61b2079b95f6b7476fd3203e0274ffb93308a06"
       ]
     }
   },
