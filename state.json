@@ -25,7 +25,8 @@
     "0x254dfc6376b0fc88498424548750b885f3f2028674e853061b5234cd2f519ed0|Under": 2,
     "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 2,
     "0x22f00bf63a3b57f8c774db0cf7560777018551bcbeafa9543c4e6a2c2cf09005|Under": 3,
-    "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 2
+    "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 2,
+    "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -122,6 +123,14 @@
       "slug": "fifwc-can-mar-2026-07-04",
       "wallets": [
         "0x7dddf1968c14900b2d2ef9dada8465e82ac4c933",
+        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
+      ]
+    },
+    "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": {
+      "title": "Will Canada win on 2026-07-04?",
+      "slug": "fifwc-can-mar-2026-07-04",
+      "wallets": [
+        "0x25d3d4e435ac54775b873708c25705321c31efe2",
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
       ]
     }
