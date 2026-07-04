@@ -7,7 +7,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
-    "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": 1783121174574,
     "0xba9f8cf52b752cde7d4478aff324dcea53d565311e4c16e8389767b3e9e4b55a|Colombia": 1783126750402,
     "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Under": 1783127116758
   },
@@ -19,7 +18,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
-    "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": 2,
     "0xba9f8cf52b752cde7d4478aff324dcea53d565311e4c16e8389767b3e9e4b55a|Colombia": 2
   },
   "alertedMeta": {
@@ -84,14 +82,6 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ]
     },
-    "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": {
-      "title": "Argentina vs. Cabo Verde: Team to Advance",
-      "slug": "fifwc-arg-cvi-2026-07-03-more-markets",
-      "wallets": [
-        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
-        "0xa49becb692927d455924583b5e3e5788246f4c40"
-      ]
-    },
     "0xba9f8cf52b752cde7d4478aff324dcea53d565311e4c16e8389767b3e9e4b55a|Colombia": {
       "title": "Spread: Colombia (-1.5)",
       "slug": "fifwc-col-gha-2026-07-03-more-markets",
@@ -101,7 +91,5 @@
       ]
     }
   },
-  "pendingExit": {
-    "0x4a0aa5a56b98476ffbab967ba0eb70d35794ad0f154fbce5b976d6053bb47808|Cabo Verde": 1
-  }
+  "pendingExit": {}
 }
