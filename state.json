@@ -22,7 +22,8 @@
     "0x254dfc6376b0fc88498424548750b885f3f2028674e853061b5234cd2f519ed0|Under": 2,
     "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 2,
     "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|No": 2,
-    "0xad3441638abca4aa830cb997b7caea5f3c8b84be06b99173781cb9a47c5cbc5a|No": 2
+    "0xad3441638abca4aa830cb997b7caea5f3c8b84be06b99173781cb9a47c5cbc5a|No": 2,
+    "0x17b566faa4c085b49020ab355d4b81f01037634c6b17b15f455861f3cfb0ab55|France": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -107,6 +108,14 @@
       "wallets": [
         "0x9ee8bbc36d378af72e5f6b8e2ea2eb67c05a89de",
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
+      ]
+    },
+    "0x17b566faa4c085b49020ab355d4b81f01037634c6b17b15f455861f3cfb0ab55|France": {
+      "title": "Spread: France (-1.5)",
+      "slug": "fifwc-par-fra-2026-07-04-more-markets",
+      "wallets": [
+        "0xbf323edbbb4492ef9397917bfee804193e8a3b90",
+        "0xe9a6ed2e4d4ee8ce47cd47cac834746dc4cf627b"
       ]
     }
   },
