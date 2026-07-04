@@ -8,9 +8,7 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
     "0x254dfc6376b0fc88498424548750b885f3f2028674e853061b5234cd2f519ed0|Under": 1783138631113,
-    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 1783174515855,
-    "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 1783182518662,
-    "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": 1783184893940
+    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 1783174515855
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -21,9 +19,7 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0x254dfc6376b0fc88498424548750b885f3f2028674e853061b5234cd2f519ed0|Under": 2,
-    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 2,
-    "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 2,
-    "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": 2
+    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -106,28 +102,9 @@
         "0x85f031d069de300055900c4055c1baeb6bde3f67",
         "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227"
       ]
-    },
-    "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": {
-      "title": "Will Canada vs. Morocco end in a draw?",
-      "slug": "fifwc-can-mar-2026-07-04",
-      "wallets": [
-        "0x7dddf1968c14900b2d2ef9dada8465e82ac4c933",
-        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
-      ],
-      "wonNotified": true
-    },
-    "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": {
-      "title": "Will Canada win on 2026-07-04?",
-      "slug": "fifwc-can-mar-2026-07-04",
-      "wallets": [
-        "0x25d3d4e435ac54775b873708c25705321c31efe2",
-        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
-      ],
-      "wonNotified": true
     }
   },
   "pendingExit": {
-    "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 1,
-    "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": 1
+    "0xa947b7c696453a288460a8e12aae31b854ca02d0b87970ffc259cec8a9fffcd2|Yes": 1
   }
 }
