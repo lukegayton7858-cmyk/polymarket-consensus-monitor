@@ -451,19 +451,42 @@ async function main() {
     }
   }
 
+  // One market can have opposing outcomes (Over/Under, Yes/No) reach consensus
+  // independently, from different traders — that produced literal "BUY OVER"
+  // then 5 minutes later "BUY UNDER" on the identical line. Group by conditionId
+  // so at most one outcome per market ever alerts: whichever already has an open
+  // alert keeps exclusive claim on that market; among brand-new candidates on
+  // the same market in the same run, only the stronger side (more traders, then
+  // longer-held) fires — the other stays silently tracked, never pushed.
   const total = topTraders.length || 10;
+  const claimedOutcome = {};
+  for (const key of Object.keys(state.alertedAt)) {
+    const idx = key.indexOf('|');
+    claimedOutcome[key.slice(0, idx)] = key.slice(idx + 1);
+  }
+  const byCondition = {};
   for (const item of Object.values(map)) {
+    (byCondition[item.conditionId] ||= []).push(item);
+  }
+  for (const cid of Object.keys(byCondition)) {
+    let candidates = byCondition[cid].filter(item => {
+      const count = item.traders.length;
+      if (count < THRESHOLD || (item.ageMs || 0) < PERSIST_WINDOW_MS) return false;
+      return count > (state.alertedAt[item.key] || 0);
+    });
+    if (!candidates.length) continue;
+    const claimed = claimedOutcome[cid];
+    if (claimed) candidates = candidates.filter(item => item.outcome === claimed);
+    if (!candidates.length) continue;
+    candidates.sort((a, b) => (b.traders.length - a.traders.length) || ((b.ageMs || 0) - (a.ageMs || 0)));
+    const item = candidates[0];
     const count = item.traders.length;
-    if (count >= THRESHOLD && (item.ageMs || 0) >= PERSIST_WINDOW_MS) {
-      const lastAlerted = state.alertedAt[item.key] || 0;
-      if (count > lastAlerted) {
-        entryEvents.push(summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased'));
-        commitOps.push(() => {
-          state.alertedAt[item.key] = count;
-          state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets] };
-        });
-      }
-    }
+    const lastAlerted = state.alertedAt[item.key] || 0;
+    entryEvents.push(summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased'));
+    commitOps.push(() => {
+      state.alertedAt[item.key] = count;
+      state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets] };
+    });
   }
 
   const sent = await sendDigest(entryEvents, exitEvents);
