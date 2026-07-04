@@ -8,7 +8,6 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
     "0xba9f8cf52b752cde7d4478aff324dcea53d565311e4c16e8389767b3e9e4b55a|Colombia": 1783126750402,
-    "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Under": 1783127116758,
     "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Over": 1783128433217
   },
   "alertedAt": {
@@ -20,7 +19,6 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 2,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0xba9f8cf52b752cde7d4478aff324dcea53d565311e4c16e8389767b3e9e4b55a|Colombia": 4,
-    "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Under": 4,
     "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Over": 3
   },
   "alertedMeta": {
@@ -95,17 +93,6 @@
         "0xa6d188fb70c2e2e9ad411c42c02379ed3020286a"
       ]
     },
-    "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Under": {
-      "title": "Colombia vs. Ghana: O/U 2.5",
-      "slug": "fifwc-col-gha-2026-07-03-more-markets",
-      "wallets": [
-        "0x095fbca2e0eaf0c9841005135427e1e0117190b2",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0xe9a6ed2e4d4ee8ce47cd47cac834746dc4cf627b",
-        "0x924379a79c64b77ad5816ad362122a5f6228658e"
-      ],
-      "wonNotified": true
-    },
     "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Over": {
       "title": "Colombia vs. Ghana: O/U 2.5",
       "slug": "fifwc-col-gha-2026-07-03-more-markets",
@@ -117,6 +104,6 @@
     }
   },
   "pendingExit": {
-    "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Under": 1
+    "0xfffb1f8d13c2180831f8dc8302324b85321bc3d74ad28432de109428759e3c9c|Over": 1
   }
 }
