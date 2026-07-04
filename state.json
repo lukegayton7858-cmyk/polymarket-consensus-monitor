@@ -148,5 +148,8 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x22f00bf63a3b57f8c774db0cf7560777018551bcbeafa9543c4e6a2c2cf09005|Under": 1,
+    "0x68210f2621cee6f4fe7ab09cd5e721c0e1428c3914557b08bb26a68508cae680|No": 1
+  }
 }
