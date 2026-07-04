@@ -126,5 +126,8 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x962c33d297cb9720835b5e5579a3d9f8bb0e0c97429d59ee01c70bc073c18d7f|No": 1,
+    "0xd510cba5f5ee6a45a3141d3d4a260b48e7d06bde072db95afe60c13b2f10d862|No": 1
+  }
 }
