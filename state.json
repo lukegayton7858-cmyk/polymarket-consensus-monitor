@@ -136,7 +136,8 @@
       "wallets": [
         "0x25d3d4e435ac54775b873708c25705321c31efe2",
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
-      ]
+      ],
+      "wonNotified": true
     },
     "0xfb2e524094df09bf6078173417b9d3f46b4b84d62366cd6a158c79dc180441fe|Morocco": {
       "title": "Spread: Morocco (-1.5)",
