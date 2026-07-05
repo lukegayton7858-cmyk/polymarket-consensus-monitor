@@ -26,7 +26,7 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
-    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 4,
+    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|England": 5,
     "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|No": 2,
     "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": 2,
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
@@ -90,11 +90,12 @@
       "slug": "fifwc-mex-eng-2026-07-05-more-markets",
       "wallets": [
         "0x85f031d069de300055900c4055c1baeb6bde3f67",
+        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227",
-        "0xa6d188fb70c2e2e9ad411c42c02379ed3020286a"
+        "0xa6a872ded6039c17a9e5c81b706c04e76fbeba32"
       ],
-      "size0": 620262.0197000001
+      "size0": 1941943.5809999998
     },
     "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|No": {
       "title": "Will Mexico win on 2026-07-05?",
