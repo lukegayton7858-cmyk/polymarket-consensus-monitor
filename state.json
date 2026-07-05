@@ -13,7 +13,6 @@
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 1783207091982,
     "0xad9e90bf3ccd05f9c3d4a25f49109d5f860225c26faec54b52edec93c4ba4e62|Brazil": 1783222230404,
     "0x2a0e8ce7c309ec8015c4c721dec574ff100b0512ef412a54bb733dc5bef740dc|Yes": 1783227792501,
-    "0x34432ae59cf61fa9e03bf2813b5f7ed6511fe08bb44434ded994df48701d4234|Top Esports": 1783228030961,
     "0x2a0e8ce7c309ec8015c4c721dec574ff100b0512ef412a54bb733dc5bef740dc|No": 1783228224132,
     "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": 1783233135283
   },
@@ -31,7 +30,6 @@
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
     "0xad9e90bf3ccd05f9c3d4a25f49109d5f860225c26faec54b52edec93c4ba4e62|Brazil": 2,
     "0x2a0e8ce7c309ec8015c4c721dec574ff100b0512ef412a54bb733dc5bef740dc|Yes": 2,
-    "0x34432ae59cf61fa9e03bf2813b5f7ed6511fe08bb44434ded994df48701d4234|Top Esports": 3,
     "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": 2
   },
   "alertedMeta": {
@@ -143,15 +141,6 @@
       "wallets": [
         "0xe9076a87c5ed90ef16e6fe6529c943baeca0cff6",
         "0xa6d188fb70c2e2e9ad411c42c02379ed3020286a"
-      ]
-    },
-    "0x34432ae59cf61fa9e03bf2813b5f7ed6511fe08bb44434ded994df48701d4234|Top Esports": {
-      "title": "LoL: Team Secret Whales vs Top Esports (BO5) - Mid-Season Invitational Playoffs",
-      "slug": "lol-tsw-tes-2026-07-04",
-      "wallets": [
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0xe9076a87c5ed90ef16e6fe6529c943baeca0cff6",
-        "0x7d787c72c8317046fda90814a93c87fc192529a5"
       ]
     },
     "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": {
