@@ -15,7 +15,6 @@
     "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": 1783261834933,
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 1783261834933,
     "0xcd5a126fcefcdfa03d8e25bfff3d3c4476100f630467622ec6d5fa7595c72636|No": 1783265775145,
-    "0x4da73e81ca85a3d9715340bea8dc38c102fe0bf63ba6aa1f3efd8a54d56e9d0d|Felix Auger-Aliassime": 1783272640330,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|United States": 1783276236913,
     "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Portugal": 1783276236913,
     "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|Yes": 1783276236913,
@@ -37,7 +36,6 @@
     "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": 2,
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
     "0xcd5a126fcefcdfa03d8e25bfff3d3c4476100f630467622ec6d5fa7595c72636|No": 2,
-    "0x4da73e81ca85a3d9715340bea8dc38c102fe0bf63ba6aa1f3efd8a54d56e9d0d|Felix Auger-Aliassime": 2,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|United States": 2,
     "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Portugal": 2
   },
@@ -179,16 +177,6 @@
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
       ],
       "size0": 11891.501199999999
-    },
-    "0x4da73e81ca85a3d9715340bea8dc38c102fe0bf63ba6aa1f3efd8a54d56e9d0d|Felix Auger-Aliassime": {
-      "title": "Wimbledon ATP: Felix Auger-Aliassime vs Alejandro Davidovich Fokina",
-      "slug": "atp-augeral-fokina-2026-07-05",
-      "wallets": [
-        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
-        "0xf5fabdcdc6eb6d9765a228824f16cca9c91f62df"
-      ],
-      "size0": 231323.5,
-      "wonNotified": true
     },
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|United States": {
       "title": "United States vs. Belgium: Team to Advance",
