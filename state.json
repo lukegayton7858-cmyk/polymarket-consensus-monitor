@@ -45,7 +45,8 @@
     "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Portugal": 2,
     "0x3954fa9a86890fc978a9d8fde706900ab7a0fc24474c129619495d2d45b03f19|Over": 3,
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|Yes": 2,
-    "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 2
+    "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 2,
+    "0x35993b77d4e7322353199c68773070f7e31cbfffb58a5228e83d813df8371a15|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -234,6 +235,15 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26"
       ],
       "size0": 250579.7126
+    },
+    "0x35993b77d4e7322353199c68773070f7e31cbfffb58a5228e83d813df8371a15|Yes": {
+      "title": "Brazil leading at halftime?",
+      "slug": "fifwc-bra-nor-2026-07-05-halftime-result",
+      "wallets": [
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
+        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
+      ],
+      "size0": 130544.9966
     }
   },
   "pendingExit": {}
