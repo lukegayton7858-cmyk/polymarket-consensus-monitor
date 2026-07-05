@@ -52,7 +52,8 @@
     "0xe81ec0ca7357d9e91e9b95e1ecf60606f8b1686290464758b9a3595aeae11a1a|Yes": 3,
     "0xb6de0c43f214510ff0ecb581354805e1f337eaefc06ee5d220ebc06e16dea0b6|Over": 2,
     "0x9c55934cd521047470e0e30746b7e1e2d634263b40b9783e545082f2a88b369f|Over": 2,
-    "0x333bab6ed0bb5d30a935926a0f152d30844e1fce31fb1c85d128bf42fa2c5c93|No": 2
+    "0x333bab6ed0bb5d30a935926a0f152d30844e1fce31fb1c85d128bf42fa2c5c93|No": 2,
+    "0xe6f040d202cefefe47bdc9d192303905418223fec440f96eb2abe98f3b701bd4|No": 3
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -275,6 +276,16 @@
       ],
       "size0": 1341.97,
       "wonNotified": true
+    },
+    "0xe6f040d202cefefe47bdc9d192303905418223fec440f96eb2abe98f3b701bd4|No": {
+      "title": "Will Norway win on 2026-07-05?",
+      "slug": "fifwc-bra-nor-2026-07-05",
+      "wallets": [
+        "0xd1ed12197b7dc22dede923727e9b714024dbd7cb",
+        "0x83255595ba1fadd2e734cb30a0fb8110301a19cc",
+        "0x65018f9fc473f6e920b8929a375d39c26a461220"
+      ],
+      "size0": 96295.8455
     }
   },
   "pendingExit": {}
