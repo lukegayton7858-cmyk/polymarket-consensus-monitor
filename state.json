@@ -38,7 +38,7 @@
     "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|No": 2,
     "0xad9e90bf3ccd05f9c3d4a25f49109d5f860225c26faec54b52edec93c4ba4e62|Brazil": 3,
     "0x2a0e8ce7c309ec8015c4c721dec574ff100b0512ef412a54bb733dc5bef740dc|Yes": 5,
-    "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": 4,
+    "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": 5,
     "0x87030106adba59ce8ef007955073623da31f15fdf4655b96cf033fb9e57df694|No": 2,
     "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": 2,
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
@@ -49,7 +49,8 @@
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|Yes": 2,
     "0x35993b77d4e7322353199c68773070f7e31cbfffb58a5228e83d813df8371a15|Yes": 2,
     "0xe81ec0ca7357d9e91e9b95e1ecf60606f8b1686290464758b9a3595aeae11a1a|Yes": 2,
-    "0xe82319b558cf8be6098623af402bf29d1cfa0dc2e5a6b55ecbb13de90ff9b2b0|Over": 2
+    "0xe82319b558cf8be6098623af402bf29d1cfa0dc2e5a6b55ecbb13de90ff9b2b0|Over": 2,
+    "0xb6de0c43f214510ff0ecb581354805e1f337eaefc06ee5d220ebc06e16dea0b6|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -152,10 +153,11 @@
       "wallets": [
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
+        "0xa6cd8300ff70129ced69975180609e40a12b2f2c",
         "0xe221be3b45dfe5ed562ee9dc16f47205728e06f6",
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
       ],
-      "size0": 430198
+      "size0": 438922.32999999996
     },
     "0x87030106adba59ce8ef007955073623da31f15fdf4655b96cf033fb9e57df694|No": {
       "title": "Will Brazil vs. Norway end in a draw?",
@@ -256,6 +258,15 @@
         "0xe221be3b45dfe5ed562ee9dc16f47205728e06f6"
       ],
       "size0": 56355.0106
+    },
+    "0xb6de0c43f214510ff0ecb581354805e1f337eaefc06ee5d220ebc06e16dea0b6|Over": {
+      "title": "Brazil vs. Norway: O/U 1.5",
+      "slug": "fifwc-bra-nor-2026-07-05-more-markets",
+      "wallets": [
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
+        "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
+      ],
+      "size0": 50896.8281
     }
   },
   "pendingExit": {}
