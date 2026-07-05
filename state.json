@@ -263,7 +263,8 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "size0": 85658.9858
+      "size0": 85658.9858,
+      "wonNotified": true
     },
     "0x333bab6ed0bb5d30a935926a0f152d30844e1fce31fb1c85d128bf42fa2c5c93|No": {
       "title": "Brazil vs. Norway: Neither team to score first?",
@@ -272,7 +273,8 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227"
       ],
-      "size0": 1341.97
+      "size0": 1341.97,
+      "wonNotified": true
     }
   },
   "pendingExit": {}
