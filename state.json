@@ -27,7 +27,9 @@
     "0xad9e90bf3ccd05f9c3d4a25f49109d5f860225c26faec54b52edec93c4ba4e62|Brazil": 2,
     "0x2a0e8ce7c309ec8015c4c721dec574ff100b0512ef412a54bb733dc5bef740dc|Yes": 5,
     "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": 2,
-    "0x87030106adba59ce8ef007955073623da31f15fdf4655b96cf033fb9e57df694|No": 2
+    "0x87030106adba59ce8ef007955073623da31f15fdf4655b96cf033fb9e57df694|No": 2,
+    "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": 2,
+    "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -138,6 +140,24 @@
         "0x86d2d490bcac9fccea02a44c48272008e0c4731d"
       ],
       "size0": 287784.0418
+    },
+    "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": {
+      "title": "England to score first vs. Mexico?",
+      "slug": "fifwc-mex-eng-2026-07-05-first-to-score",
+      "wallets": [
+        "0x85f031d069de300055900c4055c1baeb6bde3f67",
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26"
+      ],
+      "size0": 6174.8515
+    },
+    "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": {
+      "title": "Will Belgium win on 2026-07-06?",
+      "slug": "fifwc-usa-bel-2026-07-06",
+      "wallets": [
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
+        "0xb61b2079b95f6b7476fd3203e0274ffb93308a06"
+      ],
+      "size0": 176036
     }
   },
   "pendingExit": {}
