@@ -30,7 +30,8 @@
     "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": 2,
     "0x87030106adba59ce8ef007955073623da31f15fdf4655b96cf033fb9e57df694|No": 2,
     "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": 2,
-    "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2
+    "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
+    "0xcd5a126fcefcdfa03d8e25bfff3d3c4476100f630467622ec6d5fa7595c72636|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -159,6 +160,15 @@
         "0xb61b2079b95f6b7476fd3203e0274ffb93308a06"
       ],
       "size0": 176036
+    },
+    "0xcd5a126fcefcdfa03d8e25bfff3d3c4476100f630467622ec6d5fa7595c72636|No": {
+      "title": "Will Mexico vs. England end in a draw?",
+      "slug": "fifwc-mex-eng-2026-07-05",
+      "wallets": [
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
+        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
+      ],
+      "size0": 11891.501199999999
     }
   },
   "pendingExit": {}
