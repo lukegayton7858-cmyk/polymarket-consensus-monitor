@@ -72,12 +72,15 @@ async function loadTopTraders() {
   return candidates.slice(0, 20);
 }
 
+// null = fetch FAILED (unknown state), [] = fetch succeeded and wallet holds
+// nothing. The distinction drives exit speed: a confirmed-empty response is
+// proof they sold; a failed fetch proves nothing and must not look identical.
 async function fetchPositions(wallet) {
   try {
     return await fetchJSON(`${POSITIONS_URL}?user=${wallet}&sizeThreshold=0.01`);
   } catch (e) {
     console.error(`positions fetch failed for ${wallet}: ${e.message}`);
-    return [];
+    return null;
   }
 }
 
@@ -148,9 +151,11 @@ function checkHolders(key, wallets, positionsByWallet) {
   const idx = key.indexOf('|');
   const cid = key.slice(0, idx);
   const outcome = key.slice(idx + 1);
-  let holding = 0, lost = 0, maxPrice = 0, totalSize = 0;
+  let holding = 0, lost = 0, maxPrice = 0, totalSize = 0, unknown = 0;
   for (const w of wallets) {
-    const p = (positionsByWallet[w] || []).find(x => x.conditionId === cid && x.outcome === outcome);
+    const pos = positionsByWallet[w];
+    if (pos == null) { unknown++; continue; } // fetch failed — no evidence either way
+    const p = pos.find(x => x.conditionId === cid && x.outcome === outcome);
     if (!p) continue;
     if ((p.currentValue ?? 1) <= 0) { lost++; continue; }
     holding++;
@@ -158,7 +163,7 @@ function checkHolders(key, wallets, positionsByWallet) {
     const pr = Number(p.curPrice ?? NaN);
     if (!Number.isNaN(pr) && pr > maxPrice) maxPrice = pr;
   }
-  return { holding, lost, maxPrice, totalSize };
+  return { holding, lost, maxPrice, totalSize, unknown };
 }
 
 // Plain "..." not the unicode ellipsis: this gets used inside ntfy Title headers,
@@ -435,7 +440,7 @@ async function main() {
     if (state.alertedAt[key] && meta?.wallets) {
       // Wallet-based exit: judged only by whether the consensus wallets still
       // hold, at any price — immune to the BUY band and leaderboard churn.
-      const { holding, lost, maxPrice, totalSize } = checkHolders(key, meta.wallets, positionsByWallet);
+      const { holding, lost, maxPrice, totalSize, unknown } = checkHolders(key, meta.wallets, positionsByWallet);
       if (holding >= 2) {
         delete state.pendingExit[key];
         if (maxPrice >= 0.95 && !meta.wonNotified) {
@@ -452,7 +457,11 @@ async function main() {
         }
         continue;
       }
-      const misses = (state.pendingExit[key] || 0) + 1;
+      // Every wallet fetch succeeded and the positions are confirmed gone —
+      // that's proof, not a blip. Fire the exit NOW instead of waiting the
+      // 2-run debounce; the slow path only applies when a fetch failed and
+      // "gone" could just mean "couldn't see it this run".
+      const misses = unknown === 0 ? EXIT_CONFIRM_MISSES : (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
         exitEvents.push({ key, meta, kind: lost > 0 ? 'lost' : 'sell' });
         commitOps.push(() => dropAlert(key));
@@ -535,10 +544,12 @@ async function main() {
   let sendableExits = exitEvents;
   if (MY_WALLET && exitEvents.length) {
     const mine = await fetchPositions(MY_WALLET);
-    const myCids = new Set(mine.map(p => p.conditionId));
-    sendableExits = exitEvents.filter(e => myCids.has(e.key.slice(0, e.key.indexOf('|'))));
-    const skipped = exitEvents.length - sendableExits.length;
-    if (skipped) console.log(`${skipped} exit event(s) suppressed — not held in MY_WALLET.`);
+    if (mine != null) { // failed fetch → can't know what he holds → send everything
+      const myCids = new Set(mine.map(p => p.conditionId));
+      sendableExits = exitEvents.filter(e => myCids.has(e.key.slice(0, e.key.indexOf('|'))));
+      const skipped = exitEvents.length - sendableExits.length;
+      if (skipped) console.log(`${skipped} exit event(s) suppressed — not held in MY_WALLET.`);
+    }
   }
 
   const sent = await sendDigest(entryEvents, sendableExits);
