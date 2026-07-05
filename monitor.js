@@ -22,6 +22,7 @@ const MIN_PRICE = 0.3;
 const MAX_PRICE = 0.8;
 const PERSIST_WINDOW_MS = 5 * 60 * 1000;
 const EXIT_CONFIRM_MISSES = 2; // must be gone 2 consecutive runs before we call it a real exit, not an API blip
+const FORM_MISS_TOLERANCE = 2; // same grace period, applied while a signal is still accumulating its 5-min age
 
 const NTFY_TOPIC = process.env.NTFY_TOPIC || '';
 // Luke's own Polymarket wallet (public on-chain data). When set, exit pushes
@@ -492,9 +493,20 @@ async function main() {
         state.pendingExit[key] = misses;
       }
     } else {
-      // Was still forming (never reached the alert threshold) — nothing to sell, just clean up.
-      delete state.consensusFirstSeen[key];
-      delete state.pendingExit[key];
+      // Still forming, not yet alerted, and briefly invisible this run — could be
+      // one wallet's API hiccup or a live-game price tick outside the band, not
+      // real dissolution. Previously this wiped consensusFirstSeen on ANY single
+      // miss, meaning the "5-minute persistence" gate actually required 5
+      // consecutive flawless minutes with zero flicker — a much harder bar than
+      // intended, and one that could make a genuinely long-running but choppy
+      // consensus never qualify. Now it gets the same grace period as exits.
+      const misses = (state.pendingExit[key] || 0) + 1;
+      if (misses >= FORM_MISS_TOLERANCE) {
+        delete state.consensusFirstSeen[key];
+        delete state.pendingExit[key];
+      } else {
+        state.pendingExit[key] = misses;
+      }
     }
   }
 
