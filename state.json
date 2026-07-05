@@ -40,7 +40,8 @@
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
     "0xcd5a126fcefcdfa03d8e25bfff3d3c4476100f630467622ec6d5fa7595c72636|No": 2,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|United States": 2,
-    "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Portugal": 2
+    "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Portugal": 2,
+    "0x3954fa9a86890fc978a9d8fde706900ab7a0fc24474c129619495d2d45b03f19|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -200,6 +201,15 @@
         "0x9703676286b93c2eca71ca96e8757104519a69c2"
       ],
       "size0": 83328.4795
+    },
+    "0x3954fa9a86890fc978a9d8fde706900ab7a0fc24474c129619495d2d45b03f19|Over": {
+      "title": "Brazil vs. Norway: O/U 9.5 Total Corners",
+      "slug": "fifwc-bra-nor-2026-07-05-total-corners",
+      "wallets": [
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
+        "0xe221be3b45dfe5ed562ee9dc16f47205728e06f6"
+      ],
+      "size0": 45713.7318
     }
   },
   "pendingExit": {}
