@@ -114,6 +114,7 @@ function buildConsensus(topTraders, positionsByWallet, state, now) {
           traders: [],
           prices: [],
           entries: [],
+          usd: 0,
         };
       }
       if (map[key].wallets.has(t.wallet)) continue;
@@ -121,6 +122,7 @@ function buildConsensus(topTraders, positionsByWallet, state, now) {
       map[key].traders.push(t.name);
       if (!Number.isNaN(price)) map[key].prices.push(price);
       if (!Number.isNaN(entry)) map[key].entries.push(entry);
+      map[key].usd += Number(p.initialValue) || 0; // cost basis = conviction in dollars
     }
   }
 
@@ -184,7 +186,7 @@ function asciiSafe(s) {
 // Risk read from what's already computed — no extra API calls. Longshot price
 // means big variance (win big or lose the stake); chasing means paying more
 // than the smart money did; thin trader count means weaker confirmation.
-function riskLevel(avgPrice, count, chase) {
+function riskLevel(avgPrice, count, chase, usd = 0) {
   let score = 0;
   if (avgPrice != null) {
     if (avgPrice < 25) score += 2;
@@ -193,6 +195,10 @@ function riskLevel(avgPrice, count, chase) {
   if (chase) score += 2;
   if (count <= THRESHOLD) score += 1;
   else if (count >= 4) score -= 1;
+  // Dollar conviction: $50k+ of the traders' own cost basis is a stronger
+  // signal than an extra head; pocket-change consensus is weaker than it looks.
+  if (usd >= 50_000) score -= 1;
+  else if (usd > 0 && usd < 5_000) score += 1;
   if (score >= 3) return { tag: 'HIGH', emoji: '🔴' };
   if (score >= 1) return { tag: 'MED', emoji: '🟡' };
   return { tag: 'LOW', emoji: '🟢' };
@@ -210,8 +216,13 @@ function summarizeEntry(item, count, total, reason) {
   const label = reason === 'new' ? `${count}/${total} traders agree, ${heldTxt}` : `${count}/${total} traders — grew while held`;
   const chase = (avgPrice != null && avgEntry != null && (avgPrice - avgEntry) > 8)
     ? `WARNING: price is ${(avgPrice - avgEntry).toFixed(0)}c above their entry - do not chase` : null;
-  const risk = riskLevel(avgPrice, count, chase);
+  const risk = riskLevel(avgPrice, count, chase, item.usd);
   return { item, count, total, label, avgPrice, avgEntry, chase, risk };
+}
+
+function fmtUsd(n) {
+  if (!n || n <= 0) return null;
+  return n >= 1e6 ? `$${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `$${Math.round(n / 1e3)}K` : `$${Math.round(n)}`;
 }
 
 // ntfy header VALUES must be ISO-8859-1 (single-byte). Any emoji here — including
@@ -230,7 +241,8 @@ async function sendEntryPush(s) {
   // Title is a fixed-budget ASCII summary (side + price only — risk/emoji can't
   // live in a header). Body leads with the risk emoji since that's unrestricted
   // and is what you actually read once the notification's open.
-  const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}\n\n👥 ${item.traders.join(', ')}`;
+  const usd = fmtUsd(item.usd);
+  const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}${usd ? ` — 💰 ${usd} behind it` : ''}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}\n\n👥 ${item.traders.join(', ')}`;
   const headers = {
     'Title': boundTitle(`BUY ${outcome} @ ${Math.round(avgPrice ?? 0)}c - `, item.title),
     'Priority': count >= 5 ? 'urgent' : 'high',
@@ -316,7 +328,8 @@ async function sendDigest(entryEvents, exitEvents) {
     if (lines.length) lines.push('');
     for (const s of sortedEntries) {
       const p = s.avgPrice != null ? s.avgPrice.toFixed(0) : '?';
-      lines.push(`${s.risk.emoji} BUY ${s.item.outcome.toUpperCase()} @ ${p}c x${s.count}${s.chase ? ' ⚠️' : ''} — ${truncate(s.item.title, 42)}`);
+      const usd = fmtUsd(s.item.usd);
+      lines.push(`${s.risk.emoji} BUY ${s.item.outcome.toUpperCase()} @ ${p}c x${s.count}${usd ? ` (${usd})` : ''}${s.chase ? ' ⚠️' : ''} — ${truncate(s.item.title, 42)}`);
     }
   }
   const body = lines.join('\n');
@@ -482,7 +495,15 @@ async function main() {
     const item = candidates[0];
     const count = item.traders.length;
     const lastAlerted = state.alertedAt[item.key] || 0;
-    entryEvents.push(summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased'));
+    const s = summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased');
+    // Hard skip, not just a warning: >15c above the traders' own entry means
+    // their edge is already priced in — a late copy is the losing version of the
+    // same bet. Not marked alerted, so if price comes back it can alert later.
+    if (s.avgPrice != null && s.avgEntry != null && (s.avgPrice - s.avgEntry) > 15) {
+      console.log(`SKIP (stale price): ${item.outcome.toUpperCase()} on "${item.title}" @ ${s.avgPrice.toFixed(1)}c vs entry ~${s.avgEntry.toFixed(1)}c`);
+      continue;
+    }
+    entryEvents.push(s);
     commitOps.push(() => {
       state.alertedAt[item.key] = count;
       state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets] };
