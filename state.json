@@ -48,7 +48,8 @@
     "0x35993b77d4e7322353199c68773070f7e31cbfffb58a5228e83d813df8371a15|Yes": 2,
     "0xe81ec0ca7357d9e91e9b95e1ecf60606f8b1686290464758b9a3595aeae11a1a|Yes": 2,
     "0xb6de0c43f214510ff0ecb581354805e1f337eaefc06ee5d220ebc06e16dea0b6|Over": 2,
-    "0x9c55934cd521047470e0e30746b7e1e2d634263b40b9783e545082f2a88b369f|Over": 2
+    "0x9c55934cd521047470e0e30746b7e1e2d634263b40b9783e545082f2a88b369f|Over": 2,
+    "0x333bab6ed0bb5d30a935926a0f152d30844e1fce31fb1c85d128bf42fa2c5c93|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -259,6 +260,15 @@
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
       "size0": 85658.9858
+    },
+    "0x333bab6ed0bb5d30a935926a0f152d30844e1fce31fb1c85d128bf42fa2c5c93|No": {
+      "title": "Brazil vs. Norway: Neither team to score first?",
+      "slug": "fifwc-bra-nor-2026-07-05-first-to-score",
+      "wallets": [
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
+        "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227"
+      ],
+      "size0": 1341.97
     }
   },
   "pendingExit": {}
