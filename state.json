@@ -31,7 +31,9 @@
     "0xcd5a126fcefcdfa03d8e25bfff3d3c4476100f630467622ec6d5fa7595c72636|No": 2,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|United States": 2,
     "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Portugal": 2,
-    "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|Yes": 2
+    "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|Yes": 2,
+    "0x8e534b0b5535e6ed03e2722bc805047fba18450cd7f2e89b3b3664b5b98a82e4|Yes": 2,
+    "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -151,6 +153,24 @@
         "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227"
       ],
       "size0": 77347.82
+    },
+    "0x8e534b0b5535e6ed03e2722bc805047fba18450cd7f2e89b3b3664b5b98a82e4|Yes": {
+      "title": "Mexico vs. England: Both Teams to Score",
+      "slug": "fifwc-mex-eng-2026-07-05-more-markets",
+      "wallets": [
+        "0x5c3a1a602848565bb16165fcd460b00c3d43020b",
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26"
+      ],
+      "size0": 131997.7027
+    },
+    "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": {
+      "title": "Will Spain win on 2026-07-06?",
+      "slug": "fifwc-prt-esp-2026-07-06",
+      "wallets": [
+        "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
+        "0x86d2d490bcac9fccea02a44c48272008e0c4731d"
+      ],
+      "size0": 182678.886
     }
   },
   "pendingExit": {}
