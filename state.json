@@ -248,7 +248,8 @@
         "0xd1ed12197b7dc22dede923727e9b714024dbd7cb",
         "0x83255595ba1fadd2e734cb30a0fb8110301a19cc"
       ],
-      "size0": 477985.84719999996
+      "size0": 477985.84719999996,
+      "wonNotified": true
     },
     "0xb6de0c43f214510ff0ecb581354805e1f337eaefc06ee5d220ebc06e16dea0b6|Over": {
       "title": "Brazil vs. Norway: O/U 1.5",
