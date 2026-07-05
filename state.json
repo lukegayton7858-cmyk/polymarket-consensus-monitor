@@ -33,7 +33,8 @@
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
     "0xad9e90bf3ccd05f9c3d4a25f49109d5f860225c26faec54b52edec93c4ba4e62|Brazil": 2,
     "0x2a0e8ce7c309ec8015c4c721dec574ff100b0512ef412a54bb733dc5bef740dc|Yes": 2,
-    "0x34432ae59cf61fa9e03bf2813b5f7ed6511fe08bb44434ded994df48701d4234|Top Esports": 3
+    "0x34432ae59cf61fa9e03bf2813b5f7ed6511fe08bb44434ded994df48701d4234|Top Esports": 3,
+    "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -153,6 +154,14 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
         "0xe9076a87c5ed90ef16e6fe6529c943baeca0cff6",
         "0x7d787c72c8317046fda90814a93c87fc192529a5"
+      ]
+    },
+    "0xf134b5d6d31ea59fe65cb22961ec1120e41a2451ef9311d6b750d6638a1c9322|Over": {
+      "title": "Brazil vs. Norway: O/U 2.5",
+      "slug": "fifwc-bra-nor-2026-07-05-more-markets",
+      "wallets": [
+        "0xe9076a87c5ed90ef16e6fe6529c943baeca0cff6",
+        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
       ]
     }
   },
