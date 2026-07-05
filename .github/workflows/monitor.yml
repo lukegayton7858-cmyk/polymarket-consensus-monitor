@@ -28,6 +28,7 @@ jobs:
       - name: Run monitor
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          MY_WALLET: ${{ secrets.MY_WALLET }}
         run: node monitor.js
 
       - name: Commit updated state

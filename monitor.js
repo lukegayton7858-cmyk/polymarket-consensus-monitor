@@ -17,6 +17,9 @@ const PERSIST_WINDOW_MS = 5 * 60 * 1000;
 const EXIT_CONFIRM_MISSES = 2; // must be gone 2 consecutive runs before we call it a real exit, not an API blip
 
 const NTFY_TOPIC = process.env.NTFY_TOPIC || '';
+// Luke's own Polymarket wallet (public on-chain data). When set, exit pushes
+// (SELL/LOST/WON/TRIM) only fire for markets he actually holds — BUYs unaffected.
+const MY_WALLET = process.env.MY_WALLET || '';
 
 function loadState() {
   try {
@@ -123,6 +126,7 @@ function buildConsensus(topTraders, positionsByWallet, state, now) {
       if (!Number.isNaN(price)) map[key].prices.push(price);
       if (!Number.isNaN(entry)) map[key].entries.push(entry);
       map[key].usd += Number(p.initialValue) || 0; // cost basis = conviction in dollars
+      map[key].size = (map[key].size || 0) + (Number(p.size) || 0); // shares held, baseline for trim detection
     }
   }
 
@@ -144,16 +148,17 @@ function checkHolders(key, wallets, positionsByWallet) {
   const idx = key.indexOf('|');
   const cid = key.slice(0, idx);
   const outcome = key.slice(idx + 1);
-  let holding = 0, lost = 0, maxPrice = 0;
+  let holding = 0, lost = 0, maxPrice = 0, totalSize = 0;
   for (const w of wallets) {
     const p = (positionsByWallet[w] || []).find(x => x.conditionId === cid && x.outcome === outcome);
     if (!p) continue;
     if ((p.currentValue ?? 1) <= 0) { lost++; continue; }
     holding++;
+    totalSize += Number(p.size) || 0;
     const pr = Number(p.curPrice ?? NaN);
     if (!Number.isNaN(pr) && pr > maxPrice) maxPrice = pr;
   }
-  return { holding, lost, maxPrice };
+  return { holding, lost, maxPrice, totalSize };
 }
 
 // Plain "..." not the unicode ellipsis: this gets used inside ntfy Title headers,
@@ -263,11 +268,15 @@ async function sendEntryPush(s) {
 // kind: 'sell' = traders genuinely closed mid-market (act fast).
 // 'lost' = market resolved against the outcome (nothing to do).
 // 'won'  = price snapped to ~1 and traders are holding to resolution (redeem, don't panic).
-async function sendExitPush(key, meta, kind = 'sell') {
+async function sendExitPush(key, meta, kind = 'sell', pct = 0) {
   const outcome = key.slice(key.indexOf('|') + 1);
   const o = outcome?.toUpperCase() || '';
   const title = meta?.title || key.slice(0, 40);
   const variants = {
+    trim: {
+      head: boundTitle(`TRIM ${o} -${pct}% - `, title), prio: 'high', tags: 'warning',
+      body: `⚠️ **${o} — traders cut ${pct}% of their position**\n${title}\nThey haven't fully exited, but they've reduced hard since the alert. Consider trimming yours too.`,
+    },
     sell: {
       head: boundTitle(`SELL ${o} NOW - `, title), prio: 'urgent', tags: 'chart_decreasing',
       body: `📉 **${o} — close this now**\n${title}\nTop traders exited while the market is still live. If you copied this bet, close it.`,
@@ -304,13 +313,13 @@ async function sendDigest(entryEvents, exitEvents) {
 
   if (totalEvents === 1) {
     if (entryEvents.length) return await sendEntryPush(entryEvents[0]);
-    return await sendExitPush(exitEvents[0].key, exitEvents[0].meta, exitEvents[0].kind);
+    return await sendExitPush(exitEvents[0].key, exitEvents[0].meta, exitEvents[0].kind, exitEvents[0].pct);
   }
 
   // Urgency order: live SELLs first (act now), then results, then BUYs
   // sorted safest-first. Each line leads with side @ price so a wrapped
   // line never hides what to actually do.
-  const kindOrder = { sell: 0, lost: 1, won: 2 };
+  const kindOrder = { sell: 0, trim: 1, lost: 2, won: 3 };
   const sortedExits = [...exitEvents].sort((a, b) => (kindOrder[a.kind] ?? 0) - (kindOrder[b.kind] ?? 0));
   const riskOrder = { LOW: 0, MED: 1, HIGH: 2 };
   const sortedEntries = [...entryEvents].sort((a, b) =>
@@ -318,10 +327,11 @@ async function sendDigest(entryEvents, exitEvents) {
 
   const lines = [];
   if (sortedExits.length) {
-    const icon = { sell: '📉 SELL', lost: '❌ LOST', won: '✅ WON' };
-    for (const { key, meta, kind } of sortedExits) {
+    const icon = { sell: '📉 SELL', trim: '⚠️ TRIM', lost: '❌ LOST', won: '✅ WON' };
+    for (const { key, meta, kind, pct } of sortedExits) {
       const outcome = key.slice(key.indexOf('|') + 1).toUpperCase();
-      lines.push(`${icon[kind] || icon.sell} ${outcome}${kind === 'sell' ? ' NOW' : ''} — ${truncate(meta?.title || key, 42)}`);
+      const extra = kind === 'sell' ? ' NOW' : kind === 'trim' ? ` -${pct}%` : '';
+      lines.push(`${icon[kind] || icon.sell} ${outcome}${extra} — ${truncate(meta?.title || key, 42)}`);
     }
   }
   if (sortedEntries.length) {
@@ -336,10 +346,11 @@ async function sendDigest(entryEvents, exitEvents) {
   console.log(`DIGEST (${exitEvents.length} exit, ${entryEvents.length} buy):\n${body}`);
   if (!NTFY_TOPIC) return true;
 
-  const counts = { sell: 0, lost: 0, won: 0 };
+  const counts = { sell: 0, trim: 0, lost: 0, won: 0 };
   for (const e of exitEvents) counts[e.kind] = (counts[e.kind] || 0) + 1;
   const parts = [];
   if (counts.sell) parts.push(`${counts.sell} SELL`);
+  if (counts.trim) parts.push(`${counts.trim} TRIM`);
   if (counts.won) parts.push(`${counts.won} WON`);
   if (counts.lost) parts.push(`${counts.lost} LOST`);
   if (entryEvents.length) parts.push(`${entryEvents.length} BUY`);
@@ -424,13 +435,20 @@ async function main() {
     if (state.alertedAt[key] && meta?.wallets) {
       // Wallet-based exit: judged only by whether the consensus wallets still
       // hold, at any price — immune to the BUY band and leaderboard churn.
-      const { holding, lost, maxPrice } = checkHolders(key, meta.wallets, positionsByWallet);
+      const { holding, lost, maxPrice, totalSize } = checkHolders(key, meta.wallets, positionsByWallet);
       if (holding >= 2) {
         delete state.pendingExit[key];
         if (maxPrice >= 0.95 && !meta.wonNotified) {
           // one-time heads-up; keep tracking in case it reverses
           exitEvents.push({ key, meta, kind: 'won' });
           commitOps.push(() => { meta.wonNotified = true; });
+        } else if (meta.size0 > 0 && totalSize > 0 && totalSize < meta.size0 * 0.6 && !meta.trimNotified) {
+          // Still in it, but they've cut 40%+ of the shares they held at alert
+          // time. Price drawdowns are noise (they often ADD into dips) — a size
+          // cut is the real "they're nervous" signal. Fire once.
+          const pct = Math.round((1 - totalSize / meta.size0) * 100);
+          exitEvents.push({ key, meta, kind: 'trim', pct });
+          commitOps.push(() => { meta.trimNotified = true; });
         }
         continue;
       }
@@ -506,11 +524,24 @@ async function main() {
     entryEvents.push(s);
     commitOps.push(() => {
       state.alertedAt[item.key] = count;
-      state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets] };
+      state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets], size0: item.size || 0 };
     });
   }
 
-  const sent = await sendDigest(entryEvents, exitEvents);
+  // Exit alerts are only actionable for bets Luke actually placed. His wallet's
+  // positions are public — suppress SELL/LOST/WON/TRIM for markets he isn't in.
+  // BUYs always send (can't know what he'll want to enter). State cleanup for
+  // suppressed exits still commits, so they don't re-fire forever.
+  let sendableExits = exitEvents;
+  if (MY_WALLET && exitEvents.length) {
+    const mine = await fetchPositions(MY_WALLET);
+    const myCids = new Set(mine.map(p => p.conditionId));
+    sendableExits = exitEvents.filter(e => myCids.has(e.key.slice(0, e.key.indexOf('|'))));
+    const skipped = exitEvents.length - sendableExits.length;
+    if (skipped) console.log(`${skipped} exit event(s) suppressed — not held in MY_WALLET.`);
+  }
+
+  const sent = await sendDigest(entryEvents, sendableExits);
   if (sent) {
     for (const op of commitOps) op();
   } else if (commitOps.length) {
