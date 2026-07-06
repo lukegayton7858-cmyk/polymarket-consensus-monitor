@@ -126,7 +126,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ],
-      "size0": 108929.5
+      "size0": 108929.5,
+      "wonNotified": true
     },
     "0x47a079b62e331859854eedaa3bddbfb41f3f8ed4063481ba956a6ed29b61bb88|No": {
       "title": "Will Portugal win on 2026-07-06?",
@@ -239,5 +240,7 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Portugal": 1
+  }
 }
