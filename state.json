@@ -144,7 +144,8 @@
         "0xa6a872ded6039c17a9e5c81b706c04e76fbeba32",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "size0": 151840.2518
+      "size0": 151840.2518,
+      "wonNotified": true
     },
     "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|No": {
       "title": "Will United States vs. Belgium end in a draw?",
