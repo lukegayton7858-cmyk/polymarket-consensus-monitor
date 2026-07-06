@@ -15,7 +15,6 @@
     "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|No": 1783337896458,
     "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 1783341376099,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 1783351874800,
-    "0xcfd05b8542186b65050be56282039a00a5099d36b956408b440cddac4bff1f96|Linda Noskova": 1783351874800,
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 1783353672897,
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|No": 1783355534301,
     "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 1783355775344,
@@ -36,7 +35,6 @@
     "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|No": 2,
     "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 2,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 2,
-    "0xcfd05b8542186b65050be56282039a00a5099d36b956408b440cddac4bff1f96|Linda Noskova": 2,
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 3,
     "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 2,
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2
@@ -167,16 +165,6 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 259453.7024
-    },
-    "0xcfd05b8542186b65050be56282039a00a5099d36b956408b440cddac4bff1f96|Linda Noskova": {
-      "title": "Wimbledon WTA: Madison Keys vs Linda Noskova",
-      "slug": "wta-keys-noskova-2026-07-06",
-      "wallets": [
-        "0x9cb990f1862568a63d8601efeebe0304225c32f2",
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
-      ],
-      "size0": 206197.8208,
-      "wonNotified": true
     },
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": {
       "title": "Will Spain win on 2026-07-06?",
