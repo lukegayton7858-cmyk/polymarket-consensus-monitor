@@ -222,5 +222,7 @@
       "size0": 203718
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|Yes": 1
+  }
 }
