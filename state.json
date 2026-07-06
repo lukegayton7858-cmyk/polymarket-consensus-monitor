@@ -40,7 +40,8 @@
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 3,
     "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 5,
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2,
-    "0xced03c94d544f1de181e549add5b39bb0a2c0a33f25d95482cabd52b607c4bd1|Over": 2
+    "0xced03c94d544f1de181e549add5b39bb0a2c0a33f25d95482cabd52b607c4bd1|Over": 2,
+    "0xc7f1b0c3286dd2f7005fec9a3c32c1cc6471fc9bc132d9fb7d14396fea80011c|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -210,6 +211,15 @@
       ],
       "size0": 9439.19,
       "wonNotified": true
+    },
+    "0xc7f1b0c3286dd2f7005fec9a3c32c1cc6471fc9bc132d9fb7d14396fea80011c|No": {
+      "title": "Portugal vs. Spain: Both Teams to Score",
+      "slug": "fifwc-prt-esp-2026-07-06-more-markets",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
+      ],
+      "size0": 129199.5863
     }
   },
   "pendingExit": {}
