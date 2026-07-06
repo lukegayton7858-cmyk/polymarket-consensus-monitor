@@ -195,7 +195,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
-      "size0": 898610.3194
+      "size0": 898610.3194,
+      "wonNotified": true
     },
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": {
       "title": "Portugal vs. Spain: Spain O/U 1.5",
