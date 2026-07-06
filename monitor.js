@@ -183,6 +183,22 @@ function truncate(s, n) {
 // Keeps the whole Title within a fixed character budget no matter how long the
 // outcome word or market question are, so the OS never cuts it off mid-word at
 // an unpredictable point — our own "..." always lands cleanly instead.
+// Collapses a market's slug down to its underlying real-world event. Per-game
+// slugs carry an embedded date ("fifwc-mex-eng-2026-07-05-more-markets" -> the
+// same key for every sub-market of that one match). Standing tournament
+// outrights have no date ("world-cup-winner") and are left exactly as-is,
+// since each team there is a genuinely separate, independent bet.
+// Returns null for anything WITHOUT an embedded date — e.g. "world-cup-winner"
+// groups every team's outright bet under one category slug, but those are
+// genuinely independent bets (France winning vs Argentina winning are
+// different real-world outcomes) and must never be clustered just because the
+// slug string matches. Only a real per-game date means "same actual event."
+function eventKey(slug) {
+  if (!slug) return null;
+  const m = slug.match(/^(.*?\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : null;
+}
+
 function boundTitle(prefix, title, maxTotal = 48) {
   const room = Math.max(maxTotal - prefix.length, 12);
   return asciiSafe(prefix + truncate(title, room));
@@ -250,7 +266,7 @@ function fmtUsd(n) {
 // Emoji are safe in the body (free-form UTF-8) and in 'Tags' (ntfy renders its
 // own icon from the shortcode) — just never in a header string like Title/Click.
 async function sendEntryPush(s) {
-  const { item, count, total, label, avgPrice, avgEntry, chase, risk } = s;
+  const { item, count, total, label, avgPrice, avgEntry, chase, risk, corroborating } = s;
   const p = avgPrice != null ? avgPrice.toFixed(1) : '?';
   const e = avgEntry != null ? avgEntry.toFixed(1) : '?';
   const outcome = item.outcome.toUpperCase();
@@ -260,7 +276,10 @@ async function sendEntryPush(s) {
   // live in a header). Body leads with the risk emoji since that's unrestricted
   // and is what you actually read once the notification's open.
   const usd = fmtUsd(item.usd);
-  const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}${usd ? ` — 💰 ${usd} behind it` : ''}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}\n\n👥 ${item.traders.join(', ')}`;
+  const corrLine = corroborating?.length
+    ? `\n\n🔗 Same game, already active: ${corroborating.map(c => `${c.title} (${c.outcome})`).join(', ')}`
+    : '';
+  const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}${usd ? ` — 💰 ${usd} behind it` : ''}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}\n\n👥 ${item.traders.join(', ')}${corrLine}`;
   const headers = {
     'Title': boundTitle(`BUY ${outcome} @ ${Math.round(avgPrice ?? 0)}c - `, item.title),
     'Priority': count >= 5 ? 'urgent' : 'high',
@@ -349,10 +368,25 @@ async function sendDigest(entryEvents, exitEvents) {
   }
   if (sortedEntries.length) {
     if (lines.length) lines.push('');
-    for (const s of sortedEntries) {
+    // Same-game clusters render as one grouped block (primary + echoes) instead
+    // of scattering N correlated signals through the list as if independent.
+    const buyLine = (s) => {
       const p = s.avgPrice != null ? s.avgPrice.toFixed(0) : '?';
       const usd = fmtUsd(s.item.usd);
-      lines.push(`${s.risk.emoji} BUY ${s.item.outcome.toUpperCase()} @ ${p}c x${s.count}${usd ? ` (${usd})` : ''}${s.chase ? ' ⚠️' : ''} — ${truncate(s.item.title, 42)}`);
+      return `${s.risk.emoji} BUY ${s.item.outcome.toUpperCase()} @ ${p}c x${s.count}${usd ? ` (${usd})` : ''}${s.chase ? ' ⚠️' : ''} — ${truncate(s.item.title, 40)}`;
+    };
+    const rendered = new Set();
+    for (const s of sortedEntries) {
+      if (rendered.has(s.item.key)) continue;
+      if (s.groupKey) {
+        const group = sortedEntries.filter(x => x.groupKey === s.groupKey);
+        group.forEach(x => rendered.add(x.item.key));
+        lines.push(`🏟 SAME GAME — ${group.length} signals agree:`);
+        for (const g of group) lines.push((g.groupRole === 'primary' ? '  ★ ' : '  ↳ ') + buyLine(g));
+      } else {
+        rendered.add(s.item.key);
+        lines.push(buyLine(s));
+      }
     }
   }
   const body = lines.join('\n');
@@ -554,6 +588,33 @@ async function main() {
       state.alertedAt[item.key] = count;
       state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets], size0: item.size || 0 };
     });
+  }
+
+  // Multiple DIFFERENT markets (moneyline, spread, O/U, props) tied to the same
+  // single game often reach consensus together — not 7 opportunities, but the
+  // same read on the same event told 7 ways. Cluster same-event signals firing
+  // in this run so they render as one grouped call (primary + confirming echoes)
+  // instead of N separate equal-weight pushes. A lone new signal whose game
+  // already has other active alerts from earlier runs gets those noted as
+  // context instead, so it's never a surprise how correlated it is.
+  const clusters = {};
+  for (const s of entryEvents) {
+    const ek = eventKey(s.item.slug);
+    if (!ek) continue; // dateless category slug (tournament outright) — never cluster
+    (clusters[ek] ||= []).push(s);
+  }
+  for (const ek of Object.keys(clusters)) {
+    const group = clusters[ek];
+    if (group.length >= 2) {
+      group.sort((a, b) => (b.count - a.count) || ((b.item.usd || 0) - (a.item.usd || 0)));
+      group.forEach((s, i) => { s.groupKey = ek; s.groupRole = i === 0 ? 'primary' : 'echo'; });
+    } else {
+      const s = group[0];
+      const corroborating = Object.entries(state.alertedMeta)
+        .filter(([k, m]) => k !== s.item.key && eventKey(m.slug) === ek)
+        .map(([k, m]) => ({ title: m.title, outcome: k.slice(k.indexOf('|') + 1).toUpperCase() }));
+      if (corroborating.length) s.corroborating = corroborating;
+    }
   }
 
   // Exit alerts are only actionable for bets Luke actually placed. His wallet's
