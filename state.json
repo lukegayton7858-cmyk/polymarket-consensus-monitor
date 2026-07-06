@@ -226,5 +226,7 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x94e50623d3cfdc1256e16ff372062d42c282bec8af620bb732a19fb4b0dce580|Mexico": 1
+  }
 }
