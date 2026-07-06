@@ -109,7 +109,8 @@
         "0x9ee8bbc36d378af72e5f6b8e2ea2eb67c05a89de",
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
-      "size0": 780345.177
+      "size0": 780345.177,
+      "wonNotified": true
     },
     "0xfffb44792cbe3c59c926c00aea52b11eb0308802689d09015815eb5237b131bb|Yes": {
       "title": "England to score first vs. Mexico?",
@@ -209,7 +210,8 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
-      "size0": 110421
+      "size0": 110421,
+      "wonNotified": true
     },
     "0x882f0d33b6fff38f764d031355b1cdb4068683dc4e4a26cd91274fee77dd7065|Over": {
       "title": "Mexico vs. England: O/U 2.5",
@@ -221,5 +223,7 @@
       "size0": 203718
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x99f0c39e4235d840bd25d2c229b2cda57cc087b6b8c2780f804fffeed0d0c628|No": 1
+  }
 }
