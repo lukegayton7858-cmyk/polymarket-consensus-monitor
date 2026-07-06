@@ -8,13 +8,10 @@
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 1783261834933,
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|Yes": 1783278973250,
     "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 1783293253540,
-    "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Spain": 1783315692887,
     "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|No": 1783337896458,
     "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 1783341376099,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 1783351874800,
-    "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|No": 1783355534301,
-    "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 1783356674206,
-    "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": 1783367654851
+    "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|No": 1783355534301
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -25,12 +22,9 @@
     "0x02103f049a5fe127c4ea03c9531772e82f3b9f5e9f5f30d67fda5b472fb56c17|Yes": 2,
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|Yes": 2,
     "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 2,
-    "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Spain": 3,
     "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|No": 2,
     "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 2,
-    "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 3,
-    "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2,
-    "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": 2
+    "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 3
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -105,17 +99,6 @@
       ],
       "size0": 250753.7126
     },
-    "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Spain": {
-      "title": "Portugal vs. Spain: Team to Advance",
-      "slug": "fifwc-prt-esp-2026-07-06-more-markets",
-      "wallets": [
-        "0xbb5fbe810633ab08d106b82db84418a0e2ca2e21",
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
-      ],
-      "size0": 108929.5,
-      "wonNotified": true
-    },
     "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|No": {
       "title": "Will United States vs. Belgium end in a draw?",
       "slug": "fifwc-usa-bel-2026-07-06",
@@ -143,26 +126,6 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 417855.4616
-    },
-    "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": {
-      "title": "Portugal vs. Spain: Spain O/U 1.5",
-      "slug": "fifwc-prt-esp-2026-07-06-more-markets",
-      "wallets": [
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
-      ],
-      "size0": 120338.4432,
-      "wonNotified": true
-    },
-    "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": {
-      "title": "Cristiano Ronaldo: 1+ goals",
-      "slug": "fifwc-prt-esp-2026-07-06-player-props",
-      "wallets": [
-        "0x9cb990f1862568a63d8601efeebe0304225c32f2",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
-      ],
-      "size0": 1338.2799,
-      "wonNotified": true
     }
   },
   "pendingExit": {}
