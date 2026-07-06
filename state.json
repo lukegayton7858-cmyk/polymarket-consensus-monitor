@@ -15,7 +15,6 @@
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 1783353672897,
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|No": 1783355534301,
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 1783356674206,
-    "0x97d575b72f12355f393ac5dfd2258ba24c06fdbe5355451b8d59256dfc3748e6|Yes": 1783366758279,
     "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": 1783367654851
   },
   "alertedAt": {
@@ -33,7 +32,6 @@
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 3,
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 3,
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2,
-    "0x97d575b72f12355f393ac5dfd2258ba24c06fdbe5355451b8d59256dfc3748e6|Yes": 2,
     "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": 2
   },
   "alertedMeta": {
@@ -167,15 +165,6 @@
       ],
       "size0": 120338.4432,
       "wonNotified": true
-    },
-    "0x97d575b72f12355f393ac5dfd2258ba24c06fdbe5355451b8d59256dfc3748e6|Yes": {
-      "title": "Will Portugal vs. Spain end in a draw?",
-      "slug": "fifwc-prt-esp-2026-07-06",
-      "wallets": [
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0xf0318c32136c2db7fec88b84869aee6a1106c80c"
-      ],
-      "size0": 286197.0382
     },
     "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": {
       "title": "Cristiano Ronaldo: 1+ goals",
