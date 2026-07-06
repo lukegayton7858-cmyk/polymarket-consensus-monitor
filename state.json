@@ -27,7 +27,8 @@
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 2,
     "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 2,
     "0x3c995fa852613961df5b34fc1b2d14eb6850145f5d28d349d1622f4ed8cd84ca|Spain": 2,
-    "0x47a079b62e331859854eedaa3bddbfb41f3f8ed4063481ba956a6ed29b61bb88|No": 2
+    "0x47a079b62e331859854eedaa3bddbfb41f3f8ed4063481ba956a6ed29b61bb88|No": 2,
+    "0x361319c3fde8ec9fff208881ad3a0a7de1ae7ef9b09c751834c1827db5e198e4|Under": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -137,6 +138,15 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 37992
+    },
+    "0x361319c3fde8ec9fff208881ad3a0a7de1ae7ef9b09c751834c1827db5e198e4|Under": {
+      "title": "Portugal vs. Spain: O/U 3.5",
+      "slug": "fifwc-prt-esp-2026-07-06-more-markets",
+      "wallets": [
+        "0xa6a872ded6039c17a9e5c81b706c04e76fbeba32",
+        "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
+      ],
+      "size0": 151840.2518
     }
   },
   "pendingExit": {}
