@@ -29,7 +29,8 @@
     "0x47a079b62e331859854eedaa3bddbfb41f3f8ed4063481ba956a6ed29b61bb88|No": 2,
     "0x361319c3fde8ec9fff208881ad3a0a7de1ae7ef9b09c751834c1827db5e198e4|Under": 2,
     "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|No": 2,
-    "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 2
+    "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 2,
+    "0xcf8482eb154c9e79b6b7ec3f698164448432494bc532037069bb1f5f8f3d140f|Alex de Minaur": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -148,6 +149,15 @@
         "0xd81e5bc01e4a98d0af93d82dc2c542a4c0f9e3d0"
       ],
       "size0": 7904.55
+    },
+    "0xcf8482eb154c9e79b6b7ec3f698164448432494bc532037069bb1f5f8f3d140f|Alex de Minaur": {
+      "title": "Wimbledon ATP: Alex de Minaur vs Flavio Cobolli",
+      "slug": "atp-minaur-cobolli-2026-07-06",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0x4be1fa92e6ceaf886aac0bbec3be6c527133aa70"
+      ],
+      "size0": 650886.6584
     }
   },
   "pendingExit": {}
