@@ -37,7 +37,7 @@
     "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 2,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 2,
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 3,
-    "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 4,
+    "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 5,
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2,
     "0xced03c94d544f1de181e549add5b39bb0a2c0a33f25d95482cabd52b607c4bd1|Over": 2
   },
@@ -184,11 +184,12 @@
       "slug": "fifwc-prt-esp-2026-07-06-more-markets",
       "wallets": [
         "0x580d9dcca035b1de4155be73c1804aef74ebeb6d",
+        "0xdb859a551fcf56e49416160911476bea7307152f",
         "0xf0318c32136c2db7fec88b84869aee6a1106c80c",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
-      "size0": 391083.1942
+      "size0": 898610.3194
     },
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": {
       "title": "Portugal vs. Spain: Spain O/U 1.5",
