@@ -37,7 +37,8 @@
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 2,
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 3,
     "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 3,
-    "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2
+    "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2,
+    "0xced03c94d544f1de181e549add5b39bb0a2c0a33f25d95482cabd52b607c4bd1|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -195,6 +196,15 @@
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
       ],
       "size0": 120338.4432
+    },
+    "0xced03c94d544f1de181e549add5b39bb0a2c0a33f25d95482cabd52b607c4bd1|Over": {
+      "title": "Philadelphia Phillies vs. Kansas City Royals: O/U 8.5",
+      "slug": "mlb-phi-kc-2026-07-06",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0xd81e5bc01e4a98d0af93d82dc2c542a4c0f9e3d0"
+      ],
+      "size0": 9439.19
     }
   },
   "pendingExit": {}
