@@ -99,7 +99,8 @@
         "0x580d9dcca035b1de4155be73c1804aef74ebeb6d",
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ],
-      "size0": 2715074.1554000005
+      "size0": 2715074.1554000005,
+      "wonNotified": true
     },
     "0x32046bdc03d13d916351bd2178cc20c5f268802d4ae60c0d8383ae91d2dd1d41|No": {
       "title": "Will Mexico win on 2026-07-05?",
@@ -138,7 +139,8 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
       ],
-      "size0": 11891.501199999999
+      "size0": 11891.501199999999,
+      "wonNotified": true
     },
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|United States": {
       "title": "United States vs. Belgium: Team to Advance",
@@ -193,7 +195,8 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
       ],
-      "size0": 58821.2316
+      "size0": 58821.2316,
+      "wonNotified": true
     },
     "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": {
       "title": "Will Colombia win on 2026-07-07?",
