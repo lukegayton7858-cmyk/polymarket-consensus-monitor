@@ -173,7 +173,8 @@
         "0x9cb990f1862568a63d8601efeebe0304225c32f2",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
-      "size0": 206197.8208
+      "size0": 206197.8208,
+      "wonNotified": true
     },
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": {
       "title": "Will Spain win on 2026-07-06?",
