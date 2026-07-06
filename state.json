@@ -16,9 +16,7 @@
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 1783351874800,
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 1783353672897,
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|No": 1783355534301,
-    "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 1783355775344,
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 1783356674206,
-    "0xc7f1b0c3286dd2f7005fec9a3c32c1cc6471fc9bc132d9fb7d14396fea80011c|No": 1783366271103,
     "0x97d575b72f12355f393ac5dfd2258ba24c06fdbe5355451b8d59256dfc3748e6|Yes": 1783366758279,
     "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": 1783367654851
   },
@@ -38,9 +36,7 @@
     "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": 2,
     "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|Belgium": 3,
     "0xb8c4eb2bc36fb256ac730f0d1d05cf5ff6649a7d8d5ed779544dfa068da1cd18|No": 3,
-    "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": 5,
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": 2,
-    "0xc7f1b0c3286dd2f7005fec9a3c32c1cc6471fc9bc132d9fb7d14396fea80011c|No": 2,
     "0x97d575b72f12355f393ac5dfd2258ba24c06fdbe5355451b8d59256dfc3748e6|Yes": 2,
     "0x9808c4c8b8bec5830456f8f2102c6cd6d522146286d42295f8be9ad7e44ace60|No": 2
   },
@@ -187,19 +183,6 @@
       ],
       "size0": 618517.6266000001
     },
-    "0xeb83b484265e531f2420e8b6a5f64b6b80258cf9bb45cb421cee504772ca20a7|Under": {
-      "title": "Portugal vs. Spain: O/U 2.5",
-      "slug": "fifwc-prt-esp-2026-07-06-more-markets",
-      "wallets": [
-        "0x580d9dcca035b1de4155be73c1804aef74ebeb6d",
-        "0xdb859a551fcf56e49416160911476bea7307152f",
-        "0xf0318c32136c2db7fec88b84869aee6a1106c80c",
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0x0c787cc2962ee6464414da592b892c3886e077f1"
-      ],
-      "size0": 898610.3194,
-      "wonNotified": true
-    },
     "0x694d7d379d5fc7277fb437881c85e5460d369f83c0eea7e3bc68e3f8c72c7dfe|Under": {
       "title": "Portugal vs. Spain: Spain O/U 1.5",
       "slug": "fifwc-prt-esp-2026-07-06-more-markets",
@@ -208,16 +191,6 @@
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
       ],
       "size0": 120338.4432,
-      "wonNotified": true
-    },
-    "0xc7f1b0c3286dd2f7005fec9a3c32c1cc6471fc9bc132d9fb7d14396fea80011c|No": {
-      "title": "Portugal vs. Spain: Both Teams to Score",
-      "slug": "fifwc-prt-esp-2026-07-06-more-markets",
-      "wallets": [
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
-      ],
-      "size0": 129199.5863,
       "wonNotified": true
     },
     "0x97d575b72f12355f393ac5dfd2258ba24c06fdbe5355451b8d59256dfc3748e6|Yes": {
