@@ -161,3 +161,4 @@
 {"ts":1783460458822,"type":"resolution","key":"0xcc4026621ceda33b2af38e9d22871b650c632c86daea6ecc62b01ee1aa01188a|No","title":"Switzerland vs. Colombia: Both Teams to Score","kind":"won"}
 {"ts":1783461192440,"type":"resolution","key":"0x71cf19220d20cbad74d50c08f51995fc8aa7f93455878bffbbec739d1d63cee6|Novak Djokovic","title":"Wimbledon ATP: Felix Auger-Aliassime vs Novak Djokovic","kind":"won"}
 {"ts":1783461434940,"type":"resolution","key":"0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes","title":"Will Switzerland vs. Colombia end in a draw?","kind":"won"}
+{"ts":1783461493282,"type":"alert","key":"0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia","title":"Switzerland vs. Colombia: Team to Advance","outcome":"Colombia","slug":"fifwc-che-col-2026-07-07-more-markets","count":4,"total":20,"avgPrice":53.5,"avgEntry":58.68500000000001,"usd":824718.4427,"riskTag":"LOW"}
