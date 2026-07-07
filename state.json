@@ -140,7 +140,8 @@
         "0x580d9dcca035b1de4155be73c1804aef74ebeb6d",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
-      "size0": 40233.1757
+      "size0": 40233.1757,
+      "wonNotified": true
     }
   },
   "pendingExit": {}
