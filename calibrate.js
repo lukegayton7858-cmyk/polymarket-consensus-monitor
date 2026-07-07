@@ -69,7 +69,7 @@ async function main() {
 
   printBuckets('By risk tag:', bucket(alerts, a => a.riskTag || '?'));
   printBuckets('By trader count:', bucket(alerts, a => a.count >= 4 ? '4+' : String(a.count)));
-  printBuckets('By dollar conviction:', bucket(alerts, a => a.usd >= 50000 ? '$50K+' : a.usd >= 5000 ? '$5K-50K' : '<$5K'));
+  printBuckets('By dollar conviction:', bucket(alerts, a => a.usd == null ? 'unknown (reconstructed)' : a.usd >= 50000 ? '$50K+' : a.usd >= 5000 ? '$5K-50K' : '<$5K'));
 
   if (!MY_WALLET) {
     console.log('\nMY_WALLET not set — set it as an env var to also see your personal matched results.');
