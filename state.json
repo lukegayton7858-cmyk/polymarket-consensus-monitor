@@ -6,7 +6,6 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
     "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 1783293253540,
-    "0xcc4026621ceda33b2af38e9d22871b650c632c86daea6ecc62b01ee1aa01188a|No": 1783449194399,
     "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia": 1783453454577,
     "0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes": 1783455256957,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783463653260
@@ -18,7 +17,6 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0xeb348b65a59bb2752d3dd10636d17de501df76a424e978e136d22e76d07c84e9|Yes": 2,
-    "0xcc4026621ceda33b2af38e9d22871b650c632c86daea6ecc62b01ee1aa01188a|No": 3,
     "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia": 4,
     "0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes": 2
   },
@@ -76,17 +74,6 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26"
       ],
       "size0": 250753.7126
-    },
-    "0xcc4026621ceda33b2af38e9d22871b650c632c86daea6ecc62b01ee1aa01188a|No": {
-      "title": "Switzerland vs. Colombia: Both Teams to Score",
-      "slug": "fifwc-che-col-2026-07-07-more-markets",
-      "wallets": [
-        "0x412fe1a101554f0b382181c3af932e4b2d8030fa",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
-      ],
-      "size0": 201964.04329999996,
-      "wonNotified": true
     },
     "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia": {
       "title": "Switzerland vs. Colombia: Team to Advance",
