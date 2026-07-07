@@ -111,5 +111,7 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Switzerland": 1
+  }
 }
