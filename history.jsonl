@@ -135,3 +135,4 @@
 {"ts":1783389042000,"type":"resolution","key":"0x281958c54a688bfca19eb3e48bd3540df815549ccdac6d85016e5a6ca1493a68|Over","title":"United States vs. Belgium: O/U 4.5","kind":"won","reconstructed":true}
 {"ts":1783394831225,"type":"resolution","key":"0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers","title":"Colorado Rockies vs. Los Angeles Dodgers","kind":"won"}
 {"ts":1783401134477,"type":"alert","key":"0x4df0608dd27fe2a79cf6ad387b9f0e4ba1df864d8abf275c01273c297ea94942|Over","title":"Argentina vs. Egypt: O/U 2.5","outcome":"Over","slug":"fifwc-arg-egy-2026-07-07-more-markets","count":2,"total":20,"avgPrice":47.5,"avgEntry":47.5,"usd":48951.32,"riskTag":"MED"}
+{"ts":1783403536199,"type":"resolution","key":"0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers","title":"Colorado Rockies vs. Los Angeles Dodgers","kind":"sell"}
