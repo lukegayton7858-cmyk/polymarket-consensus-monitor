@@ -79,7 +79,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0xd81e5bc01e4a98d0af93d82dc2c542a4c0f9e3d0"
       ],
-      "size0": 7904.55
+      "size0": 7904.55,
+      "wonNotified": true
     }
   },
   "pendingExit": {}

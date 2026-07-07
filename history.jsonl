@@ -133,3 +133,4 @@
 {"ts":1783380650000,"type":"resolution","key":"0x2f3e8ba123deb05e3aff47ad738429054f345fbb872b9305510706bff3aa8c3e|Over","title":"United States vs. Belgium: O/U 2.5","kind":"won","reconstructed":true}
 {"ts":1783389042000,"type":"alert","key":"0x281958c54a688bfca19eb3e48bd3540df815549ccdac6d85016e5a6ca1493a68|Over","title":"United States vs. Belgium: O/U 4.5","outcome":"Over","slug":null,"count":2,"total":20,"avgPrice":null,"avgEntry":null,"usd":null,"riskTag":null,"reconstructed":true}
 {"ts":1783389042000,"type":"resolution","key":"0x281958c54a688bfca19eb3e48bd3540df815549ccdac6d85016e5a6ca1493a68|Over","title":"United States vs. Belgium: O/U 4.5","kind":"won","reconstructed":true}
+{"ts":1783394831225,"type":"resolution","key":"0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers","title":"Colorado Rockies vs. Los Angeles Dodgers","kind":"won"}
