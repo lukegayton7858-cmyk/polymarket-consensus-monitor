@@ -131,5 +131,8 @@
       "size0": 1154845.7462
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x83d646ac5646bf847f2dc0ce9c18c4d8909bbb7b050b31075afb9b67d3802b33|United States": 1,
+    "0x982941d6030e30ed0f56043622c52d71db557f6ef2774a11a06945248e7076ab|Yes": 1
+  }
 }
