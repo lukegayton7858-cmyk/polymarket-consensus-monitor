@@ -106,7 +106,8 @@
         "0x7dddf1968c14900b2d2ef9dada8465e82ac4c933",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
-      "size0": 43272.9485
+      "size0": 43272.9485,
+      "wonNotified": true
     },
     "0xb940a4d630a6d79b5d6a18dd3c701d94f49b19c2531370d7e077f130562bb137|Los Angeles Dodgers": {
       "title": "Colorado Rockies vs. Los Angeles Dodgers",
@@ -127,7 +128,8 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
-      "size0": 1154845.7462
+      "size0": 1154845.7462,
+      "wonNotified": true
     }
   },
   "pendingExit": {}
