@@ -99,7 +99,8 @@
         "0x095fbca2e0eaf0c9841005135427e1e0117190b2",
         "0x580d9dcca035b1de4155be73c1804aef74ebeb6d"
       ],
-      "size0": 2344414.4020999996
+      "size0": 2344414.4020999996,
+      "wonNotified": true
     },
     "0x71cf19220d20cbad74d50c08f51995fc8aa7f93455878bffbbec739d1d63cee6|Novak Djokovic": {
       "title": "Wimbledon ATP: Felix Auger-Aliassime vs Novak Djokovic",
