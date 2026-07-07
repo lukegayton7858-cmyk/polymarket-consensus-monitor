@@ -28,6 +28,23 @@ const NTFY_TOPIC = process.env.NTFY_TOPIC || '';
 // Luke's own Polymarket wallet (public on-chain data). When set, exit pushes
 // (SELL/LOST/WON/TRIM) only fire for markets he actually holds — BUYs unaffected.
 const MY_WALLET = process.env.MY_WALLET || '';
+// MY_WALLET alone only feeds the calibration history log (read-only, matches
+// Luke's real trades against our alert history). The exit-suppression feature
+// he declined stays off unless this is separately turned on.
+const FILTER_EXITS_TO_MY_WALLET = process.env.FILTER_EXITS_TO_MY_WALLET === 'true';
+
+const HISTORY_FILE = path.join(__dirname, 'history.jsonl');
+
+// state.json only tracks what's CURRENTLY active — the moment an alert
+// resolves, dropAlert() deletes it entirely, so there was never any durable
+// record of what we alerted, at what price/risk/conviction, or how it turned
+// out. That's the missing piece for calibrating against real results (ours or
+// Luke's). Append-only JSON Lines: cheap to write, no read-modify-write race
+// with the rest of state, trivial to grep or replay later.
+function appendHistory(records) {
+  if (!records.length) return;
+  fs.appendFileSync(HISTORY_FILE, records.map(r => JSON.stringify(r)).join('\n') + '\n');
+}
 
 function loadState() {
   try {
@@ -462,6 +479,9 @@ async function main() {
   // Mutations that must only take effect once the push actually reaches ntfy —
   // otherwise a failed send still gets recorded as "delivered" and never retries.
   const commitOps = [];
+  // Durable calibration log — only appended alongside commitOps, so a failed
+  // push doesn't record history for something Luke never actually saw either.
+  const historyRecords = [];
 
   // A key drops out (price left the band, a trader closed, etc). Don't sell-alert
   // on the first miss — that could just be one wallet's API call hiccuping. Only
@@ -489,6 +509,7 @@ async function main() {
           // one-time heads-up; keep tracking in case it reverses
           exitEvents.push({ key, meta, kind: 'won' });
           commitOps.push(() => { meta.wonNotified = true; });
+          historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind: 'won' });
         } else if (meta.size0 > 0 && totalSize > 0 && totalSize < meta.size0 * 0.6 && !meta.trimNotified) {
           // Still in it, but they've cut 40%+ of the shares they held at alert
           // time. Price drawdowns are noise (they often ADD into dips) — a size
@@ -496,6 +517,7 @@ async function main() {
           const pct = Math.round((1 - totalSize / meta.size0) * 100);
           exitEvents.push({ key, meta, kind: 'trim', pct });
           commitOps.push(() => { meta.trimNotified = true; });
+          historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind: 'trim', pct });
         }
         continue;
       }
@@ -505,8 +527,10 @@ async function main() {
       // "gone" could just mean "couldn't see it this run".
       const misses = unknown === 0 ? EXIT_CONFIRM_MISSES : (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
-        exitEvents.push({ key, meta, kind: lost > 0 ? 'lost' : 'sell' });
+        const kind = lost > 0 ? 'lost' : 'sell';
+        exitEvents.push({ key, meta, kind });
         commitOps.push(() => dropAlert(key));
+        historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind });
       } else {
         state.pendingExit[key] = misses;
       }
@@ -523,6 +547,7 @@ async function main() {
       if (misses >= EXIT_CONFIRM_MISSES) {
         exitEvents.push({ key, meta: state.alertedMeta[key], kind: 'sell' });
         commitOps.push(() => dropAlert(key));
+        historyRecords.push({ ts: now, type: 'resolution', key, title: state.alertedMeta[key]?.title, kind: 'sell' });
       } else {
         state.pendingExit[key] = misses;
       }
@@ -588,6 +613,10 @@ async function main() {
       state.alertedAt[item.key] = count;
       state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets], size0: item.size || 0 };
     });
+    historyRecords.push({
+      ts: now, type: 'alert', key: item.key, title: item.title, outcome: item.outcome, slug: item.slug,
+      count, total, avgPrice: s.avgPrice, avgEntry: s.avgEntry, usd: item.usd || 0, riskTag: s.risk.tag,
+    });
   }
 
   // Multiple DIFFERENT markets (moneyline, spread, O/U, props) tied to the same
@@ -622,7 +651,7 @@ async function main() {
   // BUYs always send (can't know what he'll want to enter). State cleanup for
   // suppressed exits still commits, so they don't re-fire forever.
   let sendableExits = exitEvents;
-  if (MY_WALLET && exitEvents.length) {
+  if (FILTER_EXITS_TO_MY_WALLET && MY_WALLET && exitEvents.length) {
     const mine = await fetchPositions(MY_WALLET);
     if (mine != null) { // failed fetch → can't know what he holds → send everything
       const myCids = new Set(mine.map(p => p.conditionId));
@@ -635,6 +664,7 @@ async function main() {
   const sent = await sendDigest(entryEvents, sendableExits);
   if (sent) {
     for (const op of commitOps) op();
+    appendHistory(historyRecords);
   } else if (commitOps.length) {
     console.error(`Push failed — ${commitOps.length} alert(s) deferred to retry next run instead of being marked delivered.`);
   }
