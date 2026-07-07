@@ -119,5 +119,7 @@
       "size0": 22629.5268
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x7f481c96a3bf0d8292a2515e3dd0e709e5bdd240189b81fc98f8003480b4eb14|Egypt": 1
+  }
 }
