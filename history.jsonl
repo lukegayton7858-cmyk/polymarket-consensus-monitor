@@ -151,3 +151,4 @@
 {"ts":1783448474188,"type":"resolution","key":"0x7f481c96a3bf0d8292a2515e3dd0e709e5bdd240189b81fc98f8003480b4eb14|Egypt","title":"Argentina vs. Egypt: Team to Advance","kind":"lost"}
 {"ts":1783448658533,"type":"resolution","key":"0xed731efabe978ae565a11181e2d785df1d0629a9614df9e372e40a8fac35af2d|Egypt","title":"Spread: Argentina (-1.5)","kind":"sell"}
 {"ts":1783448775480,"type":"resolution","key":"0x4df0608dd27fe2a79cf6ad387b9f0e4ba1df864d8abf275c01273c297ea94942|Over","title":"Argentina vs. Egypt: O/U 2.5","kind":"sell"}
+{"ts":1783449553706,"type":"alert","key":"0xcc4026621ceda33b2af38e9d22871b650c632c86daea6ecc62b01ee1aa01188a|No","title":"Switzerland vs. Colombia: Both Teams to Score","outcome":"No","slug":"fifwc-che-col-2026-07-07-more-markets","count":2,"total":20,"avgPrice":48.5,"avgEntry":49,"usd":65247.1345,"riskTag":"LOW"}
