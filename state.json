@@ -5,8 +5,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
-    "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia": 1783453454577,
-    "0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes": 1783455256957,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783463653260,
     "0x9814613f36b8e2e25e12b2114024d5261bb54142624656c4832f83b07b86c143|Over": 1783465630845
   },
@@ -16,8 +14,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
-    "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia": 4,
-    "0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes": 2,
     "0x9814613f36b8e2e25e12b2114024d5261bb54142624656c4832f83b07b86c143|Over": 2
   },
   "alertedMeta": {
@@ -65,27 +61,6 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ]
-    },
-    "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia": {
-      "title": "Switzerland vs. Colombia: Team to Advance",
-      "slug": "fifwc-che-col-2026-07-07-more-markets",
-      "wallets": [
-        "0xc6a63ad5a788a576d4acc9911c50fef9fde49458",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223"
-      ],
-      "size0": 1414490.2721
-    },
-    "0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes": {
-      "title": "Will Switzerland vs. Colombia end in a draw?",
-      "slug": "fifwc-che-col-2026-07-07",
-      "wallets": [
-        "0x09b428f7c2b469786286214aa5c90dd9015f7320",
-        "0x65018f9fc473f6e920b8929a375d39c26a461220"
-      ],
-      "size0": 5757055.0876,
-      "wonNotified": true
     },
     "0x9814613f36b8e2e25e12b2114024d5261bb54142624656c4832f83b07b86c143|Over": {
       "title": "Philadelphia Phillies vs. Cincinnati Reds: O/U 8.5",
