@@ -79,7 +79,8 @@
         "0x2117ae94a97d69b78cbc81b6680a62deb1955c26",
         "0xb61b2079b95f6b7476fd3203e0274ffb93308a06"
       ],
-      "size0": 176036
+      "size0": 176036,
+      "wonNotified": true
     },
     "0xf5a0c2d5b6bf0a7b9899aaf4c6237b08e1dbf8d17430fac4de8468a6e2df2e0e|Yes": {
       "title": "Will United States win on 2026-07-06?",
