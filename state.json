@@ -17,7 +17,8 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia": 4,
-    "0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes": 2
+    "0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes": 2,
+    "0x9814613f36b8e2e25e12b2114024d5261bb54142624656c4832f83b07b86c143|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -85,6 +86,15 @@
       ],
       "size0": 5757055.0876,
       "wonNotified": true
+    },
+    "0x9814613f36b8e2e25e12b2114024d5261bb54142624656c4832f83b07b86c143|Over": {
+      "title": "Philadelphia Phillies vs. Cincinnati Reds: O/U 8.5",
+      "slug": "mlb-phi-cin-2026-07-07",
+      "wallets": [
+        "0xee00ba338c59557141789b127927a55f5cc5cea1",
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
+      ],
+      "size0": 220879
     }
   },
   "pendingExit": {}
