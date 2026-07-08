@@ -521,6 +521,11 @@ async function main() {
       const { holding, lost, maxPrice, totalSize, unknown } = checkHolders(key, meta.wallets, positionsByWallet);
       if (holding >= 2) {
         delete state.pendingExit[key];
+        // Track last price seen while they still hold — by the time a SELL
+        // fires the positions are gone, so this is the only record of what
+        // price they exited around. Lets calibration split profit-taking
+        // sells from panic sells instead of lumping both as "unknown".
+        if (maxPrice > 0) meta.lastPrice = Math.round(maxPrice * 1000) / 10; // cents
         if (maxPrice >= 0.95 && !meta.wonNotified) {
           // one-time heads-up; keep tracking in case it reverses
           exitEvents.push({ key, meta, kind: 'won' });
@@ -546,7 +551,7 @@ async function main() {
         const kind = lost > 0 ? 'lost' : 'sell';
         exitEvents.push({ key, meta, kind });
         commitOps.push(() => dropAlert(key));
-        historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind });
+        historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind, exitPrice: meta.lastPrice ?? null });
       } else {
         state.pendingExit[key] = misses;
       }
@@ -563,7 +568,7 @@ async function main() {
       if (misses >= EXIT_CONFIRM_MISSES) {
         exitEvents.push({ key, meta: state.alertedMeta[key], kind: 'sell' });
         commitOps.push(() => dropAlert(key));
-        historyRecords.push({ ts: now, type: 'resolution', key, title: state.alertedMeta[key]?.title, kind: 'sell' });
+        historyRecords.push({ ts: now, type: 'resolution', key, title: state.alertedMeta[key]?.title, kind: 'sell', exitPrice: state.alertedMeta[key]?.lastPrice ?? null });
       } else {
         state.pendingExit[key] = misses;
       }

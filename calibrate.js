@@ -20,11 +20,19 @@ function bucket(alerts, keyFn) {
   const groups = {};
   for (const a of alerts) {
     const k = keyFn(a);
-    (groups[k] ||= { total: 0, won: 0, lost: 0, pending: 0, other: 0 }).total++;
-    if (a.resolution?.kind === 'won') groups[k].won++;
-    else if (a.resolution?.kind === 'lost') groups[k].lost++;
-    else if (!a.resolution) groups[k].pending++;
-    else groups[k].other++; // sell/trim — ambiguous without exit price, not counted as win/loss
+    const g = (groups[k] ||= { total: 0, won: 0, lost: 0, sellWin: 0, sellLoss: 0, pending: 0, other: 0 });
+    g.total++;
+    const r = a.resolution;
+    if (r?.kind === 'won') g.won++;
+    else if (r?.kind === 'lost') g.lost++;
+    else if (r?.kind === 'sell' && r.exitPrice != null && a.avgPrice != null) {
+      // Traders exited mid-market: exit above the alert-time price means the
+      // copy was in profit when they left (profit-taking), below means it
+      // soured. Both are directional wins/losses for calibration purposes.
+      if (r.exitPrice > a.avgPrice) g.sellWin++; else g.sellLoss++;
+    }
+    else if (!r) g.pending++;
+    else g.other++; // trim, or old sell records from before exit prices were logged
   }
   return groups;
 }
@@ -32,9 +40,10 @@ function bucket(alerts, keyFn) {
 function printBuckets(title, groups) {
   console.log(`\n${title}`);
   for (const [k, g] of Object.entries(groups)) {
-    const resolved = g.won + g.lost;
-    const rate = resolved ? `${Math.round((g.won / resolved) * 100)}%` : 'n/a';
-    console.log(`  ${k}: ${g.total} alerts | ${g.won}W-${g.lost}L (${rate}) | ${g.pending} pending | ${g.other} sell/trim`);
+    const w = g.won + g.sellWin, l = g.lost + g.sellLoss;
+    const resolved = w + l;
+    const rate = resolved ? `${Math.round((w / resolved) * 100)}%` : 'n/a';
+    console.log(`  ${k}: ${g.total} alerts | ${w}W-${l}L (${rate}, incl ${g.sellWin}/${g.sellLoss} profit/loss exits) | ${g.pending} pending | ${g.other} unlabeled`);
   }
 }
 
