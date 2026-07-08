@@ -75,13 +75,20 @@ async function fetchJSON(url, retries = 2) {
 }
 
 async function loadTopTraders() {
-  const [month, week] = await Promise.all([
+  // Blended, not replaced: OVERALL currently doubles as a sports leaderboard
+  // since the World Cup dominates platform-wide volume, but that won't last —
+  // once general activity normalizes, OVERALL drifts back toward crypto/
+  // politics specialists with no sports edge. SPORTS keeps the pool anchored
+  // to what's actually being bet on (soccer, tennis, esports) regardless.
+  const [overallMonth, overallWeek, sportsMonth, sportsWeek] = await Promise.all([
     fetchJSON(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=MONTH&orderBy=PNL&limit=50`),
     fetchJSON(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=WEEK&orderBy=PNL&limit=50`),
+    fetchJSON(`${LEADERBOARD_URL}?category=SPORTS&timePeriod=MONTH&orderBy=PNL&limit=50`),
+    fetchJSON(`${LEADERBOARD_URL}?category=SPORTS&timePeriod=WEEK&orderBy=PNL&limit=50`),
   ]);
   const seen = new Set();
   const candidates = [];
-  for (const t of [...month, ...week]) {
+  for (const t of [...overallMonth, ...overallWeek, ...sportsMonth, ...sportsWeek]) {
     if (seen.has(t.proxyWallet)) continue;
     seen.add(t.proxyWallet);
     const vol = t.vol || 0;
