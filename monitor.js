@@ -86,6 +86,10 @@ async function loadTopTraders() {
     fetchJSON(`${LEADERBOARD_URL}?category=SPORTS&timePeriod=MONTH&orderBy=PNL&limit=50`),
     fetchJSON(`${LEADERBOARD_URL}?category=SPORTS&timePeriod=WEEK&orderBy=PNL&limit=50`),
   ]);
+  // Tag traders only reachable via the SPORTS boards, so history can later
+  // prove whether the blend improves hit rate — if sports-only consensus
+  // underperforms, the blend gets removed on evidence instead of a guess.
+  const overallWallets = new Set([...overallMonth, ...overallWeek].map(t => t.proxyWallet));
   const seen = new Set();
   const candidates = [];
   for (const t of [...overallMonth, ...overallWeek, ...sportsMonth, ...sportsWeek]) {
@@ -98,6 +102,7 @@ async function loadTopTraders() {
       name: t.userName || t.proxyWallet.slice(0, 8),
       pnl: t.pnl || 0, vol,
       eff: vol > 0 ? (t.pnl || 0) / vol : 0,
+      sportsOnly: !overallWallets.has(t.proxyWallet),
     });
   }
   candidates.sort((a, b) => b.eff - a.eff);
@@ -161,6 +166,7 @@ function buildConsensus(topTraders, positionsByWallet, state, now) {
       if (!Number.isNaN(price)) map[key].prices.push(price);
       if (!Number.isNaN(entry)) map[key].entries.push(entry);
       map[key].usd += Number(p.initialValue) || 0; // cost basis = conviction in dollars
+      if (t.sportsOnly) map[key].sportsOnlyCount = (map[key].sportsOnlyCount || 0) + 1;
       map[key].size = (map[key].size || 0) + (Number(p.size) || 0); // shares held, baseline for trim detection
     }
   }
@@ -626,6 +632,7 @@ async function main() {
     historyRecords.push({
       ts: now, type: 'alert', key: item.key, title: item.title, outcome: item.outcome, slug: item.slug,
       count, total, avgPrice: s.avgPrice, avgEntry: s.avgEntry, usd: item.usd || 0, riskTag: s.risk.tag,
+      sportsOnlyCount: item.sportsOnlyCount || 0,
     });
   }
 
