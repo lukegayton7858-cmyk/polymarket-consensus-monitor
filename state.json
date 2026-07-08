@@ -23,7 +23,8 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
-      ]
+      ],
+      "lastPrice": 32.7
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -32,7 +33,8 @@
         "0x85f031d069de300055900c4055c1baeb6bde3f67",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
-      ]
+      ],
+      "lastPrice": 41.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -41,7 +43,8 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
-      ]
+      ],
+      "lastPrice": 18.8
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -50,7 +53,8 @@
         "0xe9076a87c5ed90ef16e6fe6529c943baeca0cff6",
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
-      ]
+      ],
+      "lastPrice": 18.8
     },
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": {
       "title": "Will Novak Djokovic be the 2026 Men’s Wimbledon winner?",
@@ -58,7 +62,8 @@
       "wallets": [
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
-      ]
+      ],
+      "lastPrice": 12.4
     }
   },
   "pendingExit": {}
