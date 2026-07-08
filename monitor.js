@@ -306,7 +306,10 @@ async function sendEntryPush(s) {
   const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}${usd ? ` — 💰 ${usd} behind it` : ''}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}\n\n👥 ${item.traders.join(', ')}${corrLine}`;
   const headers = {
     'Title': boundTitle(`BUY ${outcome} @ ${Math.round(avgPrice ?? 0)}c - `, item.title),
-    'Priority': count >= 5 ? 'urgent' : 'high',
+    // Attention matches risk: green buzzes, yellow lands quietly, red whispers.
+    // All still send (yellow carried the Argentina @19c winner) — Luke reads
+    // green first but nothing is hidden, and calibration keeps logging all tiers.
+    'Priority': count >= 5 ? 'urgent' : risk.tag === 'LOW' ? 'high' : risk.tag === 'MED' ? 'default' : 'min',
     'Tags': 'chart_increasing',
     'Markdown': 'yes',
   };
