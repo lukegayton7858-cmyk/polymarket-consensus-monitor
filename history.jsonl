@@ -169,3 +169,4 @@
 {"ts":1783465993262,"type":"resolution","key":"0x6d621f9a6690d234786025521c650f3f65738e0f877ff776c8f50275a2b3aee7|Colombia","title":"Switzerland vs. Colombia: Team to Advance","kind":"lost"}
 {"ts":1783465993262,"type":"resolution","key":"0xe43caeeefb9438d44e3c73a10dddc88f3dd355daf89d0586f8e9c2369bbf762f|Yes","title":"Will Switzerland vs. Colombia end in a draw?","kind":"sell"}
 {"ts":1783478293346,"type":"resolution","key":"0x9814613f36b8e2e25e12b2114024d5261bb54142624656c4832f83b07b86c143|Over","title":"Philadelphia Phillies vs. Cincinnati Reds: O/U 8.5","kind":"lost"}
+{"ts":1783500373332,"type":"alert","key":"0x114792a4173044b81a8235bcdf6b8483c5e4c5efbebd98f687f9863340b300ce|T1","title":"LoL: G2 Esports vs T1 (BO5) - Mid-Season Invitational Playoffs","outcome":"T1","slug":"lol-g2-t1-2026-07-08","count":2,"total":20,"avgPrice":48.5,"avgEntry":47.56,"usd":4455.3376,"riskTag":"MED"}
