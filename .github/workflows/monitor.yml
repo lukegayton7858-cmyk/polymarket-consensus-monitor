@@ -18,12 +18,13 @@ concurrency:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    # Normal runs finish in well under a minute. Without a cap, a GitHub-side
-    # hiccup (e.g. "runner not acquired") can hold this concurrency group's
-    # slot for 10+ minutes, and every trigger that arrives during that time
-    # cascades into cancelling the one before it. Capping the blast radius
-    # here so a stuck run self-clears in minutes, not double digits.
-    timeout-minutes: 3
+    # Clean runs measured at ~23s (checkout+setup-node+monitor.js+commit).
+    # Without a cap, a GitHub-side hiccup (stuck runner acquisition, a hung
+    # step) can hold this concurrency group's slot for 10+ minutes, and every
+    # trigger that arrives during that time cascades into cancelling the one
+    # before it. 2min gives ~5x margin over normal while matching the 2min
+    # trigger interval, so a hang dies before the next trigger even queues.
+    timeout-minutes: 2
     steps:
       - uses: actions/checkout@v4
 
