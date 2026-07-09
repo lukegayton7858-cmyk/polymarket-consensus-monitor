@@ -190,3 +190,4 @@
 {"ts":1783635370994,"type":"resolution","key":"0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco","title":"Spread: France (-1.5)","kind":"lost","exitPrice":0.1}
 {"ts":1783635370994,"type":"resolution","key":"0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over","title":"France vs. Morocco: O/U 2.5","kind":"lost","exitPrice":0.1}
 {"ts":1783635492435,"type":"resolution","key":"0xf8619a8227dc8c3bc695128be06ffbc48f03d9eb991e3e4b4b43dddb0920fe54|Under","title":"France vs. Morocco: O/U 9.5 Total Corners","kind":"lost","exitPrice":0.1}
+{"ts":1783636233050,"type":"resolution","key":"0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France","title":"France vs. Morocco: Team to Advance","kind":"sell","exitPrice":100}
