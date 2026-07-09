@@ -121,7 +121,13 @@ async function loadTopTraders() {
     });
   }
   candidates.sort((a, b) => b.eff - a.eff);
-  return candidates.slice(0, 20);
+  // 30, not 20: daily leaderboard churn regularly drops one half of a live
+  // 2-trader consensus to rank ~21-25, silently killing the signal (measured
+  // live 2026-07-09: top-20 saw 0 plays on France-Morocco, top-30 saw 4, the
+  // full 72-wallet pool saw 36 mostly self-contradicting ones). 30 absorbs
+  // churn without opening the floodgates — everyone still clears the volume
+  // floor and positive efficiency.
+  return candidates.slice(0, 30);
 }
 
 // null = fetch FAILED (unknown state), [] = fetch succeeded and wallet holds
