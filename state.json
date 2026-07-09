@@ -89,7 +89,8 @@
         "0x095fbca2e0eaf0c9841005135427e1e0117190b2",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
-      "size0": 7876127.1746
+      "size0": 7876127.1746,
+      "lastPrice": 50.9
     },
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": {
       "title": "France vs. Morocco: Team to Advance",
@@ -98,7 +99,8 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
-      "size0": 22246.85
+      "size0": 22246.85,
+      "lastPrice": 77.6
     },
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": {
       "title": "France vs. Morocco: Both Teams to Score",
@@ -107,7 +109,8 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
-      "size0": 4249.84
+      "size0": 4249.84,
+      "lastPrice": 49.5
     }
   },
   "pendingExit": {}
