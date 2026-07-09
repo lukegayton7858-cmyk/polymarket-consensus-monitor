@@ -44,7 +44,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 39.5
+      "lastPrice": 38.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -64,7 +64,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 19.1
+      "lastPrice": 19.2
     },
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": {
       "title": "Will Novak Djokovic be the 2026 Men’s Wimbledon winner?",
@@ -103,7 +103,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 22246.85,
-      "lastPrice": 78.4
+      "lastPrice": 78.9
     },
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": {
       "title": "France vs. Morocco: Both Teams to Score",
@@ -113,7 +113,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 4249.84,
-      "lastPrice": 72.5
+      "lastPrice": 71.5
     },
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": {
       "title": "Will France win on 2026-07-09?",
@@ -123,7 +123,7 @@
         "0xe30e74595517de48f1fb19f4553dd3d9f1e96b87"
       ],
       "size0": 540000,
-      "lastPrice": 60.4
+      "lastPrice": 60.6
     }
   },
   "pendingExit": {}
