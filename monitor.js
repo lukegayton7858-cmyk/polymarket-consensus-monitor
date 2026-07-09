@@ -306,8 +306,13 @@ function riskLevel(avgPrice, count, chase, usd = 0) {
     else if (avgPrice > 65) score += 1;
   }
   if (chase) score += 2;
-  if (count <= THRESHOLD) score += 1;
-  else if (count >= 4) score -= 1;
+  // Measured, not assumed: through 2026-07-09, 2-trader alerts ran 24W-21L
+  // while 3+-trader alerts ran 0W-5L — big consensus forms late, on favorites
+  // whose price has already moved. So crowd size ADDS risk here; the intuitive
+  // "more heads = safer" bonus this used to give count>=4 was backwards
+  // against our own results. Small sample; re-check via calibrate.js as
+  // history grows.
+  if (count > THRESHOLD) score += 1;
   // Dollar conviction: $50k+ of the traders' own cost basis is a stronger
   // signal than an extra head; pocket-change consensus is weaker than it looks.
   if (usd >= 50_000) score -= 1;
