@@ -35,7 +35,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 41.5
+      "lastPrice": 40.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -64,7 +64,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ],
-      "lastPrice": 11.1
+      "lastPrice": 11
     },
     "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco": {
       "title": "Spread: France (-1.5)",
@@ -74,7 +74,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 65.6
+      "lastPrice": 65.5
     }
   },
   "pendingExit": {}
