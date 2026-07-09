@@ -11,7 +11,6 @@
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": 1783625771768,
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": 1783627090064,
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Under": 1783632372084,
-    "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|France": 1783632372084,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783632637777
   },
   "alertedAt": {
@@ -46,7 +45,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 46
+      "lastPrice": 47.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -56,7 +55,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 18.2
+      "lastPrice": 18.1
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -85,7 +84,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 55.1
+      "lastPrice": 21.6
     },
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": {
       "title": "France vs. Morocco: O/U 2.5",
@@ -131,7 +130,5 @@
       "wonNotified": true
     }
   },
-  "pendingExit": {
-    "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|France": 1
-  }
+  "pendingExit": {}
 }
