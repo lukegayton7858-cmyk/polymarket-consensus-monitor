@@ -80,5 +80,9 @@
       "lastPrice": 65.4
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": 1,
+    "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": 1,
+    "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": 1
+  }
 }
