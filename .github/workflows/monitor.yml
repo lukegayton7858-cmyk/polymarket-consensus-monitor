@@ -8,12 +8,17 @@ on:
 permissions:
   contents: write
 
-# With cron-job.org dispatching every 1 min, a run can still be mid-flight when
-# the next one fires. Without this, two runs can race to push state.json and one
-# silently loses (job fails at the very last step after alerts already sent).
+# Clean runs take ~20-25s against a 2min trigger interval, so a healthy run is
+# never still going when the next one fires - cancel-in-progress essentially
+# never touches a normal run. What it does fix: GitHub's own "runner not
+# acquired" stalls (a confirmed recurring GitHub Actions incident, not our
+# code) hold this slot in queue for ~15min regardless of our job timeout,
+# since that stall happens before the job even starts executing. With
+# cancel-in-progress: true, the next trigger kills the stuck one immediately
+# instead of waiting out GitHub's ~15min internal give-up.
 concurrency:
   group: polymarket-monitor-run
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   monitor:
