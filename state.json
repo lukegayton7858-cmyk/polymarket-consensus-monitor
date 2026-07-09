@@ -26,7 +26,9 @@
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": 3,
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": 2,
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": 2,
-    "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": 2
+    "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": 2,
+    "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 2,
+    "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -48,7 +50,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 52.5
+      "lastPrice": 46.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -87,7 +89,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 14.1
+      "lastPrice": 14.4
     },
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": {
       "title": "France vs. Morocco: O/U 2.5",
@@ -98,7 +100,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 10306043.353999998,
-      "lastPrice": 61.6
+      "lastPrice": 54.4
     },
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": {
       "title": "France vs. Morocco: Team to Advance",
@@ -108,7 +110,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 22246.85,
-      "lastPrice": 98.1,
+      "lastPrice": 98.4,
       "wonNotified": true
     },
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": {
@@ -119,7 +121,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 4249.84,
-      "lastPrice": 75
+      "lastPrice": 77.5
     },
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": {
       "title": "Will France win on 2026-07-09?",
@@ -129,9 +131,29 @@
         "0xe30e74595517de48f1fb19f4553dd3d9f1e96b87"
       ],
       "size0": 540000,
-      "lastPrice": 97.9,
+      "lastPrice": 97.6,
       "wonNotified": true
+    },
+    "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
+      "title": "Will Spain win on 2026-07-10?",
+      "slug": "fifwc-esp-bel-2026-07-10",
+      "wallets": [
+        "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
+        "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
+      ],
+      "size0": 336235.98329999996
+    },
+    "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
+      "title": "Norway vs. England: Team to Advance",
+      "slug": "fifwc-nor-eng-2026-07-11-more-markets",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
+      ],
+      "size0": 33218.749899999995
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0xf8619a8227dc8c3bc695128be06ffbc48f03d9eb991e3e4b4b43dddb0920fe54|Under": 1
+  }
 }
