@@ -10,7 +10,6 @@
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": 1783625771768,
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": 1783625771768,
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": 1783627090064,
-    "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Under": 1783632372084,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783632637777,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 1783633093399,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 1783633093399,
@@ -90,7 +89,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 5.4
+      "lastPrice": 1.6
     },
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": {
       "title": "France vs. Morocco: O/U 2.5",
@@ -101,7 +100,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 10306043.353999998,
-      "lastPrice": 16.6
+      "lastPrice": 4.1
     },
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": {
       "title": "France vs. Morocco: Team to Advance",
@@ -167,7 +166,5 @@
       "lastPrice": 0.1
     }
   },
-  "pendingExit": {
-    "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Under": 1
-  }
+  "pendingExit": {}
 }
