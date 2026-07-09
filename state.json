@@ -34,7 +34,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 32
+      "lastPrice": 31.7
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -83,7 +83,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 72.6
+      "lastPrice": 74.9
     },
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": {
       "title": "France vs. Morocco: O/U 2.5",
@@ -93,7 +93,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7876127.1746,
-      "lastPrice": 25.6
+      "lastPrice": 23.9
     },
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": {
       "title": "France vs. Morocco: Team to Advance",
@@ -103,7 +103,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 22246.85,
-      "lastPrice": 78.4
+      "lastPrice": 78.1
     },
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": {
       "title": "France vs. Morocco: Both Teams to Score",
@@ -113,7 +113,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 4249.84,
-      "lastPrice": 72.5
+      "lastPrice": 73.5
     },
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": {
       "title": "Will France win on 2026-07-09?",
@@ -123,7 +123,7 @@
         "0xe30e74595517de48f1fb19f4553dd3d9f1e96b87"
       ],
       "size0": 540000,
-      "lastPrice": 59.9
+      "lastPrice": 59.6
     }
   },
   "pendingExit": {}
