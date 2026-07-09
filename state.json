@@ -116,5 +116,7 @@
       "lastPrice": 65.1
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1
+  }
 }
