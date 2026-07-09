@@ -11,7 +11,9 @@
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": 1783625771768,
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": 1783627090064,
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Under": 1783632372084,
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783632637777
+    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783632637777,
+    "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 1783633093399,
+    "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 1783633093399
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -35,7 +37,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 39.2
+      "lastPrice": 39.3
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -45,7 +47,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 49.5
+      "lastPrice": 48.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -65,7 +67,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 17.8
+      "lastPrice": 17.2
     },
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": {
       "title": "Will Novak Djokovic be the 2026 Men’s Wimbledon winner?",
@@ -84,7 +86,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 15.1
+      "lastPrice": 14.9
     },
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": {
       "title": "France vs. Morocco: O/U 2.5",
@@ -95,7 +97,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 10306043.353999998,
-      "lastPrice": 65.6
+      "lastPrice": 65.9
     },
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": {
       "title": "France vs. Morocco: Team to Advance",
@@ -105,7 +107,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 22246.85,
-      "lastPrice": 98.4,
+      "lastPrice": 98.1,
       "wonNotified": true
     },
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": {
@@ -126,7 +128,7 @@
         "0xe30e74595517de48f1fb19f4553dd3d9f1e96b87"
       ],
       "size0": 540000,
-      "lastPrice": 97.6,
+      "lastPrice": 97.4,
       "wonNotified": true
     }
   },
