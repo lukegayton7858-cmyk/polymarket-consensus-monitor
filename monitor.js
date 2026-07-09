@@ -423,86 +423,44 @@ async function sendExitPush(key, meta, kind = 'sell', pct = 0) {
   }
 }
 
-// Sends one push per run no matter how many signals fired, so multiple
-// simultaneous events land as a single organized message instead of a burst.
+// One push per play (Luke's preference — matches the original tracker): every
+// BUY and every exit lands as its own notification instead of one merged
+// digest. Same-game correlation still shows, but inside each push via the
+// corroborating line. Returns true only if EVERY push succeeded — a partial
+// failure re-fires the whole batch next run, so a flaky send can duplicate an
+// already-delivered play; a duplicated play beats a silently dropped one.
 async function sendDigest(entryEvents, exitEvents) {
-  const totalEvents = entryEvents.length + exitEvents.length;
-  if (totalEvents === 0) return true;
+  if (entryEvents.length + exitEvents.length === 0) return true;
 
-  if (totalEvents === 1) {
-    if (entryEvents.length) return await sendEntryPush(entryEvents[0]);
-    return await sendExitPush(exitEvents[0].key, exitEvents[0].meta, exitEvents[0].kind, exitEvents[0].pct);
-  }
-
-  // Urgency order: live SELLs first (act now), then results, then BUYs
-  // sorted safest-first. Each line leads with side @ price so a wrapped
-  // line never hides what to actually do.
+  // Urgency order preserved across separate pushes: live SELLs first (act
+  // now), then results, then BUYs safest-first, with a short gap so they
+  // arrive on the phone in that order.
   const kindOrder = { sell: 0, trim: 1, lost: 2, won: 3 };
   const sortedExits = [...exitEvents].sort((a, b) => (kindOrder[a.kind] ?? 0) - (kindOrder[b.kind] ?? 0));
   const riskOrder = { LOW: 0, MED: 1, HIGH: 2 };
   const sortedEntries = [...entryEvents].sort((a, b) =>
     (riskOrder[a.risk.tag] - riskOrder[b.risk.tag]) || (b.count - a.count));
 
-  const lines = [];
-  if (sortedExits.length) {
-    const icon = { sell: '📉 SELL', trim: '⚠️ TRIM', lost: '❌ LOST', won: '✅ WON' };
-    for (const { key, meta, kind, pct } of sortedExits) {
-      const outcome = key.slice(key.indexOf('|') + 1).toUpperCase();
-      const extra = kind === 'sell' ? ' NOW' : kind === 'trim' ? ` -${pct}%` : '';
-      lines.push(`${icon[kind] || icon.sell} ${outcome}${extra} — ${truncate(meta?.title || key, 42)}`);
-    }
+  // Same-run same-game signals cross-reference each other in their
+  // corroborating lines, replacing the old grouped-digest block.
+  for (const s of sortedEntries) {
+    if (!s.groupKey) continue;
+    const others = sortedEntries
+      .filter(x => x.groupKey === s.groupKey && x.item.key !== s.item.key)
+      .map(x => ({ title: x.item.title, outcome: x.item.outcome.toUpperCase() }));
+    if (others.length) s.corroborating = [...(s.corroborating || []), ...others];
   }
-  if (sortedEntries.length) {
-    if (lines.length) lines.push('');
-    // Same-game clusters render as one grouped block (primary + echoes) instead
-    // of scattering N correlated signals through the list as if independent.
-    const buyLine = (s) => {
-      const p = s.avgPrice != null ? s.avgPrice.toFixed(0) : '?';
-      const usd = fmtUsd(s.item.usd);
-      return `${s.risk.emoji} BUY ${s.item.outcome.toUpperCase()} @ ${p}c x${s.count}${usd ? ` (${usd})` : ''}${s.chase ? ' ⚠️' : ''} — ${truncate(s.item.title, 40)}`;
-    };
-    const rendered = new Set();
-    for (const s of sortedEntries) {
-      if (rendered.has(s.item.key)) continue;
-      if (s.groupKey) {
-        const group = sortedEntries.filter(x => x.groupKey === s.groupKey);
-        group.forEach(x => rendered.add(x.item.key));
-        lines.push(`🏟 SAME GAME — ${group.length} signals agree:`);
-        for (const g of group) lines.push((g.groupRole === 'primary' ? '  ★ ' : '  ↳ ') + buyLine(g));
-      } else {
-        rendered.add(s.item.key);
-        lines.push(buyLine(s));
-      }
-    }
-  }
-  const body = lines.join('\n');
-  console.log(`DIGEST (${exitEvents.length} exit, ${entryEvents.length} buy):\n${body}`);
-  if (!NTFY_TOPIC) return true;
 
-  const counts = { sell: 0, trim: 0, lost: 0, won: 0 };
-  for (const e of exitEvents) counts[e.kind] = (counts[e.kind] || 0) + 1;
-  const parts = [];
-  if (counts.sell) parts.push(`${counts.sell} SELL`);
-  if (counts.trim) parts.push(`${counts.trim} TRIM`);
-  if (counts.won) parts.push(`${counts.won} WON`);
-  if (counts.lost) parts.push(`${counts.lost} LOST`);
-  if (entryEvents.length) parts.push(`${entryEvents.length} BUY`);
-  const headers = {
-    'Title': `Polymarket: ${parts.join(', ')}`,
-    'Priority': 'high',
-    'Tags': 'bell',
-    'Markdown': 'yes',
-  };
-  const firstSlug = entryEvents[0]?.item.slug || exitEvents[0]?.meta?.slug;
-  if (firstSlug) headers['Click'] = `https://polymarket.com/event/${firstSlug}`;
-  try {
-    const res = await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body, headers });
-    if (!res.ok) { console.error(`ntfy digest send failed: HTTP ${res.status}`); return false; }
-    return true;
-  } catch (e) {
-    console.error('ntfy digest send failed:', e.message);
-    return false;
+  let allOk = true;
+  for (const e of sortedExits) {
+    allOk = (await sendExitPush(e.key, e.meta, e.kind, e.pct)) && allOk;
+    if (NTFY_TOPIC) await new Promise(r => setTimeout(r, 400));
   }
+  for (const s of sortedEntries) {
+    allOk = (await sendEntryPush(s)) && allOk;
+    if (NTFY_TOPIC) await new Promise(r => setTimeout(r, 400));
+  }
+  return allOk;
 }
 
 async function main() {
