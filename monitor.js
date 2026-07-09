@@ -60,12 +60,27 @@ function saveState(state) {
   fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
 }
 
+// Retries 429 (rate limit), 5xx (transient server errors), and network-level
+// failures (timeout, DNS, connection reset) - anything NOT retried here throws
+// straight out of loadTopTraders()'s Promise.all and kills the entire run with
+// zero traders checked, zero alerts, for what's usually a one-off blip.
 async function fetchJSON(url, retries = 2) {
   for (let attempt = 0; ; attempt++) {
-    const res = await fetch(url, { headers: { 'User-Agent': 'polymarket-consensus-monitor' } });
-    if (res.status === 429 && attempt < retries) {
+    let res;
+    try {
+      res = await fetch(url, { headers: { 'User-Agent': 'polymarket-consensus-monitor' } });
+    } catch (e) {
+      if (attempt < retries) {
+        const waitMs = 1000 * 2 ** attempt;
+        console.log(`network error, retrying in ${waitMs}ms: ${url} (${e.message})`);
+        await new Promise(r => setTimeout(r, waitMs));
+        continue;
+      }
+      throw e;
+    }
+    if ((res.status === 429 || res.status >= 500) && attempt < retries) {
       const waitMs = Number(res.headers.get('retry-after')) * 1000 || (1000 * 2 ** attempt);
-      console.log(`429 rate limited, retrying in ${waitMs}ms: ${url}`);
+      console.log(`${res.status} response, retrying in ${waitMs}ms: ${url}`);
       await new Promise(r => setTimeout(r, waitMs));
       continue;
     }
