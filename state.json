@@ -28,7 +28,8 @@
     "0x759e414f4b72fa205b122593fb2f7269e82f9c1e508d2bbc14d7adb5eb6abd44|No": 2,
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": 2,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 2,
-    "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2
+    "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
+    "0xf8619a8227dc8c3bc695128be06ffbc48f03d9eb991e3e4b4b43dddb0920fe54|Under": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -79,7 +80,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ],
-      "lastPrice": 11.5
+      "lastPrice": 11.3
     },
     "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco": {
       "title": "Spread: France (-1.5)",
@@ -89,7 +90,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 14.5
+      "lastPrice": 15.9
     },
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": {
       "title": "France vs. Morocco: O/U 2.5",
@@ -100,7 +101,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 10306043.353999998,
-      "lastPrice": 49.4
+      "lastPrice": 46.6
     },
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": {
       "title": "France vs. Morocco: Team to Advance",
@@ -121,7 +122,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 4249.84,
-      "lastPrice": 78.5
+      "lastPrice": 80
     },
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": {
       "title": "Will France win on 2026-07-09?",
@@ -131,7 +132,7 @@
         "0xe30e74595517de48f1fb19f4553dd3d9f1e96b87"
       ],
       "size0": 540000,
-      "lastPrice": 97.6,
+      "lastPrice": 98.1,
       "wonNotified": true
     },
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
@@ -153,6 +154,15 @@
       ],
       "size0": 33218.749899999995,
       "lastPrice": 65.1
+    },
+    "0xf8619a8227dc8c3bc695128be06ffbc48f03d9eb991e3e4b4b43dddb0920fe54|Under": {
+      "title": "France vs. Morocco: O/U 9.5 Total Corners",
+      "slug": "fifwc-fra-mar-2026-07-09-total-corners",
+      "wallets": [
+        "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21",
+        "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
+      ],
+      "size0": 97998.85010000001
     }
   },
   "pendingExit": {}
