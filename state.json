@@ -5,8 +5,7 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
-    "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco": 1783553534630,
-    "0x6fa2ac0a313c1ea67987ed91b38e040fd5e925b60285fd3cbac434fcaa92d702|Los Angeles Dodgers": 1783566314643
+    "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco": 1783553534630
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -14,8 +13,7 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
-    "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco": 2,
-    "0x6fa2ac0a313c1ea67987ed91b38e040fd5e925b60285fd3cbac434fcaa92d702|Los Angeles Dodgers": 2
+    "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -66,7 +64,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ],
-      "lastPrice": 11.1
+      "lastPrice": 11.7
     },
     "0x1cbfc85edce5c2ac987214953c73d072fca766c05fe1e6cabaf920da5bf040e1|Morocco": {
       "title": "Spread: France (-1.5)",
@@ -77,17 +75,6 @@
       ],
       "size0": 7666.38,
       "lastPrice": 65.5
-    },
-    "0x6fa2ac0a313c1ea67987ed91b38e040fd5e925b60285fd3cbac434fcaa92d702|Los Angeles Dodgers": {
-      "title": "Colorado Rockies vs. Los Angeles Dodgers",
-      "slug": "mlb-col-lad-2026-07-08",
-      "wallets": [
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
-      ],
-      "size0": 13380.6,
-      "lastPrice": 100,
-      "wonNotified": true
     }
   },
   "pendingExit": {}
