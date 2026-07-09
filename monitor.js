@@ -144,6 +144,11 @@ async function fetchPositions(wallet) {
 
 function buildConsensus(topTraders, positionsByWallet, state, now) {
   const map = {};
+  // Every live pool position per conditionId|outcome, counted BEFORE the price
+  // band filter — an alert at 75c has its natural counterparty at 25c, outside
+  // the band, so band-filtered `map` alone systematically hides opposition.
+  // Used only to annotate alerts with who's on the other side; never gates them.
+  const sides = {};
 
   for (const t of topTraders) {
     const pos = positionsByWallet[t.wallet] || [];
@@ -157,6 +162,14 @@ function buildConsensus(topTraders, positionsByWallet, state, now) {
       // midnight UTC, making every still-live same-day market look "already ended"
       // for the rest of that day.
       if ((p.currentValue ?? 1) <= 0) continue; // skip settled/resolved positions
+
+      const sideKey = `${p.conditionId}|${p.outcome}`;
+      const side = (sides[sideKey] ||= { conditionId: p.conditionId, outcome: p.outcome, wallets: new Set(), names: [], usd: 0 });
+      if (!side.wallets.has(t.wallet)) {
+        side.wallets.add(t.wallet);
+        side.names.push(t.name);
+        side.usd += Number(p.initialValue) || 0;
+      }
 
       const cur = Number(p.curPrice ?? NaN);
       const entry = Number(p.avgPrice ?? NaN);
@@ -200,7 +213,22 @@ function buildConsensus(topTraders, positionsByWallet, state, now) {
     }
   }
 
-  return map;
+  return { map, sides };
+}
+
+// Fact-only opposition summary for an alert: which pool traders hold any OTHER
+// outcome of the same market right now. No verdict, no scoring — with ~8 days
+// of outcome history any "which side is smarter" weighting would be invented
+// confidence, not evidence. Revisit once calibration history can back a model.
+function oppositionFor(item, sides) {
+  const opp = { n: 0, usd: 0, names: [] };
+  for (const s of Object.values(sides)) {
+    if (s.conditionId !== item.conditionId || s.outcome === item.outcome) continue;
+    opp.n += s.wallets.size;
+    opp.usd += s.usd;
+    opp.names.push(...s.names);
+  }
+  return opp.n > 0 ? opp : null;
 }
 
 // Exit check for an alerted position: look at the EXACT wallets that formed the
@@ -330,7 +358,11 @@ async function sendEntryPush(s) {
   const corrLine = corroborating?.length
     ? `\n\n🔗 Same game, already active: ${corroborating.map(c => `${c.title} (${c.outcome})`).join(', ')}`
     : '';
-  const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}${usd ? ` — 💰 ${usd} behind it` : ''}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}\n\n👥 ${item.traders.join(', ')}${corrLine}`;
+  const opp = s.opposition;
+  const oppLine = opp
+    ? `\n⚖️ Note: ${opp.n} pool trader${opp.n > 1 ? 's' : ''} on the other side (${fmtUsd(opp.usd) || '<$1k'}): ${opp.names.slice(0, 3).join(', ')}${opp.names.length > 3 ? '…' : ''}`
+    : '';
+  const body = `${risk.emoji} **${outcome} @ ${p}c** — Risk: ${risk.tag}${usd ? ` — 💰 ${usd} behind it` : ''}\n${item.title}\nEntry ~${e}c · ${label}${chase ? `\n⚠️ **${chase}**` : ''}${oppLine}\n\n👥 ${item.traders.join(', ')}${corrLine}`;
   const headers = {
     'Title': boundTitle(`BUY ${outcome} @ ${Math.round(avgPrice ?? 0)}c - `, item.title),
     // Attention matches risk: green buzzes, yellow lands quietly, red whispers.
@@ -487,7 +519,7 @@ async function main() {
     await new Promise(r => setTimeout(r, 150)); // gentle on the public API
   }
 
-  const map = buildConsensus(topTraders, positionsByWallet, state, now);
+  const { map, sides } = buildConsensus(topTraders, positionsByWallet, state, now);
 
   // Migrate pre-wallet-tracking alerts: while their consensus is still visible,
   // record which wallets it's made of so exits can be judged wallet-by-wallet.
@@ -643,6 +675,7 @@ async function main() {
     const count = item.traders.length;
     const lastAlerted = state.alertedAt[item.key] || 0;
     const s = summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased');
+    s.opposition = oppositionFor(item, sides);
     // Hard skip, not just a warning: >15c above the traders' own entry means
     // their edge is already priced in — a late copy is the losing version of the
     // same bet. Not marked alerted, so if price comes back it can alert later.
@@ -659,6 +692,7 @@ async function main() {
       ts: now, type: 'alert', key: item.key, title: item.title, outcome: item.outcome, slug: item.slug,
       count, total, avgPrice: s.avgPrice, avgEntry: s.avgEntry, usd: item.usd || 0, riskTag: s.risk.tag,
       sportsOnlyCount: item.sportsOnlyCount || 0,
+      oppCount: s.opposition?.n || 0, oppUsd: Math.round(s.opposition?.usd || 0),
     });
   }
 
