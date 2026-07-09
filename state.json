@@ -51,7 +51,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 44.5
+      "lastPrice": 43.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -90,7 +90,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 7666.38,
-      "lastPrice": 11.4
+      "lastPrice": 5.4
     },
     "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Over": {
       "title": "France vs. Morocco: O/U 2.5",
@@ -101,7 +101,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 10306043.353999998,
-      "lastPrice": 24.9
+      "lastPrice": 16.6
     },
     "0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France": {
       "title": "France vs. Morocco: Team to Advance",
@@ -122,7 +122,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 4249.84,
-      "lastPrice": 90
+      "lastPrice": 98,
+      "wonNotified": true
     },
     "0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes": {
       "title": "Will France win on 2026-07-09?",
@@ -132,7 +133,7 @@
         "0xe30e74595517de48f1fb19f4553dd3d9f1e96b87"
       ],
       "size0": 540000,
-      "lastPrice": 99.6,
+      "lastPrice": 99.9,
       "wonNotified": true
     },
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
@@ -163,8 +164,10 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 97998.85010000001,
-      "lastPrice": 0.5
+      "lastPrice": 0.1
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x2037b257e602784d35e800c8c7880f56331791e03aaacae5864d8a78db303948|Under": 1
+  }
 }
