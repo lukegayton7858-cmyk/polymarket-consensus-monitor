@@ -12,7 +12,8 @@
     "0x004d381f7d632fcf39610994958ef02295e0bb2b4341b212602bc2f7331550e8|Jannik Sinner": 1783671730893,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 1783681570374,
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 1783702932951,
-    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Spain": 1783703176452
+    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Spain": 1783703176452,
+    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -76,7 +77,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ],
-      "lastPrice": 0.6
+      "lastPrice": 1.2
     },
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
       "title": "Will Spain win on 2026-07-10?",
@@ -106,7 +107,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 220263.665,
-      "lastPrice": 54.9
+      "lastPrice": 54.6
     },
     "0x004d381f7d632fcf39610994958ef02295e0bb2b4341b212602bc2f7331550e8|Jannik Sinner": {
       "title": "Wimbledon ATP: Jannik Sinner vs Novak Djokovic",
@@ -116,7 +117,7 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 11942.0947,
-      "lastPrice": 99,
+      "lastPrice": 98.6,
       "wonNotified": true
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
@@ -136,8 +137,11 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
-      "size0": 163337.3974
+      "size0": 163337.3974,
+      "lastPrice": 64.6
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Spain": 1
+  }
 }
