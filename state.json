@@ -18,7 +18,8 @@
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 2,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
-    "0x8586f76f1f694c182c7e794570d70c1a470b9b9c7a606b3506af53cfc2d59ee8|Miami Marlins": 2
+    "0x8586f76f1f694c182c7e794570d70c1a470b9b9c7a606b3506af53cfc2d59ee8|Miami Marlins": 2,
+    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -99,8 +100,17 @@
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
       "size0": 93615.1513,
-      "lastPrice": 94.5,
+      "lastPrice": 96.5,
       "wonNotified": true
+    },
+    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": {
+      "title": "Spain vs. Belgium: O/U 2.5",
+      "slug": "fifwc-esp-bel-2026-07-10-more-markets",
+      "wallets": [
+        "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
+        "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
+      ],
+      "size0": 220263.665
     }
   },
   "pendingExit": {}
