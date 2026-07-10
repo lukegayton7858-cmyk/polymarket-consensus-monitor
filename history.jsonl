@@ -193,3 +193,4 @@
 {"ts":1783636233050,"type":"resolution","key":"0x9918c9f426379e48d5e6a6fbf591e75e5b4a9cd33807b097810fdbaf3aebd1b4|France","title":"France vs. Morocco: Team to Advance","kind":"sell","exitPrice":100}
 {"ts":1783636689568,"type":"resolution","key":"0xc09537a0976d0927901432859fbb6dfe5d23d1d69bb4e8355253e7b142a44e83|Yes","title":"Will France win on 2026-07-09?","kind":"sell","exitPrice":100}
 {"ts":1783637170049,"type":"alert","key":"0x8586f76f1f694c182c7e794570d70c1a470b9b9c7a606b3506af53cfc2d59ee8|Miami Marlins","title":"Seattle Mariners vs. Miami Marlins","outcome":"Miami Marlins","slug":"mlb-sea-mia-2026-07-09","count":2,"total":30,"avgPrice":38.5,"avgEntry":45.58,"usd":42757.7071,"riskTag":"LOW","sportsOnlyCount":1,"oppCount":0,"oppUsd":0}
+{"ts":1783641983820,"type":"resolution","key":"0x8586f76f1f694c182c7e794570d70c1a470b9b9c7a606b3506af53cfc2d59ee8|Miami Marlins","title":"Seattle Mariners vs. Miami Marlins","kind":"won"}
