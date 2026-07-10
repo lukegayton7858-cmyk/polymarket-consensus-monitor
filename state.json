@@ -4,7 +4,6 @@
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 1783041972813,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
-    "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 1783103335920,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 1783633093399,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 1783633093399,
     "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 1783643893116,
@@ -14,16 +13,13 @@
     "0x4f0911ce24c2788f380ddbfb31527ebb8ef499f4f8009e0575c4e2f885cefd13|Under": 1783707029808,
     "0x5f862ea4d0e6fd2d1b3394da127f0bfe7089ce3ba22aaa0a4cba8250b8c8e1eb|Yes": 1783711228227,
     "0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Under": 1783711570495,
-    "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|No": 1783712651841,
-    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Under": 1783715431716,
-    "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Belgium": 1783716492064
+    "0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Over": 1783716849469
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
-    "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 2,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
     "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 3,
@@ -44,7 +40,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 38.8
+      "lastPrice": 38.3
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -74,16 +70,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 19.5
-    },
-    "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": {
-      "title": "Will Novak Djokovic be the 2026 Men’s Wimbledon winner?",
-      "slug": "2026-mens-wimbledon-winner",
-      "wallets": [
-        "0x65018f9fc473f6e920b8929a375d39c26a461220",
-        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
-      ],
-      "lastPrice": 0.1
+      "lastPrice": 20
     },
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
       "title": "Will Spain win on 2026-07-10?",
@@ -93,7 +80,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 336235.98329999996,
-      "lastPrice": 89.9
+      "lastPrice": 90.4
     },
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
       "title": "Norway vs. England: Team to Advance",
@@ -114,7 +101,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 1378914.8107,
-      "lastPrice": 97.9,
+      "lastPrice": 99.9,
       "wonNotified": true
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
@@ -126,7 +113,8 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 502625.9269,
-      "lastPrice": 93.4
+      "lastPrice": 96.5,
+      "wonNotified": true
     },
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": {
       "title": "Spread: Spain (-1.5)",
@@ -139,7 +127,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 2472913.5555,
-      "lastPrice": 84.5,
+      "lastPrice": 81.8,
       "wonNotified": true
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
@@ -182,12 +170,8 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 67843.205,
-      "lastPrice": 73.1
+      "lastPrice": 69.6
     }
   },
-  "pendingExit": {
-    "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|No": 1,
-    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Under": 1,
-    "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Belgium": 1
-  }
+  "pendingExit": {}
 }
