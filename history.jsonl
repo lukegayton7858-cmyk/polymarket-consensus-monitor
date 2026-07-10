@@ -218,3 +218,5 @@
 {"ts":1783716849469,"type":"resolution","key":"0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain","title":"Spain vs. Belgium: Team to Advance","kind":"won"}
 {"ts":1783717237109,"type":"resolution","key":"0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes","title":"Will Spain win on 2026-07-10?","kind":"won"}
 {"ts":1783717237109,"type":"resolution","key":"0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Under","title":"Spain vs. Belgium: O/U 3.5","kind":"won"}
+{"ts":1783717930253,"type":"resolution","key":"0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over","title":"Spain vs. Belgium: O/U 2.5","kind":"sell","exitPrice":99.9}
+{"ts":1783717930253,"type":"resolution","key":"0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium","title":"Spread: Spain (-1.5)","kind":"trim","pct":92}

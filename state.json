@@ -6,7 +6,6 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 1783633093399,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 1783633093399,
-    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 1783643893116,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 1783681570374,
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 1783702932951,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
@@ -21,7 +20,6 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 2,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
-    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 3,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 3,
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 5,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
@@ -92,18 +90,6 @@
       "size0": 33218.749899999995,
       "lastPrice": 64.6
     },
-    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": {
-      "title": "Spain vs. Belgium: O/U 2.5",
-      "slug": "fifwc-esp-bel-2026-07-10-more-markets",
-      "wallets": [
-        "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
-        "0x8a260ebadf8ef07e693dd1b0be120b3330dd73c3",
-        "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
-      ],
-      "size0": 1378914.8107,
-      "lastPrice": 99.9,
-      "wonNotified": true
-    },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
       "title": "Spain vs. Belgium: Team to Advance",
       "slug": "fifwc-esp-bel-2026-07-10-more-markets",
@@ -128,7 +114,8 @@
       ],
       "size0": 2472913.5555,
       "lastPrice": 99.9,
-      "wonNotified": true
+      "wonNotified": true,
+      "trimNotified": true
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
