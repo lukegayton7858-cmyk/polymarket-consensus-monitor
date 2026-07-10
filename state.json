@@ -73,7 +73,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 16.1
+      "lastPrice": 15.4
     },
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": {
       "title": "Will Novak Djokovic be the 2026 Men’s Wimbledon winner?",
@@ -92,7 +92,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 336235.98329999996,
-      "lastPrice": 38
+      "lastPrice": 34.9
     },
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
       "title": "Norway vs. England: Team to Advance",
@@ -113,7 +113,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 1378914.8107,
-      "lastPrice": 53.6
+      "lastPrice": 50.1
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
       "title": "Spain vs. Belgium: Team to Advance",
@@ -124,7 +124,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 502625.9269,
-      "lastPrice": 72.1
+      "lastPrice": 71.5
     },
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": {
       "title": "Spread: Spain (-1.5)",
@@ -137,7 +137,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 2472913.5555,
-      "lastPrice": 92
+      "lastPrice": 93.6
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -157,7 +157,7 @@
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
       ],
       "size0": 29377.2037,
-      "lastPrice": 79
+      "lastPrice": 90
     },
     "0x5f862ea4d0e6fd2d1b3394da127f0bfe7089ce3ba22aaa0a4cba8250b8c8e1eb|Yes": {
       "title": "Spain vs. Belgium: Both Teams to Score",
@@ -178,7 +178,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 67843.205,
-      "lastPrice": 83.4
+      "lastPrice": 86.6
     }
   },
   "pendingExit": {}
