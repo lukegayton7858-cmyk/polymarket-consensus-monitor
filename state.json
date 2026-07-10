@@ -25,7 +25,8 @@
     "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 2,
     "0x004d381f7d632fcf39610994958ef02295e0bb2b4341b212602bc2f7331550e8|Jannik Sinner": 2,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 2,
-    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 2
+    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 2,
+    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -116,7 +117,7 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 11942.0947,
-      "lastPrice": 98.6,
+      "lastPrice": 98.8,
       "wonNotified": true
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
@@ -138,6 +139,15 @@
       ],
       "size0": 163337.3974,
       "lastPrice": 64.6
+    },
+    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
+      "title": "Fed rate hike in 2026?",
+      "slug": "fed-rate-hike-in-2026",
+      "wallets": [
+        "0x714a685b5454ea4d52979563bbafa77b8168ab2f",
+        "0x3a8aa345d5db7ec5138298c8c4f4540259be7699"
+      ],
+      "size0": 402603.8568
     }
   },
   "pendingExit": {}
