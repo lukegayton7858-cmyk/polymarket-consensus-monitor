@@ -77,7 +77,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ],
-      "lastPrice": 0.7
+      "lastPrice": 1.7
     },
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
       "title": "Will Spain win on 2026-07-10?",
@@ -87,7 +87,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 336235.98329999996,
-      "lastPrice": 61.1
+      "lastPrice": 60.9
     },
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
       "title": "Norway vs. England: Team to Advance",
@@ -117,7 +117,7 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 11942.0947,
-      "lastPrice": 98.8,
+      "lastPrice": 98.1,
       "wonNotified": true
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
@@ -147,7 +147,8 @@
         "0x714a685b5454ea4d52979563bbafa77b8168ab2f",
         "0x3a8aa345d5db7ec5138298c8c4f4540259be7699"
       ],
-      "size0": 402603.8568
+      "size0": 402603.8568,
+      "lastPrice": 52.5
     }
   },
   "pendingExit": {}
