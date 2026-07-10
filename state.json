@@ -7,8 +7,7 @@
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 1783633093399,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 1783633093399,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 1783681570374,
-    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
-    "0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Under": 1783711570495
+    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -18,8 +17,7 @@
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 2,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 3,
-    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Under": 2
+    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -93,7 +91,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 502625.9269,
-      "lastPrice": 99.9,
+      "lastPrice": 100,
       "wonNotified": true
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
@@ -105,17 +103,6 @@
       ],
       "size0": 402603.8568,
       "lastPrice": 53.5
-    },
-    "0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Under": {
-      "title": "Spain vs. Belgium: O/U 3.5",
-      "slug": "fifwc-esp-bel-2026-07-10-more-markets",
-      "wallets": [
-        "0x34c5ca7736ab9f4c4e059ef40fa5e4a679010832",
-        "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
-      ],
-      "size0": 67843.205,
-      "lastPrice": 99.9,
-      "wonNotified": true
     }
   },
   "pendingExit": {}
