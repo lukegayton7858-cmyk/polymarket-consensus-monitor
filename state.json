@@ -63,7 +63,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 17.8
+      "lastPrice": 18
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -113,7 +113,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 1378914.8107,
-      "lastPrice": 76.6
+      "lastPrice": 75.6
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
       "title": "Spain vs. Belgium: Team to Advance",
@@ -178,7 +178,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 67843.205,
-      "lastPrice": 57.9
+      "lastPrice": 59.4
     }
   },
   "pendingExit": {}
