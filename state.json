@@ -39,7 +39,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 38.8
+      "lastPrice": 39
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -59,7 +59,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 18.4
+      "lastPrice": 18.5
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -88,7 +88,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 336235.98329999996,
-      "lastPrice": 59.6
+      "lastPrice": 59.4
     },
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
       "title": "Norway vs. England: Team to Advance",
@@ -119,7 +119,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 502625.9269,
-      "lastPrice": 74.5
+      "lastPrice": 74.6
     },
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": {
       "title": "Spread: Spain (-1.5)",
@@ -131,7 +131,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
       "size0": 2069105.6284,
-      "lastPrice": 65.6
+      "lastPrice": 66.1
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -151,7 +151,7 @@
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
       ],
       "size0": 29377.2037,
-      "lastPrice": 47.5
+      "lastPrice": 49.5
     }
   },
   "pendingExit": {}
