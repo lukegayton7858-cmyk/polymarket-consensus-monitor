@@ -119,7 +119,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 502625.9269,
-      "lastPrice": 73.6
+      "lastPrice": 73.4
     },
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": {
       "title": "Spread: Spain (-1.5)",
@@ -149,7 +149,8 @@
         "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
       ],
-      "size0": 29377.2037
+      "size0": 29377.2037,
+      "lastPrice": 51.5
     }
   },
   "pendingExit": {}
