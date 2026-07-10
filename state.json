@@ -139,7 +139,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 2472913.5555,
-      "lastPrice": 96.4,
+      "lastPrice": 84.5,
       "wonNotified": true
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
@@ -160,7 +160,7 @@
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
       ],
       "size0": 29377.2037,
-      "lastPrice": 96.5,
+      "lastPrice": 97.5,
       "wonNotified": true
     },
     "0x5f862ea4d0e6fd2d1b3394da127f0bfe7089ce3ba22aaa0a4cba8250b8c8e1eb|Yes": {
@@ -185,5 +185,9 @@
       "lastPrice": 73.1
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|No": 1,
+    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Under": 1,
+    "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Belgium": 1
+  }
 }
