@@ -14,7 +14,8 @@
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|No": 1783705329450,
     "0x4f0911ce24c2788f380ddbfb31527ebb8ef499f4f8009e0575c4e2f885cefd13|Under": 1783707029808,
-    "0x5f862ea4d0e6fd2d1b3394da127f0bfe7089ce3ba22aaa0a4cba8250b8c8e1eb|Yes": 1783711228227
+    "0x5f862ea4d0e6fd2d1b3394da127f0bfe7089ce3ba22aaa0a4cba8250b8c8e1eb|Yes": 1783711228227,
+    "0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Under": 1783711570495
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -24,11 +25,12 @@
     "0x8ba7dc2b5682330a6064966b011f2a6dc6a95b4c6b8589157064f6331ab3e1cd|Yes": 2,
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": 2,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
-    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 2,
+    "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 3,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 3,
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 4,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0x4f0911ce24c2788f380ddbfb31527ebb8ef499f4f8009e0575c4e2f885cefd13|Under": 2
+    "0x4f0911ce24c2788f380ddbfb31527ebb8ef499f4f8009e0575c4e2f885cefd13|Under": 2,
+    "0x5f862ea4d0e6fd2d1b3394da127f0bfe7089ce3ba22aaa0a4cba8250b8c8e1eb|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -106,10 +108,10 @@
       "slug": "fifwc-esp-bel-2026-07-10-more-markets",
       "wallets": [
         "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
+        "0x8a260ebadf8ef07e693dd1b0be120b3330dd73c3",
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
-      "size0": 220263.665,
-      "lastPrice": 47.4
+      "size0": 1378914.8107
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
       "title": "Spain vs. Belgium: Team to Advance",
@@ -120,7 +122,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 502625.9269,
-      "lastPrice": 74.6
+      "lastPrice": 74.8
     },
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": {
       "title": "Spread: Spain (-1.5)",
@@ -132,7 +134,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
       "size0": 2069105.6284,
-      "lastPrice": 68.8
+      "lastPrice": 68.9
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -152,7 +154,16 @@
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce"
       ],
       "size0": 29377.2037,
-      "lastPrice": 76.5
+      "lastPrice": 77.5
+    },
+    "0x5f862ea4d0e6fd2d1b3394da127f0bfe7089ce3ba22aaa0a4cba8250b8c8e1eb|Yes": {
+      "title": "Spain vs. Belgium: Both Teams to Score",
+      "slug": "fifwc-esp-bel-2026-07-10-more-markets",
+      "wallets": [
+        "0xfbf3d501e88815464642d0e913f15379c3eeb218",
+        "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
+      ],
+      "size0": 21023.54
     }
   },
   "pendingExit": {}
