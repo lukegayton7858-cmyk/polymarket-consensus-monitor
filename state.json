@@ -25,7 +25,7 @@
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
     "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 2,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 3,
-    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 3,
+    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 4,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
     "0x4f0911ce24c2788f380ddbfb31527ebb8ef499f4f8009e0575c4e2f885cefd13|Under": 2
   },
@@ -88,7 +88,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 336235.98329999996,
-      "lastPrice": 59.6
+      "lastPrice": 59.4
     },
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
       "title": "Norway vs. England: Team to Advance",
@@ -126,11 +126,11 @@
       "slug": "fifwc-esp-bel-2026-07-10-more-markets",
       "wallets": [
         "0x09b428f7c2b469786286214aa5c90dd9015f7320",
+        "0xc31d0a0d63d760d72a1236d16beaa6a71c854ebe",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
-      "size0": 2060901.3784,
-      "lastPrice": 66.1
+      "size0": 2069105.6284
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
