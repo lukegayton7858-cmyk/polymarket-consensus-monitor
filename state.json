@@ -12,7 +12,6 @@
     "0x004d381f7d632fcf39610994958ef02295e0bb2b4341b212602bc2f7331550e8|Jannik Sinner": 1783671730893,
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 1783681570374,
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 1783702932951,
-    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Spain": 1783703176452,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664
   },
   "alertedAt": {
@@ -77,7 +76,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ],
-      "lastPrice": 1.2
+      "lastPrice": 0.7
     },
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
       "title": "Will Spain win on 2026-07-10?",
@@ -117,7 +116,7 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 11942.0947,
-      "lastPrice": 98.6,
+      "lastPrice": 98.4,
       "wonNotified": true
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
@@ -141,7 +140,5 @@
       "lastPrice": 64.6
     }
   },
-  "pendingExit": {
-    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Spain": 1
-  }
+  "pendingExit": {}
 }
