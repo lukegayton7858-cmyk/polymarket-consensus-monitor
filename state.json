@@ -24,7 +24,8 @@
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
     "0x87c9134e18d318a68a48326b8d7492efd08efc2324e5b4414f6bfa512b88b115|Over": 2,
     "0x004d381f7d632fcf39610994958ef02295e0bb2b4341b212602bc2f7331550e8|Jannik Sinner": 2,
-    "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 2
+    "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": 2,
+    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -75,7 +76,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea"
       ],
-      "lastPrice": 1.2
+      "lastPrice": 0.6
     },
     "0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes": {
       "title": "Will Spain win on 2026-07-10?",
@@ -115,7 +116,7 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 11942.0947,
-      "lastPrice": 98.9,
+      "lastPrice": 99,
       "wonNotified": true
     },
     "0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain": {
@@ -127,6 +128,15 @@
       ],
       "size0": 302625.9342,
       "lastPrice": 74.6
+    },
+    "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": {
+      "title": "Spread: Spain (-1.5)",
+      "slug": "fifwc-esp-bel-2026-07-10-more-markets",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
+      ],
+      "size0": 163337.3974
     }
   },
   "pendingExit": {}
