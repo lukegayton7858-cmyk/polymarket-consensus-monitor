@@ -129,7 +129,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
-      "size0": 502625.9269
+      "size0": 502625.9269,
+      "lastPrice": 74.1
     },
     "0x744df2cb98d5dd869623f254c6bdfb167c9caf1e5dd16732106cb61b2d4bc577|Belgium": {
       "title": "Spread: Spain (-1.5)",
@@ -140,7 +141,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
       "size0": 2060901.3784,
-      "lastPrice": 65.6
+      "lastPrice": 66.1
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
