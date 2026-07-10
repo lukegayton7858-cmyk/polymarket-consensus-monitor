@@ -226,3 +226,4 @@
 {"ts":1783718430313,"type":"resolution","key":"0x21e4b9c78709570a2d0c61c9b12111f73a3c10d10cb682dd8a82dbc2a1ffb230|Under","title":"Spain vs. Belgium: O/U 3.5","kind":"sell","exitPrice":99.9}
 {"ts":1783718529574,"type":"resolution","key":"0x7e6a99d23ee6beff337091fc92ecac6f2d8810aa899eb70b7488b72d5abbb052|Spain","title":"Spain vs. Belgium: Team to Advance","kind":"sell","exitPrice":100}
 {"ts":1783719489780,"type":"resolution","key":"0x2c37e07b722442c2381fac76f8564d580660aa028066e08bad1b32bd11813e9d|Yes","title":"Will Spain win on 2026-07-10?","kind":"sell","exitPrice":100}
+{"ts":1783727775142,"type":"alert","key":"0x70c73fd968719a16368ec943881c299ee52270ea0c7f4d31b944c69b4d83cc92|Over","title":"Colorado Rockies vs. San Francisco Giants: O/U 8.5","outcome":"Over","slug":"mlb-col-sf-2026-07-10","count":2,"total":30,"avgPrice":48.5,"avgEntry":47.5,"usd":2770.6252,"riskTag":"MED","sportsOnlyCount":0,"oppCount":0,"oppUsd":0}
