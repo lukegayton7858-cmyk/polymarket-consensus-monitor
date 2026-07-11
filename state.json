@@ -19,7 +19,6 @@
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": 1783796529121,
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Under": 1783796529121,
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 1783800371492,
-    "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": 1783801689878,
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 1783802051193,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321,
     "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965
@@ -42,7 +41,6 @@
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": 2,
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": 3,
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 2,
-    "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": 2,
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 2,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 2,
     "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 2
@@ -77,7 +75,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 18.1
+      "lastPrice": 18
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -97,7 +95,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 33218.749899999995,
-      "lastPrice": 45.1
+      "lastPrice": 44.9
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -128,7 +126,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 5129.401699999999,
-      "lastPrice": 29.6
+      "lastPrice": 28.4
     },
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
       "title": "Argentina vs. Switzerland: O/U 2.5",
@@ -158,7 +156,7 @@
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
       "size0": 21347.93,
-      "lastPrice": 56.9
+      "lastPrice": 56.4
     },
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": {
       "title": "Norway vs. England: O/U 9.5 Total Corners",
@@ -178,7 +176,7 @@
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
       "size0": 454088.9674,
-      "lastPrice": 70.4
+      "lastPrice": 70.9
     },
     "0x0f5e01cf1cabb6c49e424f230ca77a2ccd3e1ac63b31ae03ef749ac2bde7fa0e|Yes": {
       "title": "Will England win on 2026-07-11?",
@@ -202,7 +200,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 104869.4921,
-      "lastPrice": 91.1
+      "lastPrice": 91.4
     },
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": {
       "title": "Norway vs. England: O/U 2.5",
@@ -213,7 +211,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 949828.4149,
-      "lastPrice": 59.4
+      "lastPrice": 58.5
     },
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": {
       "title": "Norway vs. England: Both Teams to Score",
@@ -225,17 +223,6 @@
       "size0": 33033.8391,
       "lastPrice": 22.5
     },
-    "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": {
-      "title": "UFC 329: Zachary Reese vs. Ryan Gandra (Middleweight, Early Prelims)",
-      "slug": "ufc-zac5-rya18-2026-07-11",
-      "wallets": [
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
-      ],
-      "size0": 202289.9363,
-      "lastPrice": 100,
-      "wonNotified": true
-    },
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": {
       "title": "Erling Haaland: 1+ goals",
       "slug": "fifwc-nor-eng-2026-07-11-player-props",
@@ -244,7 +231,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 103523.4309,
-      "lastPrice": 30.5
+      "lastPrice": 33
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
