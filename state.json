@@ -82,7 +82,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 33218.749899999995,
-      "lastPrice": 64.9
+      "lastPrice": 65.9
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -143,7 +143,7 @@
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
       "size0": 21347.93,
-      "lastPrice": 74.9
+      "lastPrice": 75.1
     },
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": {
       "title": "Norway vs. England: O/U 9.5 Total Corners",
@@ -172,7 +172,8 @@
         "0x5dab5ed9691fab220535891d9c7f5c28eed322e1",
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
-      "size0": 63046.1506
+      "size0": 63046.1506,
+      "lastPrice": 59.5
     }
   },
   "pendingExit": {}
