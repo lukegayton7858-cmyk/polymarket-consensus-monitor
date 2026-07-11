@@ -44,7 +44,8 @@
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 2,
     "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": 2,
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 2,
-    "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 2
+    "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 2,
+    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -96,7 +97,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 33218.749899999995,
-      "lastPrice": 67.4
+      "lastPrice": 67.6
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -127,7 +128,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 5129.401699999999,
-      "lastPrice": 32.1
+      "lastPrice": 32.8
     },
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
       "title": "Argentina vs. Switzerland: O/U 2.5",
@@ -157,7 +158,7 @@
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
       "size0": 21347.93,
-      "lastPrice": 78.1
+      "lastPrice": 77.4
     },
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": {
       "title": "Norway vs. England: O/U 9.5 Total Corners",
@@ -167,7 +168,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 50273.749899999995,
-      "lastPrice": 54.5
+      "lastPrice": 51.5
     },
     "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": {
       "title": "Will Norway vs. England end in a draw?",
@@ -177,7 +178,7 @@
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
       "size0": 454088.9674,
-      "lastPrice": 75.1
+      "lastPrice": 74.6
     },
     "0x0f5e01cf1cabb6c49e424f230ca77a2ccd3e1ac63b31ae03ef749ac2bde7fa0e|Yes": {
       "title": "Will England win on 2026-07-11?",
@@ -191,7 +192,7 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ],
       "size0": 3004614.0261999997,
-      "lastPrice": 53.6
+      "lastPrice": 52.6
     },
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": {
       "title": "Spread: England (-1.5)",
@@ -201,7 +202,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 104869.4921,
-      "lastPrice": 71.4
+      "lastPrice": 73.1
     },
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": {
       "title": "Norway vs. England: O/U 2.5",
@@ -212,7 +213,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 949828.4149,
-      "lastPrice": 56.1
+      "lastPrice": 56.6
     },
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": {
       "title": "Norway vs. England: Both Teams to Score",
@@ -222,7 +223,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 33033.8391,
-      "lastPrice": 37.5
+      "lastPrice": 38.5
     },
     "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": {
       "title": "UFC 329: Zachary Reese vs. Ryan Gandra (Middleweight, Early Prelims)",
@@ -232,7 +233,7 @@
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
       "size0": 202289.9363,
-      "lastPrice": 56.5
+      "lastPrice": 55.5
     },
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": {
       "title": "Erling Haaland: 1+ goals",
@@ -242,7 +243,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 103523.4309,
-      "lastPrice": 46.5
+      "lastPrice": 48.5
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
@@ -253,6 +254,15 @@
       ],
       "size0": 6853.65,
       "lastPrice": 39.5
+    },
+    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": {
+      "title": "Harry Kane: 1+ goals",
+      "slug": "fifwc-nor-eng-2026-07-11-player-props",
+      "wallets": [
+        "0x5dab5ed9691fab220535891d9c7f5c28eed322e1",
+        "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
+      ],
+      "size0": 58949.583300000006
     }
   },
   "pendingExit": {}
