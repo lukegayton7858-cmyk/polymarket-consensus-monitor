@@ -82,7 +82,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 33218.749899999995,
-      "lastPrice": 64.6
+      "lastPrice": 64.4
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -163,7 +163,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "size0": 21347.93
+      "size0": 21347.93,
+      "lastPrice": 75.1
     }
   },
   "pendingExit": {}
