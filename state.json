@@ -170,7 +170,7 @@
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
       "size0": 454088.9674,
-      "lastPrice": 75.1
+      "lastPrice": 75.4
     },
     "0x45de52c6091f8d70a85f3b1ff05cc297709898f93bcba9f4a5676764e0b25a47|Chicago White Sox": {
       "title": "Athletics vs. Chicago White Sox",
@@ -180,7 +180,7 @@
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
       "size0": 63046.1506,
-      "lastPrice": 56.5
+      "lastPrice": 74.5
     },
     "0x0f5e01cf1cabb6c49e424f230ca77a2ccd3e1ac63b31ae03ef749ac2bde7fa0e|Yes": {
       "title": "Will England win on 2026-07-11?",
@@ -202,7 +202,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 104869.4921,
-      "lastPrice": 71.9
+      "lastPrice": 71.1
     },
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": {
       "title": "Norway vs. England: O/U 2.5",
@@ -213,7 +213,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 949828.4149,
-      "lastPrice": 57.6
+      "lastPrice": 57.4
     }
   },
   "pendingExit": {}
