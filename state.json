@@ -220,7 +220,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 949828.4149,
-      "lastPrice": 55.9
+      "lastPrice": 55.6
     },
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": {
       "title": "Norway vs. England: Both Teams to Score",
@@ -239,7 +239,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
-      "size0": 202289.9363
+      "size0": 202289.9363,
+      "lastPrice": 56.5
     }
   },
   "pendingExit": {}
