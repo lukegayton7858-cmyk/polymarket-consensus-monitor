@@ -7,7 +7,6 @@
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 1783633093399,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783719252477,
-    "0x70c73fd968719a16368ec943881c299ee52270ea0c7f4d31b944c69b4d83cc92|Over": 1783727432028,
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 1783740026134,
     "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": 1783740251288,
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 1783749971339
@@ -19,7 +18,6 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 2,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0x70c73fd968719a16368ec943881c299ee52270ea0c7f4d31b944c69b4d83cc92|Over": 2,
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 2,
     "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": 2,
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2
@@ -86,16 +84,6 @@
       "size0": 402603.8568,
       "lastPrice": 53.5
     },
-    "0x70c73fd968719a16368ec943881c299ee52270ea0c7f4d31b944c69b4d83cc92|Over": {
-      "title": "Colorado Rockies vs. San Francisco Giants: O/U 8.5",
-      "slug": "mlb-col-sf-2026-07-10",
-      "wallets": [
-        "0xa71093cafc0c099b4ccab24c3cb8018d817923c4",
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
-      ],
-      "size0": 5859.1984,
-      "lastPrice": 0.1
-    },
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": {
       "title": "UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)",
       "slug": "ufc-max1-con-2026-07-11",
@@ -123,7 +111,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
-      "size0": 107095.6945
+      "size0": 107095.6945,
+      "lastPrice": 41.6
     }
   },
   "pendingExit": {}
