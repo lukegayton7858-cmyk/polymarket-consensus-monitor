@@ -43,7 +43,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 38.1
+      "lastPrice": 38.2
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -134,7 +134,7 @@
         "0xf5fabdcdc6eb6d9765a228824f16cca9c91f62df"
       ],
       "size0": 93957,
-      "lastPrice": 20.9
+      "lastPrice": 16.4
     },
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
       "title": "Spread: Argentina (-1.5)",
@@ -177,5 +177,7 @@
       "lastPrice": 74.6
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Linda Noskova": 1
+  }
 }
