@@ -19,7 +19,8 @@
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 1783800371492,
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 1783802051193,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321,
-    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965
+    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965,
+    "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 1783811771481
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -53,7 +54,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 39.2
+      "lastPrice": 39.1
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -96,7 +97,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
       "size0": 2451133.7231,
-      "lastPrice": 87.8
+      "lastPrice": 86.4
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -118,7 +119,8 @@
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4",
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
-      "size0": 1880087.7373000002
+      "size0": 1880087.7373000002,
+      "lastPrice": 73.5
     },
     "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": {
       "title": "Norway vs. England: O/U 3.5",
@@ -239,7 +241,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 103523.4309,
-      "lastPrice": 0.1
+      "lastPrice": 0.5
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
