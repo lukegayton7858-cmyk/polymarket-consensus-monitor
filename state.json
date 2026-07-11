@@ -77,7 +77,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 16.7
+      "lastPrice": 16.8
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -275,7 +275,7 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ],
       "size0": 372837.536,
-      "lastPrice": 75.1
+      "lastPrice": 75.4
     }
   },
   "pendingExit": {}
