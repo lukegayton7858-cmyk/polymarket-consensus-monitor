@@ -21,7 +21,6 @@
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321,
     "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 1783811771481,
-    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Under": 1783812251679,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783812633376
   },
   "alertedAt": {
@@ -100,7 +99,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
       "size0": 2451133.7231,
-      "lastPrice": 89.3
+      "lastPrice": 89.1
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -175,7 +174,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 50273.749899999995,
-      "lastPrice": 100,
+      "lastPrice": 99.8,
       "wonNotified": true
     },
     "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": {
@@ -277,7 +276,5 @@
       "lastPrice": 75.1
     }
   },
-  "pendingExit": {
-    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Under": 1
-  }
+  "pendingExit": {}
 }
