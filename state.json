@@ -20,7 +20,8 @@
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Under": 1783796529121,
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 1783800371492,
     "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": 1783801689878,
-    "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 1783802051193
+    "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 1783802051193,
+    "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -124,7 +125,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 5129.401699999999,
-      "lastPrice": 33.4
+      "lastPrice": 32.9
     },
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
       "title": "Argentina vs. Switzerland: O/U 2.5",
@@ -187,7 +188,8 @@
         "0x50f0a0fc7364d3c10fc4578b9b1d955368335355",
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ],
-      "size0": 3004614.0261999997
+      "size0": 3004614.0261999997,
+      "lastPrice": 53.4
     },
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": {
       "title": "Spread: England (-1.5)",
