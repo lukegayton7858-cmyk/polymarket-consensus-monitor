@@ -29,7 +29,8 @@
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 2,
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 2,
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 2,
-    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": 2
+    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": 2,
+    "0x45de52c6091f8d70a85f3b1ff05cc297709898f93bcba9f4a5676764e0b25a47|Chicago White Sox": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -81,7 +82,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 33218.749899999995,
-      "lastPrice": 64.6
+      "lastPrice": 64.9
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -163,6 +164,15 @@
       ],
       "size0": 454088.9674,
       "lastPrice": 74.6
+    },
+    "0x45de52c6091f8d70a85f3b1ff05cc297709898f93bcba9f4a5676764e0b25a47|Chicago White Sox": {
+      "title": "Athletics vs. Chicago White Sox",
+      "slug": "mlb-oak-cws-2026-07-11",
+      "wallets": [
+        "0x5dab5ed9691fab220535891d9c7f5c28eed322e1",
+        "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
+      ],
+      "size0": 63046.1506
     }
   },
   "pendingExit": {}
