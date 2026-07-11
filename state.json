@@ -211,7 +211,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
-      "size0": 949828.4149
+      "size0": 949828.4149,
+      "lastPrice": 57.6
     }
   },
   "pendingExit": {}
