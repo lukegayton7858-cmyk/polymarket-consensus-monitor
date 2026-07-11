@@ -75,7 +75,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 17.8
+      "lastPrice": 17.6
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -241,7 +241,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 103523.4309,
-      "lastPrice": 45.5
+      "lastPrice": 46.5
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
@@ -250,7 +250,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
-      "size0": 6853.65
+      "size0": 6853.65,
+      "lastPrice": 39.5
     }
   },
   "pendingExit": {}
