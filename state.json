@@ -21,7 +21,8 @@
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 2,
     "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": 2,
-    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2
+    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2,
+    "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -114,6 +115,15 @@
       ],
       "size0": 107095.6945,
       "lastPrice": 41.6
+    },
+    "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": {
+      "title": "Wimbledon WTA: Karolina Muchova vs Linda Noskova",
+      "slug": "wta-muchova-noskova-2026-07-11",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
+      ],
+      "size0": 58492
     }
   },
   "pendingExit": {}
