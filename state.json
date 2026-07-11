@@ -132,7 +132,7 @@
         "0xf5fabdcdc6eb6d9765a228824f16cca9c91f62df"
       ],
       "size0": 93957,
-      "lastPrice": 20.5
+      "lastPrice": 18
     },
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
       "title": "Spread: Argentina (-1.5)",
@@ -165,5 +165,7 @@
       "lastPrice": 46.5
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Linda Noskova": 1
+  }
 }
