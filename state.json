@@ -29,7 +29,8 @@
     "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": 3,
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 2,
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 2,
-    "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 2
+    "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 2,
+    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -132,7 +133,7 @@
         "0xf5fabdcdc6eb6d9765a228824f16cca9c91f62df"
       ],
       "size0": 93957,
-      "lastPrice": 2.4
+      "lastPrice": 8.9
     },
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
       "title": "Spread: Argentina (-1.5)",
@@ -163,6 +164,15 @@
       ],
       "size0": 50273.749899999995,
       "lastPrice": 46.5
+    },
+    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": {
+      "title": "Will Norway vs. England end in a draw?",
+      "slug": "fifwc-nor-eng-2026-07-11",
+      "wallets": [
+        "0x7dddf1968c14900b2d2ef9dada8465e82ac4c933",
+        "0x0c787cc2962ee6464414da592b892c3886e077f1"
+      ],
+      "size0": 454088.9674
     }
   },
   "pendingExit": {}
