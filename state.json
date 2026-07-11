@@ -19,9 +19,7 @@
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 1783800371492,
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 1783802051193,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321,
-    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965,
-    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|Yes": 1783806729658,
-    "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Under": 1783809032007
+    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -96,7 +94,7 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 1447193.5043000001,
-      "lastPrice": 58.9
+      "lastPrice": 58.1
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -127,7 +125,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 5129.401699999999,
-      "lastPrice": 1.1
+      "lastPrice": 0.1
     },
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
       "title": "Argentina vs. Switzerland: O/U 2.5",
@@ -158,7 +156,8 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 112687.921,
-      "lastPrice": 94.4
+      "lastPrice": 98.3,
+      "wonNotified": true
     },
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": {
       "title": "Norway vs. England: O/U 9.5 Total Corners",
@@ -178,7 +177,7 @@
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
       "size0": 454088.9674,
-      "lastPrice": 15.1
+      "lastPrice": 5.9
     },
     "0x0f5e01cf1cabb6c49e424f230ca77a2ccd3e1ac63b31ae03ef749ac2bde7fa0e|Yes": {
       "title": "Will England win on 2026-07-11?",
@@ -193,7 +192,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 3707357.8368,
-      "lastPrice": 10.4
+      "lastPrice": 4.3
     },
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": {
       "title": "Spread: England (-1.5)",
@@ -216,7 +215,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 1431585.2445,
-      "lastPrice": 13.1
+      "lastPrice": 6.6
     },
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": {
       "title": "Norway vs. England: Both Teams to Score",
@@ -256,11 +255,8 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 58949.583300000006,
-      "lastPrice": 8.5
+      "lastPrice": 3
     }
   },
-  "pendingExit": {
-    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|Yes": 1,
-    "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Under": 1
-  }
+  "pendingExit": {}
 }
