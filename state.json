@@ -12,7 +12,6 @@
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 1783749971339,
     "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": 1783758369336,
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 1783768829387,
-    "0xd58ac06933e3a4c74c5014a99e74ad7e9b73b4a0afcd74319de8bf109343ee8a|Nigma Galaxy": 1783776129585,
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 1783777569690,
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 1783777826594,
     "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Linda Noskova": 1783782628992
@@ -29,7 +28,6 @@
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2,
     "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": 3,
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 2,
-    "0xd58ac06933e3a4c74c5014a99e74ad7e9b73b4a0afcd74319de8bf109343ee8a|Nigma Galaxy": 2,
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 2,
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 2
   },
@@ -145,17 +143,6 @@
       ],
       "size0": 10822.7769,
       "lastPrice": 69.6
-    },
-    "0xd58ac06933e3a4c74c5014a99e74ad7e9b73b4a0afcd74319de8bf109343ee8a|Nigma Galaxy": {
-      "title": "Dota 2: PlayTime vs Nigma Galaxy - Game 1 Winner",
-      "slug": "dota2-playti-ngx-2026-07-11-more-markets",
-      "wallets": [
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0xe16d3f2a5807999b358affd9445c3a09e45e5e30"
-      ],
-      "size0": 106295.2519,
-      "lastPrice": 100,
-      "wonNotified": true
     },
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": {
       "title": "Will Norway win on 2026-07-11?",
