@@ -38,7 +38,8 @@
     "0x45de52c6091f8d70a85f3b1ff05cc297709898f93bcba9f4a5676764e0b25a47|Chicago White Sox": 2,
     "0x0f5e01cf1cabb6c49e424f230ca77a2ccd3e1ac63b31ae03ef749ac2bde7fa0e|Yes": 5,
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": 2,
-    "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": 3
+    "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": 3,
+    "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -216,6 +217,15 @@
       ],
       "size0": 949828.4149,
       "lastPrice": 56.9
+    },
+    "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": {
+      "title": "Norway vs. England: Both Teams to Score",
+      "slug": "fifwc-nor-eng-2026-07-11-more-markets",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
+      ],
+      "size0": 33033.8391
     }
   },
   "pendingExit": {}
