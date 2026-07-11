@@ -73,7 +73,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 17.3
+      "lastPrice": 17.2
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -94,7 +94,7 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 1447193.5043000001,
-      "lastPrice": 57.4
+      "lastPrice": 58.3
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -167,7 +167,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 50273.749899999995,
-      "lastPrice": 99.5,
+      "lastPrice": 100,
       "wonNotified": true
     },
     "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": {
@@ -256,7 +256,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 58949.583300000006,
-      "lastPrice": 7.5
+      "lastPrice": 0.1
     }
   },
   "pendingExit": {}
