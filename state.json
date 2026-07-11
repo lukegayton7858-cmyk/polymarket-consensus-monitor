@@ -23,7 +23,8 @@
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 2,
     "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": 2,
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2,
-    "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": 3
+    "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": 3,
+    "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -115,7 +116,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 107095.6945,
-      "lastPrice": 41.4
+      "lastPrice": 41.6
     },
     "0xb86425238a6bb2abbea65a4730da96a877bb8f1c18e5579271f5bd08fcd7fdff|Karolina Muchova": {
       "title": "Wimbledon WTA: Karolina Muchova vs Linda Noskova",
@@ -127,6 +128,15 @@
       ],
       "size0": 93957,
       "lastPrice": 57.5
+    },
+    "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
+      "title": "Spread: Argentina (-1.5)",
+      "slug": "fifwc-arg-che-2026-07-11-more-markets",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
+      ],
+      "size0": 10822.7769
     }
   },
   "pendingExit": {}
