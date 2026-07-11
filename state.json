@@ -26,9 +26,9 @@
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
-    "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 4,
+    "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": 5,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 3,
+    "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 4,
     "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": 2,
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2,
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 2,
@@ -83,7 +83,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 20.9
+      "lastPrice": 20.8
     },
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
       "title": "Norway vs. England: Team to Advance",
@@ -91,11 +91,11 @@
       "wallets": [
         "0x09b428f7c2b469786286214aa5c90dd9015f7320",
         "0x5dab5ed9691fab220535891d9c7f5c28eed322e1",
+        "0xe549581668a5751c1972d3ad2d1991d900bd2d54",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3"
       ],
-      "size0": 1651137.1779,
-      "lastPrice": 59.6
+      "size0": 2451133.7231
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -112,11 +112,11 @@
       "slug": "ufc-max1-con-2026-07-11",
       "wallets": [
         "0x50f0a0fc7364d3c10fc4578b9b1d955368335355",
+        "0xe549581668a5751c1972d3ad2d1991d900bd2d54",
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
-      "size0": 480057.691,
-      "lastPrice": 73.5
+      "size0": 1229984.8084
     },
     "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": {
       "title": "Norway vs. England: O/U 3.5",
