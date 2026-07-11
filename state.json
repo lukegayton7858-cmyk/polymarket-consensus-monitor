@@ -182,7 +182,7 @@
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
       "size0": 63046.1506,
-      "lastPrice": 67.5
+      "lastPrice": 66.5
     },
     "0x0f5e01cf1cabb6c49e424f230ca77a2ccd3e1ac63b31ae03ef749ac2bde7fa0e|Yes": {
       "title": "Will England win on 2026-07-11?",
@@ -225,7 +225,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
-      "size0": 33033.8391
+      "size0": 33033.8391,
+      "lastPrice": 37.5
     }
   },
   "pendingExit": {}
