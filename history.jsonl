@@ -266,3 +266,4 @@
 {"ts":1783809849448,"type":"resolution","key":"0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway","title":"Spread: England (-1.5)","kind":"won"}
 {"ts":1783810929827,"type":"resolution","key":"0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No","title":"Will Norway win on 2026-07-11?","kind":"won"}
 {"ts":1783811051779,"type":"resolution","key":"0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under","title":"Norway vs. England: O/U 9.5 Total Corners","kind":"won"}
+{"ts":1783811292354,"type":"alert","key":"0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England","title":"Norway vs. England: Team to Advance","outcome":"England","slug":"fifwc-nor-eng-2026-07-11-more-markets","count":4,"total":30,"avgPrice":58.120000000000005,"avgEntry":61.99250000000001,"usd":1068471.5717,"riskTag":"LOW","sportsOnlyCount":0,"oppCount":0,"oppUsd":0}
