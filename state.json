@@ -179,7 +179,7 @@
         "0x0c787cc2962ee6464414da592b892c3886e077f1"
       ],
       "size0": 454088.9674,
-      "lastPrice": 57.1
+      "lastPrice": 55.4
     },
     "0x0f5e01cf1cabb6c49e424f230ca77a2ccd3e1ac63b31ae03ef749ac2bde7fa0e|Yes": {
       "title": "Will England win on 2026-07-11?",
@@ -194,7 +194,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 3707357.8368,
-      "lastPrice": 35.9
+      "lastPrice": 35.6
     },
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": {
       "title": "Spread: England (-1.5)",
@@ -216,7 +216,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 1431585.2445,
-      "lastPrice": 67.1
+      "lastPrice": 64.3
     },
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": {
       "title": "Norway vs. England: Both Teams to Score",
@@ -236,7 +236,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 103523.4309,
-      "lastPrice": 27
+      "lastPrice": 25.5
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
@@ -256,7 +256,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 58949.583300000006,
-      "lastPrice": 28
+      "lastPrice": 27.5
     }
   },
   "pendingExit": {}
