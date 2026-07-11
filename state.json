@@ -21,7 +21,8 @@
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
     "0x70c73fd968719a16368ec943881c299ee52270ea0c7f4d31b944c69b4d83cc92|Over": 2,
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 2,
-    "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": 2
+    "0x951e4575c8405a07ab0669943e5483771fb2143056e8ffd0ec64df6a212a1b08|Over": 2,
+    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -114,6 +115,15 @@
       ],
       "size0": 5129.401699999999,
       "lastPrice": 33.9
+    },
+    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
+      "title": "Argentina vs. Switzerland: O/U 2.5",
+      "slug": "fifwc-arg-che-2026-07-11-more-markets",
+      "wallets": [
+        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+        "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
+      ],
+      "size0": 107095.6945
     }
   },
   "pendingExit": {}
