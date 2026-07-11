@@ -91,7 +91,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 5859.1984,
-      "lastPrice": 22.5
+      "lastPrice": 19.5
     },
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": {
       "title": "UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)",
@@ -100,7 +100,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0xa71093cafc0c099b4ccab24c3cb8018d817923c4"
       ],
-      "size0": 56978.9409
+      "size0": 56978.9409,
+      "lastPrice": 69.5
     }
   },
   "pendingExit": {}
