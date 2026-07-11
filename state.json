@@ -62,7 +62,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 21.8
+      "lastPrice": 21.7
     },
     "0xccc07a8317079457585bc88e387b58d2bb94576ee2c9cea63b2f2adb7ed1a836|England": {
       "title": "Norway vs. England: Team to Advance",
@@ -92,7 +92,7 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e"
       ],
       "size0": 5859.1984,
-      "lastPrice": 20
+      "lastPrice": 17.5
     },
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": {
       "title": "UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)",
@@ -111,7 +111,8 @@
         "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
-      "size0": 5129.401699999999
+      "size0": 5129.401699999999,
+      "lastPrice": 33.9
     }
   },
   "pendingExit": {}
