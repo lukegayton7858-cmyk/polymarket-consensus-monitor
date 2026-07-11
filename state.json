@@ -21,7 +21,8 @@
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": 1783800371492,
     "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": 1783801689878,
     "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 1783802051193,
-    "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321
+    "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321,
+    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -55,7 +56,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 38.3
+      "lastPrice": 38.4
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -95,7 +96,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 33218.749899999995,
-      "lastPrice": 68.4
+      "lastPrice": 67.6
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
