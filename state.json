@@ -127,7 +127,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 5129.401699999999,
-      "lastPrice": 47.1
+      "lastPrice": 47.4
     },
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
       "title": "Argentina vs. Switzerland: O/U 2.5",
@@ -157,7 +157,7 @@
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
       "size0": 21347.93,
-      "lastPrice": 81.4
+      "lastPrice": 81.6
     },
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": {
       "title": "Norway vs. England: O/U 9.5 Total Corners",
@@ -167,7 +167,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 50273.749899999995,
-      "lastPrice": 81
+      "lastPrice": 78.5
     },
     "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": {
       "title": "Will Norway vs. England end in a draw?",
@@ -191,7 +191,7 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ],
       "size0": 3004614.0261999997,
-      "lastPrice": 49.5
+      "lastPrice": 48.9
     },
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": {
       "title": "Spread: England (-1.5)",
@@ -252,7 +252,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 58949.583300000006,
-      "lastPrice": 32.5
+      "lastPrice": 35.5
     }
   },
   "pendingExit": {}
