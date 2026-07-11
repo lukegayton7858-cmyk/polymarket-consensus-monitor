@@ -57,7 +57,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 38.4
+      "lastPrice": 38.3
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -97,7 +97,7 @@
         "0xc6a63ad5a788a576d4acc9911c50fef9fde49458"
       ],
       "size0": 33218.749899999995,
-      "lastPrice": 68.1
+      "lastPrice": 68.9
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -158,7 +158,7 @@
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
       "size0": 21347.93,
-      "lastPrice": 80.4
+      "lastPrice": 82.1
     },
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": {
       "title": "Norway vs. England: O/U 9.5 Total Corners",
@@ -168,7 +168,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 50273.749899999995,
-      "lastPrice": 73
+      "lastPrice": 74.5
     },
     "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": {
       "title": "Will Norway vs. England end in a draw?",
@@ -192,7 +192,7 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
       ],
       "size0": 3004614.0261999997,
-      "lastPrice": 52.1
+      "lastPrice": 53.1
     },
     "0xa8d64ff826067a88d125173890b470ce99f1328da7b33bb038627ef67661fa10|Norway": {
       "title": "Spread: England (-1.5)",
@@ -202,7 +202,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 104869.4921,
-      "lastPrice": 75.6
+      "lastPrice": 75.7
     },
     "0x180bce419c2b5ea2178514571c50c9d5ada7b85fd409e7088ff5d0d42e7fe867|Over": {
       "title": "Norway vs. England: O/U 2.5",
@@ -213,7 +213,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 949828.4149,
-      "lastPrice": 38.1
+      "lastPrice": 37.1
     },
     "0x85b78ea85ddd6f9b23ee88c1e0ebca096cf44c63a53c1b071fe768f47ff04f42|No": {
       "title": "Norway vs. England: Both Teams to Score",
@@ -223,7 +223,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 33033.8391,
-      "lastPrice": 52.5
+      "lastPrice": 53.5
     },
     "0xff8cfd8247a741a2f0c9232074c5aec553d2265f132019b0d29e1089564b1cf0|Ryan Gandra": {
       "title": "UFC 329: Zachary Reese vs. Ryan Gandra (Middleweight, Early Prelims)",
@@ -244,7 +244,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 103523.4309,
-      "lastPrice": 38.5
+      "lastPrice": 37
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
@@ -264,7 +264,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 58949.583300000006,
-      "lastPrice": 45.5
+      "lastPrice": 45
     }
   },
   "pendingExit": {}
