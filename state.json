@@ -46,7 +46,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 48
+      "lastPrice": 47.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -56,7 +56,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 17.7
+      "lastPrice": 17.8
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -129,7 +129,8 @@
         "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
         "0x45c3488fd5f78adb7cc59f3f87988e2bcbb859bf"
       ],
-      "size0": 664414.0191
+      "size0": 664414.0191,
+      "lastPrice": 75.6
     }
   },
   "pendingExit": {}
