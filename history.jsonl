@@ -305,3 +305,7 @@
 {"ts":1783827492084,"type":"resolution","key":"0x5a6619f625da519b9d26f64f6da00c564465e27b6c31f39c83e311e2a4ca0325|Benoît Saint Denis","title":"UFC 329: Paddy Pimblett vs. Benoît Saint Denis (Lightweight, Main Card)","kind":"lost","exitPrice":0.1}
 {"ts":1783827849477,"type":"resolution","key":"0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway","title":"UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)","kind":"won"}
 {"ts":1783828690023,"type":"resolution","key":"0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under","title":"Argentina vs. Switzerland: 1st Half O/U 0.5","kind":"lost","exitPrice":0.1}
+{"ts":1783828834229,"type":"resolution","key":"0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over","title":"Argentina vs. Switzerland: O/U 2.5","kind":"lost","exitPrice":0.1}
+{"ts":1783828834229,"type":"resolution","key":"0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland","title":"Spread: Argentina (-1.5)","kind":"sell","exitPrice":99.9}
+{"ts":1783828834229,"type":"resolution","key":"0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No","title":"Will Argentina win on 2026-07-11?","kind":"sell","exitPrice":100}
+{"ts":1783828834229,"type":"resolution","key":"0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over","title":"Argentina vs. Switzerland: O/U 8.5 Total Corners","kind":"lost","exitPrice":0.1}

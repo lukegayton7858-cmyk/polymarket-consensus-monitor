@@ -6,12 +6,8 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 1783740026134,
-    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 1783749971339,
-    "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 1783768829387,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 1783811771481,
-    "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": 1783815130702,
     "0xd92bc27584a025ecd9d7dc273fca9321a725436fa5f3be0a21cc1b94a7cd1207|Yes": 1783815730791,
-    "0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over": 1783817651310,
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783825932065
   },
   "alertedAt": {
@@ -21,12 +17,8 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 6,
-    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2,
-    "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 3,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 6,
-    "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": 6,
     "0xd92bc27584a025ecd9d7dc273fca9321a725436fa5f3be0a21cc1b94a7cd1207|Yes": 2,
-    "0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over": 2,
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2
   },
   "alertedMeta": {
@@ -39,7 +31,7 @@
         "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 38.6
+      "lastPrice": 38.7
     },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
@@ -79,7 +71,7 @@
         "0x3a8aa345d5db7ec5138298c8c4f4540259be7699"
       ],
       "size0": 402603.8568,
-      "lastPrice": 59
+      "lastPrice": 58.5
     },
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": {
       "title": "UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)",
@@ -96,28 +88,6 @@
       "lastPrice": 100,
       "wonNotified": true
     },
-    "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
-      "title": "Argentina vs. Switzerland: O/U 2.5",
-      "slug": "fifwc-arg-che-2026-07-11-more-markets",
-      "wallets": [
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
-      ],
-      "size0": 107095.6945,
-      "lastPrice": 0.1
-    },
-    "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
-      "title": "Spread: Argentina (-1.5)",
-      "slug": "fifwc-arg-che-2026-07-11-more-markets",
-      "wallets": [
-        "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
-        "0x0d18e30e252008d83f51dae00d36873ddd9e24a6",
-        "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223"
-      ],
-      "size0": 114483.2199,
-      "lastPrice": 99.9,
-      "wonNotified": true
-    },
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": {
       "title": "Argentina vs. Switzerland: Team to Advance",
       "slug": "fifwc-arg-che-2026-07-11-more-markets",
@@ -130,21 +100,6 @@
         "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223"
       ],
       "size0": 1226623.0111,
-      "lastPrice": 99.9,
-      "wonNotified": true
-    },
-    "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": {
-      "title": "Will Argentina win on 2026-07-11?",
-      "slug": "fifwc-arg-che-2026-07-11",
-      "wallets": [
-        "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
-        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
-        "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517",
-        "0xd1c537b2a7cba8d365e111bffb9de7b205e2cbd0",
-        "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223",
-        "0x5b4ec9c06b284ee52c41a761974d836992880232"
-      ],
-      "size0": 3250924.846,
       "lastPrice": 100,
       "wonNotified": true
     },
@@ -156,16 +111,6 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 325625.36,
-      "lastPrice": 0.1
-    },
-    "0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over": {
-      "title": "Argentina vs. Switzerland: O/U 8.5 Total Corners",
-      "slug": "fifwc-arg-che-2026-07-11-total-corners",
-      "wallets": [
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
-        "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
-      ],
-      "size0": 31756.319199999998,
       "lastPrice": 0.1
     },
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": {
