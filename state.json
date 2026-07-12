@@ -5,7 +5,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
-    "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 1783740026134,
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783825932065
   },
   "alertedAt": {
@@ -14,7 +13,6 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": 6,
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2
   },
   "alertedMeta": {
@@ -68,21 +66,6 @@
       ],
       "size0": 402603.8568,
       "lastPrice": 59
-    },
-    "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": {
-      "title": "UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)",
-      "slug": "ufc-max1-con-2026-07-11",
-      "wallets": [
-        "0xf0318c32136c2db7fec88b84869aee6a1106c80c",
-        "0xa71093cafc0c099b4ccab24c3cb8018d817923c4",
-        "0xe549581668a5751c1972d3ad2d1991d900bd2d54",
-        "0x5b4ec9c06b284ee52c41a761974d836992880232",
-        "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223",
-        "0x2cff41636fe21fad120fed603d54d4fdd96259db"
-      ],
-      "size0": 2755960.0051999995,
-      "lastPrice": 100,
-      "wonNotified": true
     },
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": {
       "title": "Will France win on 2026-07-14?",
