@@ -12,13 +12,12 @@ const STATE_FILE = path.join(__dirname, 'state.json');
 const THRESHOLD = 2;
 const MIN_VOLUME = 500_000;
 // Polymarket-v1 research (Qin & Yang, arXiv 2606.04217) documents a favorite-
-// longshot REVERSAL on this platform: 0-30c is systematically overpriced
-// (negative returns), 70-100c is systematically underpriced (positive returns)
-// — backwards from the classic sports-betting bias. Floor matches that decile
-// boundary. Cap stays at 80c on purpose: the 80-95c edge is real in EV terms,
-// but risking 90c to win 10c means one upset erases ~9 wins — that's a
-// bankroll-survival call, not a data disagreement.
-const MIN_PRICE = 0.3;
+// longshot REVERSAL on this platform: longshots are systematically overpriced.
+// Our own data confirms it extends above the paper's 30c threshold: the 30-40c
+// band went 2W-4L (33%, -3c EV) through 2026-07-12 — unprofitable even with
+// longshot payout odds. Floor raised to 40c; cap stays at 80c (bankroll
+// survival: 90c-to-win-10c means one upset erases ~9 wins).
+const MIN_PRICE = 0.4;
 const MAX_PRICE = 0.8;
 const PERSIST_WINDOW_MS = 5 * 60 * 1000;
 const EXIT_CONFIRM_MISSES = 2; // must be gone 2 consecutive runs before we call it a real exit, not an API blip
