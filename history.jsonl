@@ -309,3 +309,5 @@
 {"ts":1783828834229,"type":"resolution","key":"0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland","title":"Spread: Argentina (-1.5)","kind":"sell","exitPrice":99.9}
 {"ts":1783828834229,"type":"resolution","key":"0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No","title":"Will Argentina win on 2026-07-11?","kind":"sell","exitPrice":100}
 {"ts":1783828834229,"type":"resolution","key":"0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over","title":"Argentina vs. Switzerland: O/U 8.5 Total Corners","kind":"lost","exitPrice":0.1}
+{"ts":1783828933900,"type":"resolution","key":"0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina","title":"Argentina vs. Switzerland: Team to Advance","kind":"sell","exitPrice":100}
+{"ts":1783828933900,"type":"resolution","key":"0xd92bc27584a025ecd9d7dc273fca9321a725436fa5f3be0a21cc1b94a7cd1207|Yes","title":"Lionel Messi: 1+ goals","kind":"lost","exitPrice":0.1}
