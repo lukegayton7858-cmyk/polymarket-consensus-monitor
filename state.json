@@ -14,7 +14,8 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2
+    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2,
+    "0xb96585ac41b808bac0bcfa00f39a92990c64dc413804368c7191ad4e1cd299a5|Jannik Sinner": 3
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -77,6 +78,16 @@
       ],
       "size0": 73813.4944,
       "lastPrice": 58.5
+    },
+    "0xb96585ac41b808bac0bcfa00f39a92990c64dc413804368c7191ad4e1cd299a5|Jannik Sinner": {
+      "title": "Wimbledon ATP: Jannik Sinner vs Alexander Zverev",
+      "slug": "atp-sinner-zverev-2026-07-12",
+      "wallets": [
+        "0x4cb5a6cf70340f068148a740f9ec96cbea75ef29",
+        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
+        "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
+      ],
+      "size0": 1751923.57
     }
   },
   "pendingExit": {}
