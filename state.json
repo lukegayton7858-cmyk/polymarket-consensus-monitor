@@ -51,7 +51,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 60.5
+      "lastPrice": 61
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -95,7 +95,8 @@
         "0x2cff41636fe21fad120fed603d54d4fdd96259db"
       ],
       "size0": 2755960.0051999995,
-      "lastPrice": 71.5
+      "lastPrice": 99.5,
+      "wonNotified": true
     },
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": {
       "title": "Argentina vs. Switzerland: O/U 2.5",
@@ -141,7 +142,7 @@
         "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223"
       ],
       "size0": 1226623.0111,
-      "lastPrice": 97.9,
+      "lastPrice": 99.9,
       "wonNotified": true
     },
     "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": {
