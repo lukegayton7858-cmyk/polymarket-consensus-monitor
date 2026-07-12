@@ -11,7 +11,6 @@
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 1783768829387,
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 1783777569690,
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 1783777826594,
-    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": 1783787291417,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 1783811771481,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783812633376,
@@ -29,7 +28,6 @@
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 2,
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 3,
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 2,
-    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": 2,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 2,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 2
   },
@@ -154,16 +152,6 @@
       "size0": 50273.749899999995,
       "lastPrice": 100,
       "wonNotified": true
-    },
-    "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": {
-      "title": "Will Norway vs. England end in a draw?",
-      "slug": "fifwc-nor-eng-2026-07-11",
-      "wallets": [
-        "0x7dddf1968c14900b2d2ef9dada8465e82ac4c933",
-        "0x0c787cc2962ee6464414da592b892c3886e077f1"
-      ],
-      "size0": 454088.9674,
-      "lastPrice": 0.1
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
