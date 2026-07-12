@@ -12,9 +12,7 @@
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 1783777569690,
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 1783777826594,
     "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": 1783787291417,
-    "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 1783802051193,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 1783802769321,
-    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 1783803488965,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 1783811771481,
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|No": 1783812633376,
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Under": 1783813933172
@@ -32,9 +30,7 @@
     "0x4b84a8e08cb3376c9e5be5cc5a37f7073de05cdf0810d2ad3fe745c4760ef3e0|No": 3,
     "0xa08a161f3d520a852fa2901ceded966ef2a385446c7e407d19e4a2ad4df53e62|Under": 2,
     "0xdbbbbd6ea71cad296d859aa629497400402ab253a51350bddd5d761dbbad1460|No": 2,
-    "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": 2,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 2,
-    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": 2,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 2
   },
   "alertedMeta": {
@@ -57,7 +53,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 48.5
+      "lastPrice": 48
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -169,16 +165,6 @@
       "size0": 454088.9674,
       "lastPrice": 0.1
     },
-    "0x3f656230866732b8d6f7ecb64313786ae988a21c416960bfceac00f693637f9f|Yes": {
-      "title": "Erling Haaland: 1+ goals",
-      "slug": "fifwc-nor-eng-2026-07-11-player-props",
-      "wallets": [
-        "0x5dab5ed9691fab220535891d9c7f5c28eed322e1",
-        "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
-      ],
-      "size0": 103523.4309,
-      "lastPrice": 0.1
-    },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
       "slug": "fifwc-arg-che-2026-07-11-more-markets",
@@ -188,16 +174,6 @@
       ],
       "size0": 6853.65,
       "lastPrice": 39.5
-    },
-    "0x3cfbee413cd85add8ad7051d8ba72f5d7a1f127e119fe9619511fdc66874fad9|Yes": {
-      "title": "Harry Kane: 1+ goals",
-      "slug": "fifwc-nor-eng-2026-07-11-player-props",
-      "wallets": [
-        "0x5dab5ed9691fab220535891d9c7f5c28eed322e1",
-        "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
-      ],
-      "size0": 58949.583300000006,
-      "lastPrice": 0.1
     },
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": {
       "title": "Argentina vs. Switzerland: Team to Advance",
