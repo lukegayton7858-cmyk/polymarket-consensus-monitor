@@ -310,14 +310,13 @@ function riskLevel(avgPrice, count, chase, usd = 0) {
     else if (avgPrice > 65) score += 1;
   }
   if (chase) score += 2;
-  // Measured, not assumed: through 2026-07-12, 2-trader alerts win ~half
-  // while 3+-trader alerts are 0W-8L — eight straight. Big consensus forms
-  // late, on favorites whose price has already moved. +2 (not +1) lands these
-  // at HIGH for typical mid-band prices — Luke only plays LOW-tag alerts, so
-  // HIGH is the honest label for a bucket that has never cashed. The old
-  // "more heads = safer" bonus for count>=4 was backwards against our own
-  // results. Re-check via calibrate.js as history grows.
-  if (count > THRESHOLD) score += 2;
+  // Trader count is deliberately NOT scored. Twice this got tuned on broken
+  // accounting: first a "more heads = safer" bonus (intuition, no data), then
+  // a 0W-8L penalty that turned out to be redeemed WINS mislogged as sells.
+  // Corrected record through 2026-07-12: 2x = 48W-37L (56%), 3x = 9W-10L
+  // (47%), 4+ = 12W-8L (60%) — no consistent signal either direction.
+  // Leave neutral until calibrate.js shows a bucket that survives the
+  // exit-price correction.
   // Dollar conviction: $50k+ of the traders' own cost basis is a stronger
   // signal than an extra head; pocket-change consensus is weaker than it looks.
   if (usd >= 50_000) score -= 1;
@@ -665,12 +664,14 @@ async function main() {
       console.log(`SKIP (stale price): ${item.outcome.toUpperCase()} on "${item.title}" @ ${s.avgPrice.toFixed(1)}c vs entry ~${s.avgEntry.toFixed(1)}c`);
       continue;
     }
-    // Player scoring props ("Haaland: 1+ goals") are 1W-7L all-time through
-    // 2026-07-12 — traders hold these as small lottery tickets alongside their
+    // Player scoring props ("Haaland: 1+ goals") are 1W-4L through 2026-07-12
+    // and the record HOLDS under exit-price-corrected accounting (all four
+    // losses settled at 0 — no mislabeled redeems here, unlike the crowd-size
+    // bucket). Traders hold these as small lottery tickets alongside their
     // real position, so "consensus" here isn't conviction. Skipped, not marked
     // alerted, so this can be lifted later if calibrate.js ever disagrees.
     if (/:\s*\d+\+\s*(goal|assist|shot|point|save)/i.test(item.title)) {
-      console.log(`SKIP (player prop, 1W-7L bucket): ${item.outcome.toUpperCase()} on "${item.title}"`);
+      console.log(`SKIP (player prop, 1W-4L bucket): ${item.outcome.toUpperCase()} on "${item.title}"`);
       continue;
     }
     entryEvents.push(s);
