@@ -310,13 +310,14 @@ function riskLevel(avgPrice, count, chase, usd = 0) {
     else if (avgPrice > 65) score += 1;
   }
   if (chase) score += 2;
-  // Measured, not assumed: through 2026-07-09, 2-trader alerts ran 24W-21L
-  // while 3+-trader alerts ran 0W-5L — big consensus forms late, on favorites
-  // whose price has already moved. So crowd size ADDS risk here; the intuitive
-  // "more heads = safer" bonus this used to give count>=4 was backwards
-  // against our own results. Small sample; re-check via calibrate.js as
-  // history grows.
-  if (count > THRESHOLD) score += 1;
+  // Measured, not assumed: through 2026-07-12, 2-trader alerts win ~half
+  // while 3+-trader alerts are 0W-8L — eight straight. Big consensus forms
+  // late, on favorites whose price has already moved. +2 (not +1) lands these
+  // at HIGH for typical mid-band prices — Luke only plays LOW-tag alerts, so
+  // HIGH is the honest label for a bucket that has never cashed. The old
+  // "more heads = safer" bonus for count>=4 was backwards against our own
+  // results. Re-check via calibrate.js as history grows.
+  if (count > THRESHOLD) score += 2;
   // Dollar conviction: $50k+ of the traders' own cost basis is a stronger
   // signal than an extra head; pocket-change consensus is weaker than it looks.
   if (usd >= 50_000) score -= 1;
@@ -654,6 +655,14 @@ async function main() {
     // same bet. Not marked alerted, so if price comes back it can alert later.
     if (s.avgPrice != null && s.avgEntry != null && (s.avgPrice - s.avgEntry) > 15) {
       console.log(`SKIP (stale price): ${item.outcome.toUpperCase()} on "${item.title}" @ ${s.avgPrice.toFixed(1)}c vs entry ~${s.avgEntry.toFixed(1)}c`);
+      continue;
+    }
+    // Player scoring props ("Haaland: 1+ goals") are 1W-7L all-time through
+    // 2026-07-12 — traders hold these as small lottery tickets alongside their
+    // real position, so "consensus" here isn't conviction. Skipped, not marked
+    // alerted, so this can be lifted later if calibrate.js ever disagrees.
+    if (/:\s*\d+\+\s*(goal|assist|shot|point|save)/i.test(item.title)) {
+      console.log(`SKIP (player prop, 1W-7L bucket): ${item.outcome.toUpperCase()} on "${item.title}"`);
       continue;
     }
     entryEvents.push(s);
