@@ -58,7 +58,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 19.4
+      "lastPrice": 19.2
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -78,7 +78,7 @@
         "0x3a8aa345d5db7ec5138298c8c4f4540259be7699"
       ],
       "size0": 402603.8568,
-      "lastPrice": 54
+      "lastPrice": 54.5
     },
     "0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway": {
       "title": "UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)",
@@ -101,7 +101,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 107095.6945,
-      "lastPrice": 41.4
+      "lastPrice": 41.6
     },
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
       "title": "Spread: Argentina (-1.5)",
@@ -111,7 +111,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 10822.7769,
-      "lastPrice": 69.9
+      "lastPrice": 70.1
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
@@ -143,7 +143,7 @@
         "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517"
       ],
       "size0": 519153.1911,
-      "lastPrice": 43.1
+      "lastPrice": 43.4
     }
   },
   "pendingExit": {}
