@@ -24,7 +24,8 @@
     "0x2f204628fdab76ab18a96c8b05ae7a13a3ff74b0047e63c22668c3ed28e7822b|Over": 2,
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": 2,
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 2,
-    "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 3
+    "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 3,
+    "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -56,7 +57,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 18.4
+      "lastPrice": 18.8
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -131,6 +132,15 @@
       ],
       "size0": 664414.0191,
       "lastPrice": 75.6
+    },
+    "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": {
+      "title": "Will Argentina win on 2026-07-11?",
+      "slug": "fifwc-arg-che-2026-07-11",
+      "wallets": [
+        "0xc6a63ad5a788a576d4acc9911c50fef9fde49458",
+        "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517"
+      ],
+      "size0": 454265.3918
     }
   },
   "pendingExit": {}
