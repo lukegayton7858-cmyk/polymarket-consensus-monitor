@@ -64,7 +64,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 20.4
+      "lastPrice": 20.6
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -108,7 +108,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 107095.6945,
-      "lastPrice": 38.6
+      "lastPrice": 37.6
     },
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
       "title": "Spread: Argentina (-1.5)",
@@ -139,7 +139,7 @@
         "0x45c3488fd5f78adb7cc59f3f87988e2bcbb859bf"
       ],
       "size0": 664414.0191,
-      "lastPrice": 88.9
+      "lastPrice": 89.1
     },
     "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": {
       "title": "Will Argentina win on 2026-07-11?",
@@ -153,7 +153,7 @@
         "0x5b4ec9c06b284ee52c41a761974d836992880232"
       ],
       "size0": 3250924.846,
-      "lastPrice": 22.1
+      "lastPrice": 21.6
     },
     "0xd92bc27584a025ecd9d7dc273fca9321a725436fa5f3be0a21cc1b94a7cd1207|Yes": {
       "title": "Lionel Messi: 1+ goals",
@@ -163,7 +163,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 325625.36,
-      "lastPrice": 33.5
+      "lastPrice": 32.5
     },
     "0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over": {
       "title": "Argentina vs. Switzerland: O/U 8.5 Total Corners",
@@ -173,7 +173,7 @@
         "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
       ],
       "size0": 31756.319199999998,
-      "lastPrice": 33
+      "lastPrice": 27
     },
     "0x5a6619f625da519b9d26f64f6da00c564465e27b6c31f39c83e311e2a4ca0325|Benoît Saint Denis": {
       "title": "UFC 329: Paddy Pimblett vs. Benoît Saint Denis (Lightweight, Main Card)",
@@ -187,5 +187,7 @@
       "lastPrice": 53.5
     }
   },
-  "pendingExit": {}
+  "pendingExit": {
+    "0x5a6619f625da519b9d26f64f6da00c564465e27b6c31f39c83e311e2a4ca0325|Paddy Pimblett": 1
+  }
 }
