@@ -378,7 +378,9 @@ async function sendEntryPush(s) {
     // Attention matches risk: green buzzes, yellow lands quietly, red whispers.
     // All still send (yellow carried the Argentina @19c winner) — Luke reads
     // green first but nothing is hidden, and calibration keeps logging all tiers.
-    'Priority': count >= 5 ? 'urgent' : risk.tag === 'LOW' ? 'high' : risk.tag === 'MED' ? 'default' : 'min',
+    // No count>=5 'urgent' override anymore: big-crowd consensus is the 0W-8L
+    // bucket — the tag (HIGH → min) is the honest volume knob, not a megaphone.
+    'Priority': risk.tag === 'LOW' ? 'high' : risk.tag === 'MED' ? 'default' : 'min',
     'Tags': 'chart_increasing',
     'Markdown': 'yes',
   };
@@ -415,7 +417,7 @@ async function sendExitPush(key, meta, kind = 'sell', pct = 0) {
     },
     won: {
       head: boundTitle(`WON ${o}, redeem - `, title), prio: 'high', tags: 'white_check_mark',
-      body: `✅ **${o} — won, redeem**\n${title}\nPrice is ~100c and traders are holding to resolution. Hold — redeem when it settles. Do not panic-sell.`,
+      body: `✅ **${o} — won**\n${title}\nPrice hit ~100c. If it hasn't settled yet, hold and redeem at resolution — do not panic-sell.`,
     },
   };
   const v = variants[kind] || variants.sell;
@@ -576,7 +578,9 @@ async function main() {
         // Without this, every fast redeem logged (and pushed) as "SELL NOW",
         // which made a 23W-16L stretch read as 0W-16L in calibration.
         const kind = lost > 0 ? 'lost' : ((meta.lastPrice ?? 0) >= 95 ? 'won' : 'sell');
-        exitEvents.push({ key, meta, kind });
+        // A win already announced at the >=95c heads-up doesn't push twice —
+        // but the history record still writes, since this one carries exitPrice.
+        if (!(kind === 'won' && meta.wonNotified)) exitEvents.push({ key, meta, kind });
         commitOps.push(() => dropAlert(key));
         historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind, exitPrice: meta.lastPrice ?? null });
       } else {
@@ -593,9 +597,13 @@ async function main() {
     if (state.alertedAt[key]) {
       const misses = (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
-        exitEvents.push({ key, meta: state.alertedMeta[key], kind: 'sell' });
+        // Same won-vs-sell disambiguation as the wallet-tracked path above:
+        // last price >=95c at disappearance means redeem, not a live exit.
+        const lm = state.alertedMeta[key];
+        const kind = (lm?.lastPrice ?? 0) >= 95 ? 'won' : 'sell';
+        if (!(kind === 'won' && lm?.wonNotified)) exitEvents.push({ key, meta: lm, kind });
         commitOps.push(() => dropAlert(key));
-        historyRecords.push({ ts: now, type: 'resolution', key, title: state.alertedMeta[key]?.title, kind: 'sell', exitPrice: state.alertedMeta[key]?.lastPrice ?? null });
+        historyRecords.push({ ts: now, type: 'resolution', key, title: lm?.title, kind, exitPrice: lm?.lastPrice ?? null });
       } else {
         state.pendingExit[key] = misses;
       }
