@@ -111,6 +111,7 @@ async function loadTopTraders() {
     if (seen.has(t.proxyWallet)) continue;
     seen.add(t.proxyWallet);
     const vol = t.vol || 0;
+    if (vol < MIN_VOLUME) continue;
     candidates.push({
       wallet: t.proxyWallet,
       name: t.userName || t.proxyWallet.slice(0, 8),
@@ -119,13 +120,18 @@ async function loadTopTraders() {
       sportsOnly: !overallWallets.has(t.proxyWallet),
     });
   }
-  // Raw PNL ranking — matches the actual Polymarket leaderboard order that
-  // produced Luke's +400% run. Efficiency ranking (PNL/vol) was an untested
-  // "improvement" that excluded the proven mega-whales (swisstony, maz26,
-  // muchobliged, CandleHammerDrums) in favor of small precise traders with
-  // no track record of outperforming them. Reverted to what worked.
-  candidates.sort((a, b) => b.pnl - a.pnl);
-  return candidates.slice(0, 20);
+  // Efficiency (PNL/vol) with the $500k floor, NOT raw-PNL leaderboard order.
+  // This is the config with measured results behind it: the 12W-3L 2026-07-06
+  // day ran on it, and the corrected Jul 9-12 record (after fixing wins being
+  // mislogged as sells) was 23W-16L (59%). A raw-PNL pool pulls in $200M+
+  // volume grinders at 1-9% return-per-dollar whose individual bets carry no
+  // copyable per-bet edge — briefly tried 2026-07-12, reverted same day.
+  candidates.sort((a, b) => b.eff - a.eff);
+  // 30, not 20: daily leaderboard churn regularly drops one half of a live
+  // 2-trader consensus to rank ~21-25, silently killing the signal (measured
+  // live 2026-07-09: top-20 saw 0 plays on France-Morocco, top-30 saw 4, the
+  // full 72-wallet pool saw 36 mostly self-contradicting ones).
+  return candidates.slice(0, 30);
 }
 
 // null = fetch FAILED (unknown state), [] = fetch succeeded and wallet holds
@@ -471,8 +477,8 @@ async function main() {
   const state = loadState();
 
   const topTraders = await loadTopTraders();
-  console.log(`Top ${topTraders.length} traders by PNL (MONTH+WEEK, Polymarket leaderboard order):`);
-  topTraders.forEach((t, i) => console.log(`  ${i + 1}. ${t.name}  pnl=$${(t.pnl / 1e6).toFixed(2)}M  vol=$${(t.vol / 1e6).toFixed(1)}M`));
+  console.log(`Top ${topTraders.length} traders by efficiency (MONTH+WEEK, vol>=$${MIN_VOLUME / 1e6}M):`);
+  topTraders.forEach((t, i) => console.log(`  ${i + 1}. ${t.name}  eff=${(t.eff * 100).toFixed(1)}%  pnl=$${(t.pnl / 1e6).toFixed(2)}M  vol=$${(t.vol / 1e6).toFixed(1)}M`));
 
   const positionsByWallet = {};
   for (const t of topTraders) {
@@ -562,7 +568,13 @@ async function main() {
       // "gone" could just mean "couldn't see it this run".
       const misses = unknown === 0 ? EXIT_CONFIRM_MISSES : (state.pendingExit[key] || 0) + 1;
       if (misses >= EXIT_CONFIRM_MISSES) {
-        const kind = lost > 0 ? 'lost' : 'sell';
+        // When a market resolves in our favor, holders redeem and their
+        // positions vanish from the API — indistinguishable here from a live
+        // exit. lastPrice disambiguates: if the last price seen while they
+        // still held was >=95c, this is a WIN being redeemed, not a sell.
+        // Without this, every fast redeem logged (and pushed) as "SELL NOW",
+        // which made a 23W-16L stretch read as 0W-16L in calibration.
+        const kind = lost > 0 ? 'lost' : ((meta.lastPrice ?? 0) >= 95 ? 'won' : 'sell');
         exitEvents.push({ key, meta, kind });
         commitOps.push(() => dropAlert(key));
         historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind, exitPrice: meta.lastPrice ?? null });
