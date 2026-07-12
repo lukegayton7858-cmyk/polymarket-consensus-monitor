@@ -304,3 +304,4 @@
 {"ts":1783827372630,"type":"resolution","key":"0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina","title":"Argentina vs. Switzerland: Team to Advance","kind":"won"}
 {"ts":1783827492084,"type":"resolution","key":"0x5a6619f625da519b9d26f64f6da00c564465e27b6c31f39c83e311e2a4ca0325|Benoît Saint Denis","title":"UFC 329: Paddy Pimblett vs. Benoît Saint Denis (Lightweight, Main Card)","kind":"lost","exitPrice":0.1}
 {"ts":1783827849477,"type":"resolution","key":"0xc851fc5ae688d3d67bccb7c8f0ca475f61ebda796cfcddca7230042de6b48cfd|Max Holloway","title":"UFC 329: Max Holloway vs. Conor McGregor (Welterweight, Main Card)","kind":"won"}
+{"ts":1783828690023,"type":"resolution","key":"0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under","title":"Argentina vs. Switzerland: 1st Half O/U 0.5","kind":"lost","exitPrice":0.1}
