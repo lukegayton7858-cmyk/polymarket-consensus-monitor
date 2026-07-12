@@ -29,7 +29,8 @@
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": 2,
     "0x0891e4792a016a079765dd25029639cd731f7dc0bde3d65d6002b2b19dae2777|Argentina": 3,
     "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": 4,
-    "0xd92bc27584a025ecd9d7dc273fca9321a725436fa5f3be0a21cc1b94a7cd1207|Yes": 2
+    "0xd92bc27584a025ecd9d7dc273fca9321a725436fa5f3be0a21cc1b94a7cd1207|Yes": 2,
+    "0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -61,7 +62,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 18.6
+      "lastPrice": 18.2
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -104,7 +105,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 107095.6945,
-      "lastPrice": 41.6
+      "lastPrice": 41.1
     },
     "0x20f32e9daf45af5142db1adfe40e11c8de19a9d807ff0d26dc85344e74bea2d5|Switzerland": {
       "title": "Spread: Argentina (-1.5)",
@@ -114,7 +115,7 @@
         "0x361b16e3ddfe1d415d41008daac2631d94ab74fe"
       ],
       "size0": 10822.7769,
-      "lastPrice": 70.1
+      "lastPrice": 70.9
     },
     "0x0d2c665aecccd43c9a4f1812c9efcc2ae9fd59cc4310cbf4c4c4fad079d0b4a9|Under": {
       "title": "Argentina vs. Switzerland: 1st Half O/U 0.5",
@@ -158,6 +159,15 @@
       ],
       "size0": 325625.36,
       "lastPrice": 52.5
+    },
+    "0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over": {
+      "title": "Argentina vs. Switzerland: O/U 8.5 Total Corners",
+      "slug": "fifwc-arg-che-2026-07-11-total-corners",
+      "wallets": [
+        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed",
+        "0xc72d7dcdb23597d143a83536fb97b1d7db7efc21"
+      ],
+      "size0": 31756.319199999998
     }
   },
   "pendingExit": {}
