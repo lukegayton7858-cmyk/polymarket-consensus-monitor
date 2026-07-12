@@ -139,7 +139,8 @@
         "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce",
         "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223"
       ],
-      "size0": 966731.6844
+      "size0": 966731.6844,
+      "lastPrice": 74.6
     },
     "0x95f726bbb693b945f94473908298b2389989550b08a7bfd90f97ce7ba62cb719|No": {
       "title": "Will Argentina win on 2026-07-11?",
@@ -164,7 +165,7 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 325625.36,
-      "lastPrice": 0.5
+      "lastPrice": 0.1
     },
     "0x6dacb41c98f2f689b26f7b3d66352f678f17b517872673b3c1574cc29e64cf84|Over": {
       "title": "Argentina vs. Switzerland: O/U 8.5 Total Corners",
