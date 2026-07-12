@@ -6,8 +6,7 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783825932065,
-    "0xb96585ac41b808bac0bcfa00f39a92990c64dc413804368c7191ad4e1cd299a5|Jannik Sinner": 1783870260317,
-    "0xb96585ac41b808bac0bcfa00f39a92990c64dc413804368c7191ad4e1cd299a5|Alexander Zverev": 1783873090365
+    "0xb96585ac41b808bac0bcfa00f39a92990c64dc413804368c7191ad4e1cd299a5|Jannik Sinner": 1783870260317
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -68,7 +67,7 @@
         "0x3a8aa345d5db7ec5138298c8c4f4540259be7699"
       ],
       "size0": 402603.8568,
-      "lastPrice": 58.5
+      "lastPrice": 59
     },
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": {
       "title": "Will France win on 2026-07-14?",
@@ -89,12 +88,10 @@
         "0x0d18e30e252008d83f51dae00d36873ddd9e24a6"
       ],
       "size0": 1752608.57,
-      "lastPrice": 62.5
+      "lastPrice": 61.5
     }
   },
-  "pendingExit": {
-    "0xb96585ac41b808bac0bcfa00f39a92990c64dc413804368c7191ad4e1cd299a5|Alexander Zverev": 1
-  },
+  "pendingExit": {},
   "shadowFirstSeen": {
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783870260317,
     "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 1783870260317,
