@@ -5,8 +5,7 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783825932065,
-    "0xa95d48279f55ae3288220263c0eb8a28197828121b878ff91671695ce88df46c|Hanwha Life Esports": 1783851970488
+    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783825932065
   },
   "alertedAt": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
@@ -14,8 +13,7 @@
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2,
-    "0xa95d48279f55ae3288220263c0eb8a28197828121b878ff91671695ce88df46c|Hanwha Life Esports": 2
+    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -78,18 +76,6 @@
       ],
       "size0": 73813.4944,
       "lastPrice": 58.5
-    },
-    "0xa95d48279f55ae3288220263c0eb8a28197828121b878ff91671695ce88df46c|Hanwha Life Esports": {
-      "title": "LoL: Bilibili Gaming vs Hanwha Life Esports (BO5) - Mid-Season Invitational Playoffs",
-      "slug": "lol-blg-hle1-2026-07-12",
-      "wallets": [
-        "0x9468bb7e53c8a5f13cc283f2aed950ebf9865d4b",
-        "0x28059b3fb7af7ed76d83dc9121bbb72ec7cf76ed"
-      ],
-      "size0": 855400.631,
-      "lastPrice": 65.5,
-      "trimNotified": true,
-      "wonNotified": true
     }
   },
   "pendingExit": {}
