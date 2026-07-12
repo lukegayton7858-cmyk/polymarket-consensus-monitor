@@ -50,6 +50,8 @@ function loadState() {
   try {
     const s = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
     if (!s.pendingExit) s.pendingExit = {};
+    if (!s.shadowFirstSeen) s.shadowFirstSeen = {};
+    if (!s.shadowAlertedAt) s.shadowAlertedAt = {};
     return s;
   } catch (_) {
     return { consensusFirstSeen: {}, alertedAt: {}, alertedMeta: {}, pendingExit: {} };
@@ -132,6 +134,34 @@ async function loadTopTraders() {
   // live 2026-07-09: top-20 saw 0 plays on France-Morocco, top-30 saw 4, the
   // full 72-wallet pool saw 36 mostly self-contradicting ones).
   return candidates.slice(0, 30);
+}
+
+// Shadow pool: raw PNL top-20, no volume floor — the Polymarket leaderboard's
+// default sort. Runs alongside the live efficiency pool to collect real outcome
+// data on which ranking method produces better copy-trading signals.
+async function loadTopTradersPNL() {
+  const [overallMonth, overallWeek, sportsMonth, sportsWeek] = await Promise.all([
+    fetchJSON(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=MONTH&orderBy=PNL&limit=50`),
+    fetchJSON(`${LEADERBOARD_URL}?category=OVERALL&timePeriod=WEEK&orderBy=PNL&limit=50`),
+    fetchJSON(`${LEADERBOARD_URL}?category=SPORTS&timePeriod=MONTH&orderBy=PNL&limit=50`),
+    fetchJSON(`${LEADERBOARD_URL}?category=SPORTS&timePeriod=WEEK&orderBy=PNL&limit=50`),
+  ]);
+  const overallWallets = new Set([...overallMonth, ...overallWeek].map(t => t.proxyWallet));
+  const seen = new Set();
+  const candidates = [];
+  for (const t of [...overallMonth, ...overallWeek, ...sportsMonth, ...sportsWeek]) {
+    if (seen.has(t.proxyWallet)) continue;
+    seen.add(t.proxyWallet);
+    candidates.push({
+      wallet: t.proxyWallet,
+      name: t.userName || t.proxyWallet.slice(0, 8),
+      pnl: t.pnl || 0, vol: t.vol || 0,
+      eff: (t.vol || 0) > 0 ? (t.pnl || 0) / (t.vol || 1) : 0,
+      sportsOnly: !overallWallets.has(t.proxyWallet),
+    });
+  }
+  candidates.sort((a, b) => b.pnl - a.pnl);
+  return candidates.slice(0, 20);
 }
 
 // null = fetch FAILED (unknown state), [] = fetch succeeded and wallet holds
@@ -737,7 +767,60 @@ async function main() {
     console.error(`Push failed — ${commitOps.length} alert(s) deferred to retry next run instead of being marked delivered.`);
   }
 
-  console.log(`Run complete. Consensus positions tracked: ${Object.values(map).filter(i => i.traders.length >= 2).length}. Buys: ${entryEvents.length}. Sells: ${exitEvents.length}.`);
+  // --- Shadow PNL pool: log what raw-PNL top-20 WOULD alert, never push ---
+  try {
+    const shadowTraders = await loadTopTradersPNL();
+    const overlap = shadowTraders.filter(s => topTraders.some(t => t.wallet === s.wallet)).length;
+    console.log(`\nShadow PNL pool: ${shadowTraders.length} traders (${overlap} overlap with live efficiency pool)`);
+
+    const shadowPositions = {};
+    for (const t of shadowTraders) {
+      shadowPositions[t.wallet] = positionsByWallet[t.wallet] || await fetchPositions(t.wallet);
+      if (!positionsByWallet[t.wallet]) await new Promise(r => setTimeout(r, 150));
+    }
+
+    const { map: shadowMap } = buildConsensus(shadowTraders, shadowPositions, { consensusFirstSeen: state.shadowFirstSeen }, now);
+
+    let shadowAlerts = 0;
+    const shadowHistory = [];
+    for (const item of Object.values(shadowMap)) {
+      const count = item.traders.length;
+      if (count < THRESHOLD) continue;
+      if ((item.ageMs || 0) < PERSIST_WINDOW_MS) continue;
+      if (count <= (state.shadowAlertedAt[item.key] || 0)) continue;
+      if (/:\s*\d+\+\s*(goal|assist|shot|point|save)/i.test(item.title)) continue;
+
+      const s = summarizeEntry(item, count, shadowTraders.length, 'new');
+      if (s.avgPrice != null && s.avgEntry != null && (s.avgPrice - s.avgEntry) > 15) continue;
+
+      const alsoLive = !!state.alertedAt[item.key];
+      state.shadowAlertedAt[item.key] = count;
+      shadowAlerts++;
+      shadowHistory.push({
+        ts: now, type: 'shadow_alert', pool: 'pnl_top20', key: item.key,
+        title: item.title, outcome: item.outcome, slug: item.slug,
+        count, total: shadowTraders.length, avgPrice: s.avgPrice, avgEntry: s.avgEntry,
+        usd: item.usd || 0, riskTag: s.risk.tag, alsoLive,
+      });
+      console.log(`  SHADOW ${alsoLive ? '(also live)' : '(PNL-only)'}: ${item.outcome.toUpperCase()} on "${item.title}" @ ${(s.avgPrice ?? 0).toFixed(1)}c [${count}/${shadowTraders.length}]`);
+    }
+
+    // Clean up shadow state for keys no longer in consensus
+    for (const key of Object.keys(state.shadowFirstSeen)) {
+      if (!shadowMap[key] || shadowMap[key].traders.length < 2) {
+        delete state.shadowFirstSeen[key];
+        delete state.shadowAlertedAt[key];
+      }
+    }
+
+    if (shadowHistory.length) appendHistory(shadowHistory);
+    console.log(`Shadow: ${shadowAlerts} would-alert(s) this run.`);
+  } catch (e) {
+    console.error('Shadow PNL tracker failed (non-fatal):', e.message);
+  }
+  // --- end shadow ---
+
+  console.log(`\nRun complete. Consensus positions tracked: ${Object.values(map).filter(i => i.traders.length >= 2).length}. Buys: ${entryEvents.length}. Sells: ${exitEvents.length}.`);
   saveState(state);
 }
 
