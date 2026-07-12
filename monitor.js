@@ -111,7 +111,6 @@ async function loadTopTraders() {
     if (seen.has(t.proxyWallet)) continue;
     seen.add(t.proxyWallet);
     const vol = t.vol || 0;
-    if (vol < MIN_VOLUME) continue;
     candidates.push({
       wallet: t.proxyWallet,
       name: t.userName || t.proxyWallet.slice(0, 8),
@@ -120,14 +119,13 @@ async function loadTopTraders() {
       sportsOnly: !overallWallets.has(t.proxyWallet),
     });
   }
-  candidates.sort((a, b) => b.eff - a.eff);
-  // 30, not 20: daily leaderboard churn regularly drops one half of a live
-  // 2-trader consensus to rank ~21-25, silently killing the signal (measured
-  // live 2026-07-09: top-20 saw 0 plays on France-Morocco, top-30 saw 4, the
-  // full 72-wallet pool saw 36 mostly self-contradicting ones). 30 absorbs
-  // churn without opening the floodgates — everyone still clears the volume
-  // floor and positive efficiency.
-  return candidates.slice(0, 30);
+  // Raw PNL ranking — matches the actual Polymarket leaderboard order that
+  // produced Luke's +400% run. Efficiency ranking (PNL/vol) was an untested
+  // "improvement" that excluded the proven mega-whales (swisstony, maz26,
+  // muchobliged, CandleHammerDrums) in favor of small precise traders with
+  // no track record of outperforming them. Reverted to what worked.
+  candidates.sort((a, b) => b.pnl - a.pnl);
+  return candidates.slice(0, 20);
 }
 
 // null = fetch FAILED (unknown state), [] = fetch succeeded and wallet holds
@@ -473,8 +471,8 @@ async function main() {
   const state = loadState();
 
   const topTraders = await loadTopTraders();
-  console.log(`Top ${topTraders.length} traders by efficiency (MONTH+WEEK, vol>=$${MIN_VOLUME / 1e6}M):`);
-  topTraders.forEach((t, i) => console.log(`  ${i + 1}. ${t.name}  eff=${(t.eff * 100).toFixed(1)}%  vol=$${(t.vol / 1e6).toFixed(1)}M`));
+  console.log(`Top ${topTraders.length} traders by PNL (MONTH+WEEK, Polymarket leaderboard order):`);
+  topTraders.forEach((t, i) => console.log(`  ${i + 1}. ${t.name}  pnl=$${(t.pnl / 1e6).toFixed(2)}M  vol=$${(t.vol / 1e6).toFixed(1)}M`));
 
   const positionsByWallet = {};
   for (const t of topTraders) {
