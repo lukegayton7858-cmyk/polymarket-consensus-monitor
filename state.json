@@ -80,11 +80,9 @@
   },
   "pendingExit": {},
   "shadowFirstSeen": {
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 1783870260317,
-    "0xf1eeb99016f4fdd68b1a61320910a71443c51aaa996a73d8cc182718b751fa25|Hanwha Eagles": 1783917028845
+    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 1783870260317
   },
   "shadowAlertedAt": {
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 3,
-    "0xf1eeb99016f4fdd68b1a61320910a71443c51aaa996a73d8cc182718b751fa25|Hanwha Eagles": 2
+    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 3
   }
 }
