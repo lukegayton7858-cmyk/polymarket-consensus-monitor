@@ -55,7 +55,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 20.7
+      "lastPrice": 20.8
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -84,6 +84,7 @@
     "0xe3a20caed4d81a0d90aa0cbd95f438948a39701cf5beb2811b659155f140a90e|Las Vegas Aces": 1783909091590
   },
   "shadowAlertedAt": {
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 3
+    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 3,
+    "0xe3a20caed4d81a0d90aa0cbd95f438948a39701cf5beb2811b659155f140a90e|Las Vegas Aces": 2
   }
 }
