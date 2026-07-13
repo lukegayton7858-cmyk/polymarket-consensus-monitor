@@ -16,7 +16,8 @@
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2,
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 2
+    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 2,
+    "0xecba7b1db1c698ab73b3572abfcde327a02b5112676144e049edcc1e1e0f5b0b|France": 2
   },
   "alertedMeta": {
     "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
@@ -89,6 +90,15 @@
       ],
       "size0": 575459.7298,
       "lastPrice": 49.6
+    },
+    "0xecba7b1db1c698ab73b3572abfcde327a02b5112676144e049edcc1e1e0f5b0b|France": {
+      "title": "France vs. Spain: Team to Advance",
+      "slug": "fifwc-fra-esp-2026-07-14-more-markets",
+      "wallets": [
+        "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223",
+        "0x23d81ba9371e576015c1e562db09c689f56b0288"
+      ],
+      "size0": 102078.1109
     }
   },
   "pendingExit": {},
