@@ -19,7 +19,7 @@ const MIN_VOLUME = 500_000;
 // survival: 90c-to-win-10c means one upset erases ~9 wins).
 const MIN_PRICE = 0.4;
 const MAX_PRICE = 0.8;
-const PERSIST_WINDOW_MS = 5 * 60 * 1000;
+const PERSIST_WINDOW_MS = 2 * 60 * 1000;
 const EXIT_CONFIRM_MISSES = 2; // must be gone 2 consecutive runs before we call it a real exit, not an API blip
 const FORM_MISS_TOLERANCE = 2; // same grace period, applied while a signal is still accumulating its 5-min age
 
@@ -365,7 +365,7 @@ function summarizeEntry(item, count, total, reason) {
   const m = Math.floor((item.ageMs || 0) / 60000);
   const heldTxt = m < 60 ? `held ${m}m` : `held ${Math.floor(m / 60)}h ${m % 60}m`;
   const label = reason === 'new' ? `${count}/${total} traders agree, ${heldTxt}` : `${count}/${total} traders — grew while held`;
-  const chase = (avgPrice != null && avgEntry != null && (avgPrice - avgEntry) > 8)
+  const chase = (avgPrice != null && avgEntry != null && (avgPrice - avgEntry) > 3)
     ? `WARNING: price is ${(avgPrice - avgEntry).toFixed(0)}c above their entry - do not chase` : null;
   const risk = riskLevel(avgPrice, count, chase, item.usd);
   return { item, count, total, label, avgPrice, avgEntry, chase, risk };
@@ -686,11 +686,19 @@ async function main() {
     const lastAlerted = state.alertedAt[item.key] || 0;
     const s = summarizeEntry(item, count, total, lastAlerted === 0 ? 'new' : 'increased');
     s.opposition = oppositionFor(item, sides);
-    // Hard skip, not just a warning: >15c above the traders' own entry means
-    // their edge is already priced in — a late copy is the losing version of the
-    // same bet. Not marked alerted, so if price comes back it can alert later.
-    if (s.avgPrice != null && s.avgEntry != null && (s.avgPrice - s.avgEntry) > 15) {
+    // Hard skip: >5c above the traders' entry means slippage already ate the
+    // edge. Our data: 0W-5L beyond +2c. Not marked alerted, so if price comes
+    // back it can alert later.
+    if (s.avgPrice != null && s.avgEntry != null && (s.avgPrice - s.avgEntry) > 5) {
       console.log(`SKIP (stale price): ${item.outcome.toUpperCase()} on "${item.title}" @ ${s.avgPrice.toFixed(1)}c vs entry ~${s.avgEntry.toFixed(1)}c`);
+      continue;
+    }
+    if (s.avgPrice != null && s.avgPrice / 100 < MIN_PRICE) {
+      console.log(`SKIP (price drifted below floor): ${item.outcome.toUpperCase()} on "${item.title}" @ ${s.avgPrice.toFixed(1)}c < ${MIN_PRICE * 100}c`);
+      continue;
+    }
+    if (item.usd > 0 && item.usd < 5000) {
+      console.log(`SKIP (low conviction ${fmtUsd(item.usd)}): ${item.outcome.toUpperCase()} on "${item.title}"`);
       continue;
     }
     // Player scoring props ("Haaland: 1+ goals") are 1W-4L through 2026-07-12
@@ -790,7 +798,9 @@ async function main() {
       if (/:\s*\d+\+\s*(goal|assist|shot|point|save)/i.test(item.title)) continue;
 
       const s = summarizeEntry(item, count, shadowTraders.length, 'new');
-      if (s.avgPrice != null && s.avgEntry != null && (s.avgPrice - s.avgEntry) > 15) continue;
+      if (s.avgPrice != null && s.avgEntry != null && (s.avgPrice - s.avgEntry) > 5) continue;
+      if (s.avgPrice != null && s.avgPrice / 100 < MIN_PRICE) continue;
+      if (item.usd > 0 && item.usd < 5000) continue;
 
       const alsoLive = !!state.alertedAt[item.key];
       state.shadowAlertedAt[item.key] = count;
