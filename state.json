@@ -75,7 +75,7 @@
         "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
       ],
       "size0": 73813.4944,
-      "lastPrice": 58.5
+      "lastPrice": 58.9
     }
   },
   "pendingExit": {},
@@ -85,6 +85,6 @@
   },
   "shadowAlertedAt": {
     "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2,
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 2
+    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 3
   }
 }
