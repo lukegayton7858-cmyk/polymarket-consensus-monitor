@@ -47,7 +47,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 17.2
+      "lastPrice": 17.3
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -86,7 +86,8 @@
         "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
         "0x2e25b222e2080c377fc1fb2b9f926315f0f4d49e"
       ],
-      "size0": 575459.7298
+      "size0": 575459.7298,
+      "lastPrice": 49.6
     }
   },
   "pendingExit": {},
@@ -94,7 +95,8 @@
     "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 1783870260317,
     "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Over": 1783961054035,
     "0xbbb20aee74d8d120db212bc10c1fc915a412a758117a64ed6ff6f3948c2f7d66|No": 1783963570583,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783968255269
+    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783968255269,
+    "0xa4e21afd5e530cd70be098dc2a8857718c2c91e1fac68f9406048f860e201c28|Alycia Parks": 1783974130683
   },
   "shadowAlertedAt": {
     "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 3,
