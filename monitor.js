@@ -412,7 +412,9 @@ async function sendEntryPush(s) {
     'Tags': 'chart_increasing',
     'Markdown': 'yes',
   };
-  if (item.slug) headers['Click'] = `https://polymarket.com/event/${item.slug}`;
+  // No 'Click' header: the event slug carries a '-more-markets' suffix that
+  // isn't a real page, so tapping bounced to a fallback (leaderboard/home).
+  // The alert body already has everything actionable — Luke places bets manually.
   try {
     const res = await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body, headers });
     if (!res.ok) { console.error(`ntfy send failed: HTTP ${res.status}`); return false; }
@@ -452,7 +454,7 @@ async function sendExitPush(key, meta, kind = 'sell', pct = 0) {
   console.log(`${kind.toUpperCase()}: ${o} on "${title}"`);
   if (!NTFY_TOPIC) return true;
   const headers = { 'Title': v.head, 'Priority': v.prio, 'Tags': v.tags, 'Markdown': 'yes' };
-  if (meta?.slug) headers['Click'] = `https://polymarket.com/event/${meta.slug}`;
+  // No 'Click' header — see sendEntryPush: the slug URL bounces to a fallback.
   try {
     const res = await fetch(`https://ntfy.sh/${encodeURIComponent(NTFY_TOPIC)}`, { method: 'POST', body: v.body, headers });
     if (!res.ok) { console.error(`ntfy exit send failed: HTTP ${res.status}`); return false; }
