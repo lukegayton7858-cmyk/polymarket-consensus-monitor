@@ -32,7 +32,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 40.5
+      "lastPrice": 40.2
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -66,7 +66,8 @@
   },
   "shadowAlertedAt": {
     "0xdfbaae9f7587b11691c676d942f22b4ea9a9e3a68f7ca1d5d6bd4a1c967db23b|Yes": 2,
-    "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042|Spain": 2,
-    "0x750f495779adfc70a508af943bedb6e4759c9daaf067fd794f053d7e4505c717|Under": 2
+    "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042|Spain": 3,
+    "0x750f495779adfc70a508af943bedb6e4759c9daaf067fd794f053d7e4505c717|Under": 2,
+    "0xc41f543ccb7a1a35a200c28096cc2e5c2351c54546087f4f6cf5c4ef3e0c1aa5|Yes": 2
   }
 }
