@@ -1,36 +1,19 @@
 {
   "consensusFirstSeen": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 1783041317074,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 1783041972813,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1783103335920,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1783103335920,
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 1783703429664,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783825932065,
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 1783973653058,
-    "0xecba7b1db1c698ab73b3572abfcde327a02b5112676144e049edcc1e1e0f5b0b|France": 1783982174373
+    "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|No": 1784335393003,
+    "0xd2a8caba5559bc21e14f6b2aa504cb14a1782751658b71409e25b82e432c0a97|Yes": 1784335393003
   },
   "alertedAt": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": 4,
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": 3,
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 3,
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 3,
-    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2,
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 2,
-    "0xecba7b1db1c698ab73b3572abfcde327a02b5112676144e049edcc1e1e0f5b0b|France": 2
+    "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": 2
   },
   "alertedMeta": {
-    "0x9b6fef249040fd17e9c107955b37ac2c3e923509b6b0ff01cc463a331ddeb894|Yes": {
-      "title": "Will France win the 2026 FIFA World Cup?",
-      "slug": "world-cup-winner",
-      "wallets": [
-        "0x85f031d069de300055900c4055c1baeb6bde3f67",
-        "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
-        "0x7c1ee865a785de4c00ee90ed86a38489fb8bbab3",
-        "0x53757615de1c42b83f893b79d4241a009dc2aeea"
-      ],
-      "lastPrice": 39
-    },
     "0xfa021d817ad33e0fa28e04051b4fea25b0a090e94bb1b2a38b377bce9778eb8e|Yes": {
       "title": "Will Kylian Mbappe be the top goalscorer at the 2026 FIFA World Cup?",
       "slug": "world-cup-golden-boot-winner",
@@ -39,7 +22,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 56.5
+      "lastPrice": 41.5
     },
     "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": {
       "title": "Will Argentina win the 2026 FIFA World Cup?",
@@ -49,7 +32,7 @@
         "0xae2b0aaea325a32870f56ff19df3b87acaa190ea",
         "0x53757615de1c42b83f893b79d4241a009dc2aeea"
       ],
-      "lastPrice": 17.4
+      "lastPrice": 40.6
     },
     "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": {
       "title": "Will Spain win the 2026 FIFA World Cup?",
@@ -59,7 +42,7 @@
         "0x65018f9fc473f6e920b8929a375d39c26a461220",
         "0xa6cd8300ff70129ced69975180609e40a12b2f2c"
       ],
-      "lastPrice": 21.3
+      "lastPrice": 59.2
     },
     "0x80b3af88cb991980e8da1ce86b9794a0957f96ec98c29319dd7ba65e9744d82b|Yes": {
       "title": "Fed rate hike in 2026?",
@@ -69,50 +52,15 @@
         "0x3a8aa345d5db7ec5138298c8c4f4540259be7699"
       ],
       "size0": 402603.8568,
-      "lastPrice": 70.5
-    },
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": {
-      "title": "Will France win on 2026-07-14?",
-      "slug": "fifwc-fra-esp-2026-07-14",
-      "wallets": [
-        "0x224a89dbe0db0d6124b335edabd15b3f877da3d5",
-        "0xfaa2b54347bd9a9f62d6e4bfb2d3180da53de80a"
-      ],
-      "size0": 73813.4944,
-      "lastPrice": 59.6
-    },
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": {
-      "title": "France vs. Spain: O/U 2.5",
-      "slug": "fifwc-fra-esp-2026-07-14-more-markets",
-      "wallets": [
-        "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
-        "0x2e25b222e2080c377fc1fb2b9f926315f0f4d49e"
-      ],
-      "size0": 575459.7298,
-      "lastPrice": 49.6
-    },
-    "0xecba7b1db1c698ab73b3572abfcde327a02b5112676144e049edcc1e1e0f5b0b|France": {
-      "title": "France vs. Spain: Team to Advance",
-      "slug": "fifwc-fra-esp-2026-07-14-more-markets",
-      "wallets": [
-        "0x83720820a8aa6c3f20ad71850e7a1a17d16c5223",
-        "0x23d81ba9371e576015c1e562db09c689f56b0288"
-      ],
-      "size0": 102078.1109,
-      "lastPrice": 59.6
+      "lastPrice": 52.5
     }
   },
   "pendingExit": {},
   "shadowFirstSeen": {
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 1783870260317,
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Over": 1783961054035,
-    "0xbbb20aee74d8d120db212bc10c1fc915a412a758117a64ed6ff6f3948c2f7d66|No": 1783963570583,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 1783968255269
+    "0xdfbaae9f7587b11691c676d942f22b4ea9a9e3a68f7ca1d5d6bd4a1c967db23b|Yes": 1784335393003,
+    "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892|Yes": 1784335393003,
+    "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042|Spain": 1784335393003,
+    "0x0c4cd2055d6ea89354ffddc55d6dbcef9355748112ea952fc925f3db6a5c457f|Yes": 1784335393003
   },
-  "shadowAlertedAt": {
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Under": 3,
-    "0xfb2314dcad9273745bd3de0db31a2036cda3eae847039a58e41a3c2dcc233657|Over": 2,
-    "0xbbb20aee74d8d120db212bc10c1fc915a412a758117a64ed6ff6f3948c2f7d66|No": 2,
-    "0x20fac1c925b7a2fed6b3b2736f47a800b4d0d4001b9deaeb7b918868eb63d081|No": 2
-  }
+  "shadowAlertedAt": {}
 }
