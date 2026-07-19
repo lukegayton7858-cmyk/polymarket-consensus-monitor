@@ -51,6 +51,8 @@ function loadState() {
     if (!s.pendingExit) s.pendingExit = {};
     if (!s.shadowFirstSeen) s.shadowFirstSeen = {};
     if (!s.shadowAlertedAt) s.shadowAlertedAt = {};
+    if (!s.shadowSingleFirstSeen) s.shadowSingleFirstSeen = {};
+    if (!s.shadowSingleAlertedAt) s.shadowSingleAlertedAt = {};
     return s;
   } catch (_) {
     return { consensusFirstSeen: {}, alertedAt: {}, alertedMeta: {}, pendingExit: {} };
@@ -830,6 +832,68 @@ async function main() {
     console.error('Shadow PNL tracker failed (non-fatal):', e.message);
   }
   // --- end shadow ---
+
+  // --- Shadow SINGLE-TRADER pool: what one trader alone WOULD signal, never pushed ---
+  // Tests whether a single trader's conviction bet is usable without waiting for
+  // 2+ consensus. Capture-broad / gate-in-analysis: log EVERY top-30 trader's
+  // qualifying solo position with their efficiency (PnL/vol = ROI proxy, NOT win
+  // rate — win rate is inflated by favorite-betting and is a trap on this
+  // platform) and dollar size, so the winning eff/size threshold is found from
+  // real settled outcomes instead of a guessed bar. Same validated quality gates
+  // as live (band, no props, no chasing, 2-min persistence); only the 2+ rule is
+  // dropped. alsoLive/consensusCount separate pure-solo signal from overlap.
+  try {
+    const singleHistory = [];
+    let singleAlerts = 0;
+    const seenThisRun = new Set();
+    for (const t of topTraders) {
+      const pos = positionsByWallet[t.wallet];
+      if (!pos) continue; // fetch failed or dropped from pool this run
+      for (const p of pos) {
+        if (!p.conditionId || !p.outcome) continue;
+        if ((p.currentValue ?? 1) <= 0) continue; // settled/resolved
+        const cur = Number(p.curPrice ?? NaN);
+        const entry = Number(p.avgPrice ?? NaN);
+        const price = Number.isNaN(cur) ? entry : cur;
+        if (Number.isNaN(price) || price < MIN_PRICE || price > MAX_PRICE) continue; // band
+        const usd = Number(p.initialValue) || 0;
+        if (usd < 5000) continue; // conviction floor; slice higher in analysis
+        const title = p.title || p.conditionId.slice(0, 12);
+        if (/:\s*\d+\+\s*(goal|assist|shot|point|save)/i.test(title)) continue; // player props
+        const priceC = price * 100, entryC = entry * 100;
+        if (!Number.isNaN(entry) && (priceC - entryC) > 5) continue; // chasing
+        const key = `${p.conditionId}|${p.outcome}|${t.wallet}`;
+        seenThisRun.add(key);
+        if (!state.shadowSingleFirstSeen[key]) state.shadowSingleFirstSeen[key] = now;
+        if (now - state.shadowSingleFirstSeen[key] < PERSIST_WINDOW_MS) continue; // 2-min persistence
+        if (state.shadowSingleAlertedAt[key]) continue; // dedup: log once per position
+        state.shadowSingleAlertedAt[key] = now;
+        const liveKey = `${p.conditionId}|${p.outcome}`;
+        const consensusCount = map[liveKey]?.traders.length || 1;
+        const alsoLive = !!state.alertedAt[liveKey];
+        singleAlerts++;
+        singleHistory.push({
+          ts: now, type: 'shadow_single', trader: t.name, eff: Math.round(t.eff * 1000) / 10,
+          key: liveKey, title, outcome: p.outcome, slug: p.eventSlug || p.slug || '',
+          price: Math.round(priceC * 10) / 10, entry: Number.isNaN(entry) ? null : Math.round(entryC * 10) / 10,
+          usd: Math.round(usd), consensusCount, alsoLive,
+        });
+        console.log(`  SOLO ${alsoLive ? '(also live)' : ''}: ${t.name} (eff ${(t.eff * 100).toFixed(0)}%) ${p.outcome.toUpperCase()} @ ${priceC.toFixed(0)}c $${Math.round(usd).toLocaleString()} :: ${title.slice(0, 40)}`);
+      }
+    }
+    // Drop state for positions no longer held so a re-entry logs fresh
+    for (const key of Object.keys(state.shadowSingleFirstSeen)) {
+      if (!seenThisRun.has(key)) {
+        delete state.shadowSingleFirstSeen[key];
+        delete state.shadowSingleAlertedAt[key];
+      }
+    }
+    if (singleHistory.length) appendHistory(singleHistory);
+    console.log(`Shadow-single: ${singleAlerts} solo would-signal(s) this run.`);
+  } catch (e) {
+    console.error('Shadow single-trader tracker failed (non-fatal):', e.message);
+  }
+  // --- end shadow single ---
 
   console.log(`\nRun complete. Consensus positions tracked: ${Object.values(map).filter(i => i.traders.length >= 2).length}. Buys: ${entryEvents.length}. Sells: ${exitEvents.length}.`);
   saveState(state);
