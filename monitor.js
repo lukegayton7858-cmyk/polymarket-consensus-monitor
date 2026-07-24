@@ -439,6 +439,10 @@ async function sendExitPush(key, meta, kind = 'sell', pct = 0) {
       head: boundTitle(`TRIM ${o} -${pct}% - `, title), prio: 'high', tags: 'warning',
       body: `⚠️ **${o} — traders cut ${pct}% of their position**\n${title}\nThey haven't fully exited, but they've reduced hard since the alert. Consider trimming yours too.`,
     },
+    down: {
+      head: boundTitle(`DOWN ${o} -${pct}c - `, title), prio: 'high', tags: 'warning',
+      body: `⚠️ **${o} — price is ${pct}c below the alert**\n${title}\nThe traders are still holding, but if they ride this to near zero the SELL alert will come too late to matter. Decide your own stop.`,
+    },
     sell: {
       head: boundTitle(`SELL ${o} NOW - `, title), prio: 'urgent', tags: 'chart_decreasing',
       body: `📉 **${o} — close this now**\n${title}\nTop traders exited while the market is still live. If you copied this bet, close it.`,
@@ -479,7 +483,7 @@ async function sendDigest(entryEvents, exitEvents) {
   // Urgency order preserved across separate pushes: live SELLs first (act
   // now), then results, then BUYs safest-first, with a short gap so they
   // arrive on the phone in that order.
-  const kindOrder = { sell: 0, trim: 1, lost: 2, won: 3 };
+  const kindOrder = { sell: 0, down: 1, trim: 2, lost: 3, won: 4 };
   const sortedExits = [...exitEvents].sort((a, b) => (kindOrder[a.kind] ?? 0) - (kindOrder[b.kind] ?? 0));
   const riskOrder = { LOW: 0, MED: 1, HIGH: 2 };
   const sortedEntries = [...entryEvents].sort((a, b) =>
@@ -586,6 +590,16 @@ async function main() {
           exitEvents.push({ key, meta, kind: 'won' });
           commitOps.push(() => { meta.wonNotified = true; });
           historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind: 'won' });
+        } else if (meta.priceAtAlert != null && maxPrice > 0 && (meta.priceAtAlert - maxPrice * 100) >= 15 && !meta.drawdownNotified) {
+          // Price has bled >=15c below where we alerted while the traders still
+          // hold. Copy-trade exits mirror THEIR exit, which can come near zero
+          // (France 2026-07-18: alerted 52c, their exit fired at 16.5c). This is
+          // a one-time heads-up so Luke can choose his own stop instead of
+          // riding the full drawdown with them.
+          const drop = Math.round(meta.priceAtAlert - maxPrice * 100);
+          exitEvents.push({ key, meta, kind: 'down', pct: drop });
+          commitOps.push(() => { meta.drawdownNotified = true; });
+          historyRecords.push({ ts: now, type: 'resolution', key, title: meta.title, kind: 'down', pct: drop });
         } else if (meta.size0 > 0 && totalSize > 0 && totalSize < meta.size0 * 0.6 && !meta.trimNotified) {
           // Still in it, but they've cut 40%+ of the shares they held at alert
           // time. Price drawdowns are noise (they often ADD into dips) — a size
@@ -718,7 +732,7 @@ async function main() {
     entryEvents.push(s);
     commitOps.push(() => {
       state.alertedAt[item.key] = count;
-      state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets], size0: item.size || 0 };
+      state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets], size0: item.size || 0, priceAtAlert: s.avgPrice ?? null };
     });
     historyRecords.push({
       ts: now, type: 'alert', key: item.key, title: item.title, outcome: item.outcome, slug: item.slug,
