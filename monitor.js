@@ -313,6 +313,21 @@ function eventKey(slug) {
   return m ? m[1] : null;
 }
 
+// Sport/category tag for calibration slicing (community-validated niche
+// analysis needs clean per-sport samples). Title-based, best-effort.
+function sportOf(title, slug) {
+  const t = `${title || ''} ${slug || ''}`.toLowerCase();
+  if (/mlb|rays|red sox|dodgers|yankees|nationals|athletics|mets|astros|cubs|braves|phillies|padres|orioles|blue jays|guardians|tigers|twins|royals|angels|mariners|rangers|giants|rockies|diamondbacks|marlins|brewers|pirates|cardinals|reds|white sox/.test(t)) return 'mlb';
+  if (/wimbledon|atp|wta|tennis|roland|us open(?!.*golf)/.test(t)) return 'tennis';
+  if (/ufc|fight night|bellator|mma/.test(t)) return 'mma';
+  if (/dota|league of legends|cs2|csgo|valorant|esport/.test(t)) return 'esports';
+  if (/senate|president|congress|election|governor|republican|democrat/.test(t)) return 'politics';
+  if (/nba|lakers|celtics|warriors/.test(t)) return 'nba';
+  if (/nfl|chiefs|cowboys|eagles(?!.*soccer)/.test(t)) return 'nfl';
+  if (/fifa|world cup|uefa|copa|premier league|la liga|serie a|bundesliga|fifwc|soccer|advance|o\/u \d\.\d|both teams to score/.test(t)) return 'soccer';
+  return 'other';
+}
+
 function boundTitle(prefix, title, maxTotal = 48) {
   const room = Math.max(maxTotal - prefix.length, 12);
   return asciiSafe(prefix + truncate(title, room));
@@ -585,6 +600,15 @@ async function main() {
         // price they exited around. Lets calibration split profit-taking
         // sells from panic sells instead of lumping both as "unknown".
         if (maxPrice > 0) meta.lastPrice = Math.round(maxPrice * 1000) / 10; // cents
+        // CLV proxy (community-standard edge test): where is the price ~1h
+        // after we alerted? Consistently above our alert price = we beat the
+        // market's later consensus = real edge, measurable long before enough
+        // wins/losses accumulate. Logged once per alert.
+        if (meta.alertTs && meta.priceAtAlert != null && !meta.clvLogged && (now - meta.alertTs) >= 60 * 60 * 1000 && maxPrice > 0) {
+          meta.clvLogged = true;
+          const p60 = Math.round(maxPrice * 1000) / 10;
+          historyRecords.push({ ts: now, type: 'clv', key, title: meta.title, priceAtAlert: Math.round(meta.priceAtAlert * 10) / 10, price1h: p60, clv: Math.round((p60 - meta.priceAtAlert) * 10) / 10 });
+        }
         if (maxPrice >= 0.95 && !meta.wonNotified) {
           // one-time heads-up; keep tracking in case it reverses
           exitEvents.push({ key, meta, kind: 'won' });
@@ -732,11 +756,12 @@ async function main() {
     entryEvents.push(s);
     commitOps.push(() => {
       state.alertedAt[item.key] = count;
-      state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets], size0: item.size || 0, priceAtAlert: s.avgPrice ?? null };
+      state.alertedMeta[item.key] = { title: item.title, slug: item.slug, wallets: [...item.wallets], size0: item.size || 0, priceAtAlert: s.avgPrice ?? null, alertTs: now };
     });
     historyRecords.push({
       ts: now, type: 'alert', key: item.key, title: item.title, outcome: item.outcome, slug: item.slug,
       count, total, avgPrice: s.avgPrice, avgEntry: s.avgEntry, usd: item.usd || 0, riskTag: s.risk.tag,
+      sport: sportOf(item.title, item.slug),
       sportsOnlyCount: item.sportsOnlyCount || 0,
       oppCount: s.opposition?.n || 0, oppUsd: Math.round(s.opposition?.usd || 0),
     });
